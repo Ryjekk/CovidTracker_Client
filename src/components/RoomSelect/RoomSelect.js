@@ -3,13 +3,13 @@ import './RoomSelect.css';
 
 const RoomSelect = (props) => {
   const { setRooms, rooms } = props;
-  const { roomID, roomName, checked } = props.room;
+  const { roomId, roomName, checked } = props.room;
 
   const checkHandler = () => {
     const newArr = rooms.map((room) => {
-      if (room.roomID === roomID) {
+      if (room.roomId === roomId) {
         return {
-          roomID: room.roomID,
+          roomId: room.roomId,
           roomName: room.roomName,
           checked: !room.checked,
         };
@@ -26,11 +26,11 @@ const RoomSelect = (props) => {
       chosen={checked.toString()}
       className="room-select"
     >
-      <label className="checkbox-label-id">{roomID} </label>
+      <label className="checkbox-label-id">{roomId} </label>
       <label className="checkbox-label-name">{roomName}</label>
       <input
         className="room-checkbox"
-        id={roomID + '-select'}
+        id={roomId + '-select'}
         onChange={checkHandler}
         type="checkbox"
         checked={checked}

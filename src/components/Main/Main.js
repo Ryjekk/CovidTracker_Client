@@ -3,9 +3,9 @@ import './Main.css';
 import RoomSelect from '../RoomSelect/RoomSelect';
 
 const testRooms = [
-  { roomID: 1001, roomName: 'Technium', checked: false },
-  { roomID: 2, roomName: 'BongoRoom', checked: false },
-  { roomID: 3, roomName: 'Kitchen', checked: true },
+  { roomId: 1001, roomName: 'Technium', checked: false },
+  { roomId: 2, roomName: 'BongoRoom', checked: false },
+  { roomId: 3, roomName: 'Kitchen', checked: true },
 ];
 
 const Main = (props) => {
@@ -15,7 +15,7 @@ const Main = (props) => {
   const filterCheck = (room) => {
     const patternString = '.*' + filter + '.*';
     const pattern = new RegExp(patternString, 'gi');
-    if (pattern.test(room.roomID) || pattern.test(room.roomName)) {
+    if (pattern.test(room.roomId) || pattern.test(room.roomName)) {
       return true;
     }
     return false;
@@ -23,8 +23,26 @@ const Main = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(rooms);
-    console.log(e);
+    console.log('About to fetch!');
+    const payload = {};
+    payload.personId = 3;
+    payload.rooms = rooms
+      .filter((room) => room.checked)
+      .map((room) => {
+        return {
+          roomId: room.roomId,
+          time: '14:45',
+        };
+      });
+    console.log({ payload });
+    const requestOptions = {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    };
+    fetch('http://localhost:8080/api/employeeModel', requestOptions)
+      .then((res) => res.json())
+      .then((json) => console.log(json));
   };
 
   return (
