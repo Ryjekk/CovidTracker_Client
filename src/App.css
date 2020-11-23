@@ -6,6 +6,10 @@
   align-items: center;
   background-image: url('./background2.jpg');
   background-repeat: no-repeat;
-  background-size: 600px 1000px;
+  background-size: 1000px 1000px;
   background-attachment: fixed;
+}
+
+.main {
+  width: 80%;
 }
