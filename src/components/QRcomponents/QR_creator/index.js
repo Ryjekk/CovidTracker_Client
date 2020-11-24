@@ -6,8 +6,9 @@ const QR_creator = () => {
   const [dataQR, setDataQR] = useState({});
   const getValues = data => setDataQR(data)
 
-
+  // TODO delete
   console.log(dataQR)
+
   return (
     <div style={{margin: '100px'}}>
       <QR_form getValues={getValues}/>
