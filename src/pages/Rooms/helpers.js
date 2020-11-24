@@ -3,7 +3,7 @@ import RoomSelect from '../../components/RoomSelect/RoomSelect';
 const filterCheck = (room, filter) => {
   const patternString = '.*' + filter + '.*';
   const pattern = new RegExp(patternString, 'gi');
-  if (pattern.test(room.roomId) || pattern.test(room.roomName)) {
+  if (pattern.test(room.id) || pattern.test(room.name)) {
     return true;
   }
   return false;
@@ -16,7 +16,7 @@ export const getAllRooms = (rooms, setRooms, filter, value) => {
     .map((room) => {
       return (
         <RoomSelect
-          key={room.roomId}
+          key={room.id}
           rooms={rooms}
           setRooms={setRooms}
           room={room}
@@ -32,7 +32,7 @@ export const getCheckedRooms = (rooms, setRooms, filter, value) => {
     .map((room) => {
       return (
         <RoomSelect
-          key={room.roomId}
+          key={room.id}
           rooms={rooms}
           setRooms={setRooms}
           room={room}
@@ -60,7 +60,7 @@ export const submitHandler = (e, rooms) => {
 //     .filter((room) => room.checked)
 //     .map((room) => {
 //       return {
-//         roomId: room.roomId,
+//         id: room.id,
 //         time: '14:45',
 //       };
 //     });

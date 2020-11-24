@@ -18,18 +18,18 @@ import XDevNav from './components/XDevNav/XDevNav';
 export const appContext = createContext();
 
 const testRooms = [
-  { roomId: 1, roomName: 'Technium', checked: false },
-  { roomId: 2, roomName: 'BongoRoom', checked: false },
-  { roomId: 3, roomName: 'Kitchen', checked: false },
-  { roomId: 4, roomName: 'Office4', checked: false },
-  { roomId: 5, roomName: 'Office5', checked: false },
-  { roomId: 6, roomName: 'Office6', checked: false },
-  { roomId: 7, roomName: 'Office7', checked: false },
-  { roomId: 8, roomName: 'Office8', checked: false },
-  { roomId: 9, roomName: 'Office9', checked: false },
-  { roomId: 10, roomName: 'Office10', checked: false },
-  { roomId: 11, roomName: 'Office11', checked: false },
-  { roomId: 12, roomName: 'Office12', checked: false },
+  { id: 1, name: 'Technium', checked: false },
+  { id: 2, name: 'BongoRoom', checked: false },
+  { id: 3, name: 'Kitchen', checked: false },
+  { id: 4, name: 'Office4', checked: false },
+  { id: 5, name: 'Office5', checked: false },
+  { id: 6, name: 'Office6', checked: false },
+  { id: 7, name: 'Office7', checked: false },
+  { id: 8, name: 'Office8', checked: false },
+  { id: 9, name: 'Office9', checked: false },
+  { id: 10, name: 'Office10', checked: false },
+  { id: 11, name: 'Office11', checked: false },
+  { id: 12, name: 'Office12', checked: false },
 ];
 
 function App() {
