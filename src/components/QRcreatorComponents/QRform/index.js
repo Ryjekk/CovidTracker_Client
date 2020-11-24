@@ -5,8 +5,8 @@ const QRform = props => {
   const [valueQR, setValueQR] = useState('test');
   const [hashQR, setHashQR] = useState('L');
   const [sizeQR, setSizeQR] = useState(128);
-  const [bgQR, setBgQR] = useState('#272727');
-  const [fgQR, setFgQR] = useState('#F3F3F3');
+  const [bgQR, setBgQR] = useState('#ffffff');
+  const [fgQR, setFgQR] = useState('#000000');
 
   const selectedValues = {
     valueQR,

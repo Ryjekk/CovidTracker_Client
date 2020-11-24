@@ -6,8 +6,10 @@ const QR = () => {
   const [dataQR, setDataQR] = useState({});
   const getValues = data => setDataQR(data)
 
+
+  console.log(dataQR)
   return (
-    <>
+    <div style={{margin: '100px'}}>
       <QRform getValues={getValues}/>
       <QRCode
           value={dataQR.valueQR || 'test'}
@@ -16,7 +18,7 @@ const QR = () => {
           fgColor={dataQR.fgQR}
           bgColor={dataQR.bgQR}
       />
-    </>
+    </div>
   );
 };
 
