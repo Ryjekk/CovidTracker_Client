@@ -1,5 +1,5 @@
 import React from 'react';
-import QR from "../../Components/QRcreatorComponents/QR";
+import QR from "../../Components/QRcomponents/QRcreator";
 
 const QRcreator = () => {
   return (
