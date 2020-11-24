@@ -40,6 +40,12 @@ export const submitHandler = (e, rooms, users) => {
   const responseBody = checkedRooms.map((room) => {
     return createUserObject(room, users);
   });
+  const requestOptions = {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(responseBody),
+  };
+
   console.log('Send POST to /users/addvisitedrooms with body:');
   console.log(responseBody);
 };
