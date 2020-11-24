@@ -13,6 +13,7 @@ import Profile from './Pages/Profile/Profile';
 import Register from './Pages/Register/Register';
 import Rooms from './Pages/Rooms/Rooms';
 import XDevNav from './Components/XDevNav/XDevNav';
+import QRcreator from "./Pages/QRcreator";
 // import Main from './components/Main/Main';
 
 export const appContext = createContext();
@@ -73,6 +74,7 @@ function App() {
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/admin" component={Admin} />
+              <Route exact path='/QRcreator' component={QRcreator}/>
             </Switch>
           </div>
           {/* <Main></Main> */}
