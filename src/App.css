@@ -3,6 +3,11 @@ body {
   font-family: 'Exo 2', sans-serif;
   overflow-x: hidden;
   background-color: #F3F3F3;
+  font-size: 1.6rem;
+}
+
+html {
+  font-size: 62.5%;
 }
 
 * {
