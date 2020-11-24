@@ -76,7 +76,7 @@ function App() {
             </Switch>
           </div>
           {/* <Main></Main> */}
-          <XDevNav></XDevNav>
+          {/* <XDevNav></XDevNav> */}
           <Footer></Footer>
         </div>
       </Router>
