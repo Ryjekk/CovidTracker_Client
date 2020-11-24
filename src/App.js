@@ -32,8 +32,20 @@ const testRooms = [
   { id: 12, name: 'Office12', checked: false },
 ];
 
+const testUser = {
+  firstName: 'Trude',
+  lastName: 'Hansen',
+  email: 'email@gmail.com',
+  password: 'password',
+  companyId: 1,
+  visits: [],
+  inRisk: false,
+  token: '123456789',
+};
+
 function App() {
   const [rooms, setRooms] = useState(testRooms);
+  const [users, setUser] = useState(testUser);
   const [filter, setFilter] = useState('');
 
   return (
@@ -43,6 +55,8 @@ function App() {
         setRooms,
         filter,
         setFilter,
+        users,
+        setUser,
       }}
     >
       <Router>
