@@ -1,9 +1,9 @@
 import React from 'react';
-import QR from "../../Components/QRcomponents/QRcreator";
+import QR_creator from "../../Components/QRcomponents/QR_creator";
 
 const QRcreator = () => {
   return (
-      <QR/>
+      <QR_creator/>
   )
 };
 

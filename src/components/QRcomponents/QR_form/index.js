@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const QRform = props => {
+const QR_form = props => {
   const {getValues} = props
   const [valueQR, setValueQR] = useState('test');
   const [hashQR, setHashQR] = useState('L');
@@ -75,4 +75,4 @@ const QRform = props => {
   );
 };
 
-export default QRform;
+export default QR_form;
