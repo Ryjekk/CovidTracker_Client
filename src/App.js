@@ -33,6 +33,7 @@ const testRooms = [
 ];
 
 const testUser = {
+  _id: 'Object(mongodb-Id?)',
   firstName: 'Trude',
   lastName: 'Hansen',
   email: 'email@gmail.com',

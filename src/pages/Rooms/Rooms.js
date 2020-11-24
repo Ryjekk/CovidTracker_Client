@@ -4,30 +4,31 @@ import './Rooms.css';
 import { getAllRooms, getCheckedRooms, submitHandler } from './helpers';
 
 const Rooms = () => {
-  const { rooms, setRooms, filter, setFilter } = useContext(appContext);
-
+  const { rooms, setRooms, filter, setFilter, users } = useContext(appContext);
   return (
     <div className="rooms">
-      <h1> Rooms </h1>
-      <form onSubmit={(e) => submitHandler(e, rooms)}>
-        <label>
-          {'Search: '}
-          <input
-            type="text"
-            name="name"
-            onChange={(e) => setFilter(e.target.value)}
-          />
-        </label>
-        <h3> All Rooms:</h3>
-        <div className="search-room-list">
-          {getAllRooms(rooms, setRooms, filter, false)}
-        </div>
-        <h3> Selected Rooms:</h3>
-        <div className="selected-rooms">
-          {getCheckedRooms(rooms, setRooms, filter, true)}
-        </div>
-        <input type="submit" value="Submit" />
-      </form>
+      <div className="option_box">
+        <form onSubmit={(e) => submitHandler(e, rooms, users)}>
+          <label className="search_rooms">
+            <p className="paragraph">Search:</p>
+            <input
+              className="input_field"
+              type="text"
+              onChange={(e) => setFilter(e.target.value)}
+            />
+          </label>
+          <div className="heading_small">All Rooms</div>
+          {getAllRooms(rooms, setRooms, filter)}
+          <div className="primary_btn_black">
+            <input
+              type="submit"
+              value={`Submit ${
+                rooms.filter((room) => room.checked).length
+              } rooms`}
+            ></input>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

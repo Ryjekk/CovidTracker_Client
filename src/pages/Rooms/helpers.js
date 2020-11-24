@@ -1,4 +1,4 @@
-import RoomSelect from '../../Components/RoomSelect/RoomSelect';
+import RoomSelect from './RoomSelect/RoomSelect';
 
 const filterCheck = (room, filter) => {
   const patternString = '.*' + filter + '.*';
@@ -9,45 +9,39 @@ const filterCheck = (room, filter) => {
   return false;
 };
 
-export const getAllRooms = (rooms, setRooms, filter, value) => {
+export const getAllRooms = (rooms, setRooms, filter) => {
   const allRooms = rooms
     .filter((el) => filterCheck(el, filter))
-    .filter((el) => el.checked === value)
     .map((room) => {
       return (
-        <RoomSelect
-          key={room.id}
-          rooms={rooms}
-          setRooms={setRooms}
-          room={room}
-        ></RoomSelect>
+        <div key={room.id} className="option">
+          <RoomSelect
+            key={room.id}
+            rooms={rooms}
+            setRooms={setRooms}
+            room={room}
+          ></RoomSelect>
+        </div>
       );
     });
   return allRooms;
 };
 
-export const getCheckedRooms = (rooms, setRooms, filter, value) => {
-  const checkedRooms = rooms
-    .filter((el) => el.checked === value)
-    .map((room) => {
-      return (
-        <RoomSelect
-          key={room.id}
-          rooms={rooms}
-          setRooms={setRooms}
-          room={room}
-        ></RoomSelect>
-      );
-    });
-  return checkedRooms;
+const createUserObject = (room, users) => {
+  return {
+    room: room.id,
+    employeeId: users._id,
+  };
 };
 
-export const submitHandler = (e, rooms) => {
+export const submitHandler = (e, rooms, users) => {
   e.preventDefault();
-  console.log(rooms.filter((room) => room.checked));
-  console.log('SubmitHandler not implemented further');
-  // send request
-  // reset search
+  const checkedRooms = rooms.filter((room) => room.checked);
+  const responseBody = checkedRooms.map((room) => {
+    return createUserObject(room, users);
+  });
+  console.log('Send POST to /users/addvisitedrooms with body:');
+  console.log(responseBody);
 };
 
 //OLD SUBMITHANDLER
