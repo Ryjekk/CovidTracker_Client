@@ -40,12 +40,29 @@ export const createMatchingRooms = (rooms) => {
   return newRooms;
 };
 
-export const editClickHandler = async (id, matchingRooms, setMatchingRooms) => {
+export const editClickHandler = (id, matchingRooms, setMatchingRooms) => {
   const newRooms = matchingRooms;
   const roomToEdit = newRooms.find((room) => room.id === id);
   roomToEdit.contenteditable =
     roomToEdit.contenteditable === 'false' ? 'true' : 'false';
-  console.log({ newRooms });
+  setMatchingRooms([...newRooms]);
+};
+
+export const confirmClickHandler = (
+  id,
+  thisId,
+  thisName,
+  thisFloor,
+  matchingRooms,
+  setMatchingRooms
+) => {
+  const newRooms = matchingRooms;
+  const roomToEdit = newRooms.find((room) => room.id === id);
+  roomToEdit.contenteditable =
+    roomToEdit.contenteditable === 'false' ? 'true' : 'false';
+  roomToEdit.id = thisId;
+  roomToEdit.name = thisName;
+  roomToEdit.floor = thisFloor;
   setMatchingRooms([...newRooms]);
 };
 
@@ -58,21 +75,19 @@ const createUserObject = (room, users) => {
 
 export const submitHandler = (e, rooms, matchingRooms, users) => {
   e.preventDefault();
-  // console.log({ rooms });
-  // console.log({ matchingRooms });
-  // const changedRooms = matchingRooms.filter((room) => {});
-  // const checkedRooms = rooms.filter((room) => room.checked);
-  // const responseBody = checkedRooms.map((room) => {
-  //   return createUserObject(room, users);
-  // });
-  // const requestOptions = {
-  //   method: 'PUT',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify(responseBody),
-  // };
+  const changedRooms = matchingRooms.filter((room) => {});
+  const checkedRooms = rooms.filter((room) => room.checked);
+  const responseBody = checkedRooms.map((room) => {
+    return createUserObject(room, users);
+  });
+  const requestOptions = {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(responseBody),
+  };
 
-  // console.log('Send POST to /users/addvisitedrooms with body:');
-  // console.log(responseBody);
+  console.log('Send POST to /users/addvisitedrooms with body:');
+  console.log(responseBody);
 };
 
 //OLD SUBMITHANDLER
