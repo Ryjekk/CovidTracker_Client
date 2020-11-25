@@ -1,13 +1,25 @@
-.App {
-  min-height: 100vh;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-repeat: no-repeat;
-  background-size: 1000px 1000px;
-  background-attachment: fixed;
+body {
+  margin: 0;
+  font-family: 'Exo 2', sans-serif;
+  overflow-x: hidden;
+  background-color: #F3F3F3;
+  font-size: 1.6rem;
 }
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+ text-decoration: none;
+ color: inherit;
+}
+
+.App {}
 
 .main {
   width: 80%;
@@ -29,6 +41,7 @@
 
 .paragraph {
 }
+
 .paragraph_small {
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Admin.css';
 
-const Admin = () => {
+const admin = () => {
   return (
     <div className="admin">
       <h1> Admin </h1>
@@ -17,4 +17,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default admin;
