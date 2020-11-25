@@ -8,7 +8,7 @@ import removeCircleLight from '../../../Assets/Icons/remove_circle_outline_24px_
 
 const RoomSelect = (props) => {
   const { setRooms, rooms } = useContext(appContext);
-  const { id, name, checked } = props.room;
+  const { id, name, checked, floor } = props.room;
 
   const checkHandler = () => {
     const newArr = rooms.map((room) => {
@@ -17,6 +17,7 @@ const RoomSelect = (props) => {
           id: room.id,
           name: room.name,
           checked: !room.checked,
+          floor: room.floor,
         };
       } else {
         return room;
@@ -33,6 +34,7 @@ const RoomSelect = (props) => {
     >
       <div className="paragraph">{id} </div>
       <div className="paragraph">{name} </div>
+      <div className="paragraph">Floor: {floor} </div>
       <div className="status_symbol">
         <img className="add_circle" alt="add" src={addCircleLight}></img>
         <img
