@@ -1,0 +1,34 @@
+.admin-select {
+  display: flex;
+}
+
+.status_symbol {
+  display: flex;
+}
+
+.admin-select .paragraph[contenteditable='true'] {
+  background-color: white;
+  border: 1px solid black;
+}
+.check[editable='true'] {
+  display: block;
+}
+.check[editable='false'] {
+  display: none;
+}
+
+.edit_pencil[editable='true'] {
+  display: none;
+}
+
+.check:hover {
+  transform: scale(1.2);
+}
+
+.edit_pencil:hover {
+  transform: scale(1.2);
+}
+
+.remove_cross:hover {
+  transform: scale(1.2);
+}
