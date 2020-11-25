@@ -1,8 +1,6 @@
 /*Welcome*/
 .welcome_home {
   filter: grayscale(.9);
-  width: 100vw;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,10 +29,9 @@
 
 /*Story*/
 .wrapper_story {
-  width: 100vw;
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  padding: 3rem;
   align-items: center;
   justify-items: center;
 }
@@ -43,11 +40,10 @@
 .wrapper_instruction {
   display: flex;
   flex-direction: column;
-  width: 100vw;
 }
 
 .step_instruction {
-  padding: 20px;
+  padding: 2rem;
 }
 
 .step_img {
