@@ -1,0 +1,21 @@
+.wrapper_NavDesktop {
+  color: white;
+  height: 6rem;
+  width: 100%;
+  padding: 0 3rem;
+  background: #272727;
+}
+
+.logoBox_NavDesktop {
+  float: left;
+  display: flex;
+}
+
+.linkBox_NavDesktop {
+  float: right;
+  display: flex;
+}
+
+.link_navDesktop {
+  padding-left: 2rem;
+}
