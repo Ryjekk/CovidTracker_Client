@@ -42,15 +42,25 @@
 /*Instruction*/
 .wrapper_instruction {
   display: flex;
+  flex-direction: column;
   width: 100vw;
 }
 
 .step_instruction {
-  max-width: 33%;
   padding: 20px;
 }
 
 .step_img {
   width: 100%;
   filter: grayscale(1) brightness(90%);
+}
+
+/* MEDIA */
+@media screen and (min-width: 689px) {
+  .wrapper_instruction {
+    flex-direction: row;
+  }
+  .step_instruction {
+    max-width: 33%;
+  }
 }
