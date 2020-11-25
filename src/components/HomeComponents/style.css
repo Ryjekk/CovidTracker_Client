@@ -1,0 +1,56 @@
+/*Welcome*/
+.welcome_home {
+  filter: grayscale(.9);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.videoTag {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position:relative;
+
+}
+
+.landing_text {
+  color: white;
+  position: absolute;
+  text-align: center;
+  z-index: 10;
+}
+
+.wrapper_btn {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/*Story*/
+.wrapper_story {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  align-items: center;
+  justify-items: center;
+}
+
+/*Instruction*/
+.wrapper_instruction {
+  display: flex;
+  width: 100vw;
+}
+
+.step_instruction {
+  max-width: 33%;
+  padding: 20px;
+}
+
+.step_img {
+  width: 100%;
+  filter: grayscale(1) brightness(90%);
+}
