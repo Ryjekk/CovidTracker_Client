@@ -17,8 +17,6 @@ const Admin = () => {
     createMatchingRooms(rooms)
   );
 
-  console.log(matchingRooms);
-
   return (
     <div className="admin">
       <h1>ADMIN</h1>

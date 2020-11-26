@@ -66,7 +66,29 @@ export const confirmClickHandler = (
   setMatchingRooms([...newRooms]);
 };
 
-const createUserObject = (room, users) => {
+const getChangedRooms = (rooms, matchingRooms) => {
+  console.log(rooms.length);
+  const changedList = [];
+  for (let i = 0; i < rooms.length; i++) {
+    console.log(i);
+    const room = rooms[i];
+    const matchRoom = matchingRooms[i];
+    if (
+      room.id === matchRoom.id &&
+      room.name === matchRoom.name &&
+      room.floor === matchRoom.floor
+    ) {
+    } else {
+      changedList.push(matchingRooms[i]);
+    }
+  }
+  return changedList;
+  // console.log(rooms[i], matchingRooms[i]);
+};
+
+const createRoomObject = (room, users) => {
+  console.log({ room });
+  console.log({ users });
   return {
     room: room.id,
     employeeId: users._id,
@@ -75,18 +97,16 @@ const createUserObject = (room, users) => {
 
 export const submitHandler = (e, rooms, matchingRooms, users) => {
   e.preventDefault();
-  const changedRooms = matchingRooms.filter((room) => {});
-  const checkedRooms = rooms.filter((room) => room.checked);
-  const responseBody = checkedRooms.map((room) => {
-    return createUserObject(room, users);
+  const changedRooms = getChangedRooms(rooms, matchingRooms);
+  const responseBody = changedRooms.map((room) => {
+    return createRoomObject(room, users);
   });
   const requestOptions = {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(responseBody),
   };
-
-  console.log('Send POST to /users/addvisitedrooms with body:');
+  console.log('Send PUT to /rooms with body:');
   console.log(responseBody);
 };
 

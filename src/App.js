@@ -13,25 +13,25 @@ import Profile from './Pages/Profile/Profile';
 import Register from './Pages/Register/Register';
 import Rooms from './Pages/Rooms/Rooms';
 import XDevNav from './Components/XDevNav/XDevNav';
-import QRcreator from "./Pages/QRcreator";
-import QRreader from "./Pages/QRreader";
+import QRcreator from './Pages/QRcreator';
+import QRreader from './Pages/QRreader';
 // import Main from './components/Main/Main';
 
 export const appContext = createContext();
 
 const testRooms = [
-  { id: 1, name: 'Technium', floor: 1, checked: false },
-  { id: 2, name: 'BongoRoom', floor: 4, checked: false },
-  { id: 3, name: 'Kitchen', floor: 4, checked: false },
-  { id: 4, name: 'Office4', floor: 4, checked: false },
-  { id: 5, name: 'Office5', floor: 4, checked: false },
-  { id: 6, name: 'Office6', floor: 4, checked: false },
-  { id: 7, name: 'Office7', floor: 4, checked: false },
-  { id: 8, name: 'Office8', floor: 4, checked: false },
-  { id: 9, name: 'Office9', floor: 4, checked: false },
-  { id: 10, name: 'Office10', floor: 4, checked: false },
-  { id: 11, name: 'Office11', floor: 4, checked: false },
-  { id: 12, name: 'Office12', floor: 4, checked: false },
+  { roomId: 1, name: 'Technium', floor: 1, checked: false },
+  { roomId: 2, name: 'BongoRoom', floor: 4, checked: false },
+  { roomId: 3, name: 'Kitchen', floor: 4, checked: false },
+  { roomId: 4, name: 'Office4', floor: 4, checked: false },
+  { roomId: 5, name: 'Office5', floor: 4, checked: false },
+  { roomId: 6, name: 'Office6', floor: 4, checked: false },
+  { roomId: 7, name: 'Office7', floor: 4, checked: false },
+  { roomId: 8, name: 'Office8', floor: 4, checked: false },
+  { roomId: 9, name: 'Office9', floor: 4, checked: false },
+  { roomId: 10, name: 'Office10', floor: 4, checked: false },
+  { roomId: 11, name: 'Office11', floor: 4, checked: false },
+  { roomId: 12, name: 'Office12', floor: 4, checked: false },
 ];
 
 const testUser = {
@@ -77,8 +77,8 @@ function App() {
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/admin" component={Admin} />
-              <Route exact path='/creator' component={QRcreator}/>
-              <Route exact path='/reader' component={QRreader}/>
+              <Route exact path="/creator" component={QRcreator} />
+              <Route exact path="/reader" component={QRreader} />
             </Switch>
           </div>
           {/* <Main></Main> */}
