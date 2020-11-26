@@ -21,7 +21,7 @@ const Profile = () => {
           <p>Click to edit</p>
         </div>
         <div>
-          <ReactModal isOpen={modal}>
+          <ReactModal isOpen={false}>
             <p>Hi, im modal</p>
           </ReactModal>
           <p>Rooms</p>
