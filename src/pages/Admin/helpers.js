@@ -9,24 +9,6 @@ export const filterCheck = (room, filter) => {
   return false;
 };
 
-export const getAllRooms = (matchingRooms, setMatchingRooms, filter) => {
-  const allRooms = matchingRooms
-    .filter((el) => filterCheck(el, filter))
-    .map((room) => {
-      return (
-        <div key={room.id} className="option">
-          <AdminSelect
-            key={room.id}
-            matchingRooms={matchingRooms}
-            setMatchingRooms={setMatchingRooms}
-            room={room}
-          ></AdminSelect>
-        </div>
-      );
-    });
-  return allRooms;
-};
-
 export const createMatchingRooms = (rooms) => {
   const newRooms = rooms.map((room) => {
     return {
@@ -55,15 +37,20 @@ export const confirmClickHandler = (
   thisId,
   thisName,
   thisFloor,
+  rooms,
   matchingRooms,
   setMatchingRooms
 ) => {
   const newRooms = matchingRooms;
   const roomToEdit = newRooms.find((room) => room.roomId === roomId);
+  const originalRoom = rooms.find((room) => room._id === _id);
+  console.log({ originalRoom });
+  console.log('OG name: ', originalRoom.name);
+  console.log('ThisNaame:', thisName);
   if (
-    roomToEdit.roomId !== thisId ||
-    roomToEdit.name !== thisName ||
-    roomToEdit.floor !== thisFloor
+    originalRoom.roomId !== thisId ||
+    originalRoom.name !== thisName ||
+    originalRoom.floor !== thisFloor
   ) {
     roomToEdit.edited = 'true';
   } else {
@@ -81,7 +68,7 @@ export const confirmClickHandler = (
 };
 
 const createRoomObject = (room, users) => {
-  // Might add uuserId to show who edited the room.
+  // Might add userId to show who edited the room.
   return {
     _id: room._id,
     roomId: room.roomId,
@@ -90,7 +77,7 @@ const createRoomObject = (room, users) => {
   };
 };
 
-export const submitHandler = (e, rooms, matchingRooms, users) => {
+export const submitHandler = (e, matchingRooms, users) => {
   e.preventDefault();
   const changedRooms = matchingRooms.filter((room) => room.edited === 'true');
   const responseBody = changedRooms.map((room) => {
@@ -105,27 +92,8 @@ export const submitHandler = (e, rooms, matchingRooms, users) => {
   console.log(responseBody);
 };
 
-//OLD SUBMITHANDLER
-// const submitHandler = (e) => {
-//   e.preventDefault();
-//   console.log('About to fetch!');
-//   const payload = {};
-//   payload.personId = 3;
-//   payload.rooms = rooms
-//     .filter((room) => room.checked)
-//     .map((room) => {
-//       return {
-//         id: room.id,
-//         time: '14:45',
-//       };
-//     });
-//   console.log({ payload });
-//   const requestOptions = {
-//     method: 'PUT',
-//     headers: { 'Content-Type': 'application/json' },
-//     body: JSON.stringify(payload),
-//   };
-//   fetch('http://localhost:8080/api/employeeModel', requestOptions)
-//     .then((res) => res.json())
-//     .then((json) => console.log(json));
-// };
+export const testFunction = (room, room2) => {
+  console.log({ room });
+  console.log({ room2 });
+  console.log(room._id === room2._id);
+};

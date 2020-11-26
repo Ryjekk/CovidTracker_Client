@@ -1,26 +1,19 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import { appContext } from '../../App';
 import './Admin.css';
-import {
-  getAllRooms,
-  createMatchingRooms,
-  getCheckedRooms,
-  submitHandler,
-  filterCheck,
-} from './helpers';
+import { createMatchingRooms, submitHandler, filterCheck } from './helpers';
 import AdminSelect from './AdminSelect/AdminSelect';
 
 const Admin = () => {
-  const { rooms, setRooms, filter, setFilter, users } = useContext(appContext);
+  const { rooms, filter, setFilter, users } = useContext(appContext);
   const [matchingRooms, setMatchingRooms] = useState(
     createMatchingRooms(rooms)
   );
-
   return (
     <div className="admin">
       <h1>ADMIN</h1>
       <div className="option_box">
-        <form onSubmit={(e) => submitHandler(e, rooms, matchingRooms, users)}>
+        <form onSubmit={(e) => submitHandler(e, matchingRooms, users)}>
           <label className="search_rooms">
             <p className="paragraph">Search:</p>
             <input
@@ -40,18 +33,23 @@ const Admin = () => {
                     matchingRooms={matchingRooms}
                     setMatchingRooms={setMatchingRooms}
                     room={room}
+                    rooms={rooms}
                   ></AdminSelect>
                 </div>
               );
             }
           })}
-          {/* {getAllRooms(matchingRooms, setMatchingRooms, filter)} */}
           <div className="primary_btn_black">
             <input
               type="submit"
               value={`Submit ${
-                rooms.filter((room) => room.checked).length
-              } rooms`}
+                matchingRooms.filter((room) => room.edited === 'true').length
+              } ${
+                matchingRooms.filter((room) => room.edited === 'true')
+                  .length === 1
+                  ? 'change'
+                  : 'changes'
+              }`}
             ></input>
           </div>
         </form>
@@ -61,20 +59,3 @@ const Admin = () => {
 };
 
 export default Admin;
-// export const getAllRooms = (matchingRooms, setMatchingRooms, filter) => {
-//   const allRooms = matchingRooms
-//     .filter((el) => filterCheck(el, filter))
-//     .map((room) => {
-//       return (
-//         <div key={room.id} className="option">
-//           <AdminSelect
-//             key={room.id}
-//             matchingRooms={matchingRooms}
-//             setMatchingRooms={setMatchingRooms}
-//             room={room}
-//           ></AdminSelect>
-//         </div>
-//       );
-//     });
-//   return allRooms;
-// };
