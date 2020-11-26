@@ -20,18 +20,18 @@ import QRreader from './Pages/QRreader';
 export const appContext = createContext();
 
 const testRooms = [
-  { roomId: 1, name: 'Technium', floor: 1, checked: false },
-  { roomId: 2, name: 'BongoRoom', floor: 4, checked: false },
-  { roomId: 3, name: 'Kitchen', floor: 4, checked: false },
-  { roomId: 4, name: 'Office4', floor: 4, checked: false },
-  { roomId: 5, name: 'Office5', floor: 4, checked: false },
-  { roomId: 6, name: 'Office6', floor: 4, checked: false },
-  { roomId: 7, name: 'Office7', floor: 4, checked: false },
-  { roomId: 8, name: 'Office8', floor: 4, checked: false },
-  { roomId: 9, name: 'Office9', floor: 4, checked: false },
-  { roomId: 10, name: 'Office10', floor: 4, checked: false },
-  { roomId: 11, name: 'Office11', floor: 4, checked: false },
-  { roomId: 12, name: 'Office12', floor: 4, checked: false },
+  { _id: Object(), roomId: 1, name: 'Technium', floor: 1, checked: false },
+  { _id: Object(), roomId: 2, name: 'BongoRoom', floor: 4, checked: false },
+  { _id: Object(), roomId: 3, name: 'Kitchen', floor: 4, checked: false },
+  { _id: Object(), roomId: 4, name: 'Office4', floor: 4, checked: false },
+  { _id: Object(), roomId: 5, name: 'Office5', floor: 4, checked: false },
+  { _id: Object(), roomId: 6, name: 'Office6', floor: 4, checked: false },
+  { _id: Object(), roomId: 7, name: 'Office7', floor: 4, checked: false },
+  { _id: Object(), roomId: 8, name: 'Office8', floor: 4, checked: false },
+  { _id: Object(), roomId: 9, name: 'Office9', floor: 4, checked: false },
+  { _id: Object(), roomId: 10, name: 'Office10', floor: 4, checked: false },
+  { _id: Object(), roomId: 11, name: 'Office11', floor: 4, checked: false },
+  { _id: Object(), roomId: 12, name: 'Office12', floor: 4, checked: false },
 ];
 
 const testUser = {
