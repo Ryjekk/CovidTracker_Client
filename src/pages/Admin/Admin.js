@@ -8,7 +8,6 @@ import {
   submitHandler,
   filterCheck,
 } from './helpers';
-import TestComponent from './TestComponent/TestComponent';
 import AdminSelect from './AdminSelect/AdminSelect';
 
 const Admin = () => {
@@ -35,9 +34,9 @@ const Admin = () => {
           {matchingRooms.map((room) => {
             if (filterCheck(room, filter)) {
               return (
-                <div key={room.id} className="option">
+                <div key={room.roomId} className="option">
                   <AdminSelect
-                    key={room.id}
+                    key={room._id}
                     matchingRooms={matchingRooms}
                     setMatchingRooms={setMatchingRooms}
                     room={room}

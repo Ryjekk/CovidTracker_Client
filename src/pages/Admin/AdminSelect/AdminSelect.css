@@ -6,10 +6,15 @@
   display: flex;
 }
 
-.admin-select .paragraph[contenteditable='true'] {
+.admin-select .paragraph[contentEditable='true'] {
   background-color: white;
   border: 1px solid black;
 }
+
+.remove_cross[editable='true'] {
+  display: none;
+}
+
 .check[editable='true'] {
   display: block;
 }

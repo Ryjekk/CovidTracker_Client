@@ -7,27 +7,27 @@ import check from '../../../Assets/Icons/check_24px_outlined.svg';
 import { editClickHandler, confirmClickHandler } from '../helpers';
 const AdminSelect = (props) => {
   const { setMatchingRooms, matchingRooms, room } = props;
-  const { id, name, floor, contenteditable, edited } = room;
-  const [thisId, setThisId] = useState(id);
-  const [thisName, setThisName] = useState(id);
-  const [thisFloor, setThisFloor] = useState(id);
+  const { _id, roomId, name, floor, contentEditable, edited } = room;
+  const [thisId, setThisId] = useState(roomId);
+  const [thisName, setThisName] = useState(name);
+  const [thisFloor, setThisFloor] = useState(floor);
   return (
     <div
       // onClick={checkHandler}
       className="admin-select"
-      id={id}
+      id={_id}
     >
       <div
         onInput={(e) => setThisId(e.target.innerText)}
         className="paragraph"
-        contenteditable={contenteditable}
+        contentEditable={contentEditable}
       >
-        {thisId}{' '}
+        {roomId}{' '}
       </div>
       <div
         onInput={(e) => setThisName(e.target.innerText)}
         className="paragraph"
-        contenteditable={contenteditable}
+        contentEditable={contentEditable}
       >
         {name}{' '}
       </div>
@@ -35,23 +35,26 @@ const AdminSelect = (props) => {
       <div
         onInput={(e) => setThisFloor(e.target.innerText)}
         className="paragraph"
-        contenteditable={contenteditable}
+        contentEditable={contentEditable}
       >
         {' '}
         {floor}{' '}
       </div>
       <div className="status_symbol">
         <img
-          onClick={(e) => editClickHandler(id, matchingRooms, setMatchingRooms)}
+          onClick={(e) =>
+            editClickHandler(roomId, matchingRooms, setMatchingRooms)
+          }
           className="edit_pencil"
           alt="edit"
-          editable={contenteditable === 'true' ? 'true' : 'false'}
+          editable={contentEditable === 'true' ? 'true' : 'false'}
           src={pencil}
         ></img>
         <img
           onClick={(e) =>
             confirmClickHandler(
-              id,
+              _id,
+              roomId,
               thisId,
               thisName,
               thisFloor,
@@ -61,10 +64,15 @@ const AdminSelect = (props) => {
           }
           className="check"
           alt="check"
-          editable={contenteditable === 'true' ? 'true' : 'false'}
+          editable={contentEditable === 'true' ? 'true' : 'false'}
           src={check}
         ></img>
-        <img className="remove_cross" alt="remove" src={cross}></img>
+        <img
+          className="remove_cross"
+          alt="remove"
+          editable={contentEditable === 'true' ? 'true' : 'false'}
+          src={cross}
+        ></img>
       </div>
     </div>
   );

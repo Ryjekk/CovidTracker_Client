@@ -3,7 +3,7 @@ import AdminSelect from './AdminSelect/AdminSelect';
 export const filterCheck = (room, filter) => {
   const patternString = '.*' + filter + '.*';
   const pattern = new RegExp(patternString, 'gi');
-  if (pattern.test(room.id) || pattern.test(room.name)) {
+  if (pattern.test(room.roomId) || pattern.test(room.name)) {
     return true;
   }
   return false;
@@ -30,26 +30,28 @@ export const getAllRooms = (matchingRooms, setMatchingRooms, filter) => {
 export const createMatchingRooms = (rooms) => {
   const newRooms = rooms.map((room) => {
     return {
-      id: room.id,
+      _id: room._id,
+      roomId: room.roomId,
       name: room.name,
       floor: room.floor,
-      contenteditable: 'false',
+      contentEditable: 'false',
       edited: 'false',
     };
   });
   return newRooms;
 };
 
-export const editClickHandler = (id, matchingRooms, setMatchingRooms) => {
+export const editClickHandler = (roomId, matchingRooms, setMatchingRooms) => {
   const newRooms = matchingRooms;
-  const roomToEdit = newRooms.find((room) => room.id === id);
-  roomToEdit.contenteditable =
-    roomToEdit.contenteditable === 'false' ? 'true' : 'false';
+  const roomToEdit = newRooms.find((room) => room.roomId === roomId);
+  roomToEdit.contentEditable =
+    roomToEdit.contentEditable === 'false' ? 'true' : 'false';
   setMatchingRooms([...newRooms]);
 };
 
 export const confirmClickHandler = (
-  id,
+  _id,
+  roomId,
   thisId,
   thisName,
   thisFloor,
@@ -57,47 +59,40 @@ export const confirmClickHandler = (
   setMatchingRooms
 ) => {
   const newRooms = matchingRooms;
-  const roomToEdit = newRooms.find((room) => room.id === id);
-  roomToEdit.contenteditable =
-    roomToEdit.contenteditable === 'false' ? 'true' : 'false';
-  roomToEdit.id = thisId;
+  const roomToEdit = newRooms.find((room) => room.roomId === roomId);
+  if (
+    roomToEdit.roomId !== thisId ||
+    roomToEdit.name !== thisName ||
+    roomToEdit.floor !== thisFloor
+  ) {
+    roomToEdit.edited = 'true';
+  } else {
+    roomToEdit.edited = 'false';
+  }
+
+  roomToEdit._id = _id;
+  roomToEdit.contentEditable =
+    roomToEdit.contentEditable === 'false' ? 'true' : 'false';
+  roomToEdit.roomId = thisId;
   roomToEdit.name = thisName;
   roomToEdit.floor = thisFloor;
+
   setMatchingRooms([...newRooms]);
 };
 
-const getChangedRooms = (rooms, matchingRooms) => {
-  console.log(rooms.length);
-  const changedList = [];
-  for (let i = 0; i < rooms.length; i++) {
-    console.log(i);
-    const room = rooms[i];
-    const matchRoom = matchingRooms[i];
-    if (
-      room.id === matchRoom.id &&
-      room.name === matchRoom.name &&
-      room.floor === matchRoom.floor
-    ) {
-    } else {
-      changedList.push(matchingRooms[i]);
-    }
-  }
-  return changedList;
-  // console.log(rooms[i], matchingRooms[i]);
-};
-
 const createRoomObject = (room, users) => {
-  console.log({ room });
-  console.log({ users });
+  // Might add uuserId to show who edited the room.
   return {
-    room: room.id,
-    employeeId: users._id,
+    _id: room._id,
+    roomId: room.roomId,
+    name: room.name,
+    floor: room.floor,
   };
 };
 
 export const submitHandler = (e, rooms, matchingRooms, users) => {
   e.preventDefault();
-  const changedRooms = getChangedRooms(rooms, matchingRooms);
+  const changedRooms = matchingRooms.filter((room) => room.edited === 'true');
   const responseBody = changedRooms.map((room) => {
     return createRoomObject(room, users);
   });
