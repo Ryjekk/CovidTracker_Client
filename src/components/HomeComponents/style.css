@@ -1,0 +1,64 @@
+/*Welcome*/
+.welcome_home {
+  width: 100vw;
+  height: 100vh;
+  filter: grayscale(.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.videoTag {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position:relative;
+
+}
+
+.landing_text {
+  color: white;
+  position: absolute;
+  text-align: center;
+  z-index: 10;
+}
+
+.wrapper_btn {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/*Story*/
+.wrapper_story {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  align-items: center;
+  justify-items: center;
+}
+
+/*Instruction*/
+.wrapper_instruction {
+  display: flex;
+  flex-direction: column;
+}
+
+.step_instruction {
+  padding: 2rem;
+}
+
+.step_img {
+  width: 100%;
+  filter: grayscale(1) brightness(90%);
+}
+
+/* MEDIA */
+@media screen and (min-width: 689px) {
+  .wrapper_instruction {
+    flex-direction: row;
+  }
+  .step_instruction {
+    max-width: 33%;
+  }
+}

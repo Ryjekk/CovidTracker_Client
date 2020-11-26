@@ -1,11 +1,9 @@
 import React from 'react';
-import './Header.css';
+import NavDesktop from "./NavDesktop";
 
 const Header = () => {
   return (
-    <div className="header">
-      <h1 className="hdr-text">Header</h1>
-    </div>
+      <NavDesktop/>
   );
 };
 

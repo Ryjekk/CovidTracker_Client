@@ -1,4 +1,4 @@
-import RoomSelect from './RoomSelect/RoomSelect';
+import RoomSelect from '../../Components/RoomsComponents/RoomSelect/RoomSelect';
 
 const filterCheck = (room, filter) => {
   const patternString = '.*' + filter + '.*';

@@ -21,10 +21,6 @@ a {
 
 .App {}
 
-.main {
-  width: 80%;
-}
-
 .primary_btn_black {
 }
 .primary_btn_white {
@@ -53,3 +49,8 @@ a {
 
 .heading_large {
 }
+
+
+/*media*/
+/*medium: `min-width: 1092px`,*/
+/*small: `min-width: 689px`,*/

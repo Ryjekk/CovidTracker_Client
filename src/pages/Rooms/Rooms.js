@@ -16,6 +16,7 @@ const Rooms = () => {
               type='text'
               onChange={e => setFilter(e.target.value)}
             />
+            <button>Use QR-Code</button>
           </label>
           <div className='heading_small'>All Rooms</div>
           {getAllRooms(rooms, setRooms, filter)}
