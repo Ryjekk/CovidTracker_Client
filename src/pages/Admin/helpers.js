@@ -44,9 +44,7 @@ export const confirmClickHandler = (
   const newRooms = matchingRooms;
   const roomToEdit = newRooms.find((room) => room.roomId === roomId);
   const originalRoom = rooms.find((room) => room._id === _id);
-  console.log({ originalRoom });
-  console.log('OG name: ', originalRoom.name);
-  console.log('ThisNaame:', thisName);
+
   if (
     originalRoom.roomId !== thisId ||
     originalRoom.name !== thisName ||
@@ -90,6 +88,29 @@ export const submitHandler = (e, matchingRooms, users) => {
   };
   console.log('Send PUT to /rooms with body:');
   console.log(responseBody);
+};
+
+export const deleteRoomHandler = (
+  _id,
+  rooms,
+  setRooms,
+  matchingRooms,
+  setMatchingRooms
+) => {
+  console.log({ rooms });
+  const payload = { rooms: [_id] };
+  const requestOptions = {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  };
+  console.log('DELETE to /rooms with payload:');
+  console.log(payload);
+  // await do request. If succeessfull:
+  const newRooms = rooms.filter((room) => room._id !== _id);
+  setRooms(newRooms);
+  const newMatchingRooms = matchingRooms.filter((room) => room._id !== _id);
+  setMatchingRooms(newMatchingRooms);
 };
 
 export const testFunction = (room, room2) => {

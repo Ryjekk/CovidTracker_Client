@@ -5,7 +5,7 @@ import { createMatchingRooms, submitHandler, filterCheck } from './helpers';
 import AdminSelect from './AdminSelect/AdminSelect';
 
 const Admin = () => {
-  const { rooms, filter, setFilter, users } = useContext(appContext);
+  const { rooms, setRooms, filter, setFilter, users } = useContext(appContext);
   const [matchingRooms, setMatchingRooms] = useState(
     createMatchingRooms(rooms)
   );
@@ -34,6 +34,7 @@ const Admin = () => {
                     setMatchingRooms={setMatchingRooms}
                     room={room}
                     rooms={rooms}
+                    setRooms={setRooms}
                   ></AdminSelect>
                 </div>
               );
