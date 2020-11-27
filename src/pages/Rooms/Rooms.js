@@ -6,15 +6,20 @@ import { getAllRooms, getCheckedRooms, submitHandler } from './helpers';
 const Rooms = () => {
   const { rooms, setRooms, filter, setFilter, users } = useContext(appContext);
   return (
-    <div className='rooms'>
-      <div className='option_box'>
-        <form onSubmit={e => submitHandler(e, rooms, users)}>
-          <label className='search_rooms'>
-            <p className='paragraph'>Search:</p>
+
+    <div className="rooms">
+      <div className="option_box">
+        <form
+          onSubmit={(e) => submitHandler(e, rooms, setRooms, users, setFilter)}
+        >
+          <label className="search_rooms">
+            <p className="paragraph">Search:</p>
             <input
-              className='input_field'
-              type='text'
-              onChange={e => setFilter(e.target.value)}
+              className="input_field"
+              type="text"
+              onChange={(e) => setFilter(e.target.value)}
+              value={filter}
+
             />
             <button>Use QR-Code</button>
           </label>
