@@ -6,6 +6,7 @@ import { getAllRooms, getCheckedRooms, submitHandler } from './helpers';
 const Rooms = () => {
   const { rooms, setRooms, filter, setFilter, users } = useContext(appContext);
   return (
+
     <div className="rooms">
       <div className="option_box">
         <form
@@ -18,16 +19,17 @@ const Rooms = () => {
               type="text"
               onChange={(e) => setFilter(e.target.value)}
               value={filter}
+
             />
             <button>Use QR-Code</button>
           </label>
-          <div className="heading_small">All Rooms</div>
+          <div className='heading_small'>All Rooms</div>
           {getAllRooms(rooms, setRooms, filter)}
-          <div className="primary_btn_black">
+          <div className='primary_btn_black'>
             <input
-              type="submit"
+              type='submit'
               value={`Submit ${
-                rooms.filter((room) => room.checked).length
+                rooms.filter(room => room.checked).length
               } rooms`}
             ></input>
           </div>

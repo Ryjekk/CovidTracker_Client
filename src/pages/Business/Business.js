@@ -3,6 +3,7 @@ import './Business.css';
 import Welcome from "../../Components/BusinessComponents/Welcome";
 import About from "../../Components/BusinessComponents/About";
 import Companies from "../../Components/BusinessComponents/Companies";
+import ContactForm from "../../Components/BusinessComponents/ContactForm";
 
 const Business = () => {
   return (
@@ -10,7 +11,7 @@ const Business = () => {
       <Welcome/>
       <About/>
       <Companies/>
-      <h1>HERE WILL BE CONTACT FORM</h1>
+      <ContactForm/>
     </div>
   );
 };
