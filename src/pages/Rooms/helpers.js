@@ -3,7 +3,7 @@ import RoomSelect from '../../Components/RoomsComponents/RoomSelect/RoomSelect';
 const filterCheck = (room, filter) => {
   const patternString = '.*' + filter + '.*';
   const pattern = new RegExp(patternString, 'gi');
-  if (pattern.test(room.id) || pattern.test(room.name)) {
+  if (pattern.test(room.roomId) || pattern.test(room.name)) {
     return true;
   }
   return false;
@@ -14,9 +14,9 @@ export const getAllRooms = (rooms, setRooms, filter) => {
     .filter((el) => filterCheck(el, filter))
     .map((room) => {
       return (
-        <div key={room.id} className="option">
+        <div key={room.roomId} className="option">
           <RoomSelect
-            key={room.id}
+            key={room.roomId}
             rooms={rooms}
             setRooms={setRooms}
             room={room}
@@ -29,13 +29,22 @@ export const getAllRooms = (rooms, setRooms, filter) => {
 
 const createUserObject = (room, users) => {
   return {
-    room: room.id,
+    roomId: room.roomId,
     employeeId: users._id,
   };
 };
 
-export const submitHandler = (e, rooms, users) => {
+export const submitHandler = (e, rooms, setRooms, users, setFilter) => {
   e.preventDefault();
+  setFilter('');
+  const newRooms = rooms.map((room) => ({
+    _id: room._id,
+    roomId: room.roomId,
+    name: room.name,
+    floor: room.floor,
+    checked: false,
+  }));
+  setRooms(newRooms);
   const checkedRooms = rooms.filter((room) => room.checked);
   const responseBody = checkedRooms.map((room) => {
     return createUserObject(room, users);

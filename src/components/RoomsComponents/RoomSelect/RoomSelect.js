@@ -8,13 +8,13 @@ import removeCircleLight from '../../../Assets/Icons/remove_circle_outline_24px_
 
 const RoomSelect = (props) => {
   const { setRooms, rooms } = useContext(appContext);
-  const { id, name, checked, floor } = props.room;
+  const { roomId, name, checked, floor } = props.room;
 
   const checkHandler = () => {
     const newArr = rooms.map((room) => {
-      if (room.id === id) {
+      if (room.roomId === roomId) {
         return {
-          id: room.id,
+          roomId: room.roomId,
           name: room.name,
           checked: !room.checked,
           floor: room.floor,
@@ -32,7 +32,7 @@ const RoomSelect = (props) => {
       chosen={checked.toString()}
       className="room-select"
     >
-      <div className="paragraph">{id} </div>
+      <div className="paragraph">{roomId} </div>
       <div className="paragraph">{name} </div>
       <div className="paragraph">Floor: {floor} </div>
       <div className="status_symbol">
