@@ -1,4 +1,4 @@
-.content_business, .companies_business {
+.content_business, .companies_business, .form_business {
   padding: 2rem 5rem;
 }
 
@@ -59,4 +59,54 @@
   max-width: 10rem;
   margin: 1rem;
   filter: grayscale(1);
+}
+
+/* form */
+.form_business {
+  min-height: 40rem;
+}
+
+.wrapper_map {
+  filter: grayscale(1);
+}
+
+.wrapper_form {}
+
+.form_text {}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  padding: 1rem 0;
+}
+
+.business_inputs {
+  background-color: #e9e8e8;
+  outline: none;
+  border: 0;
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.business_button {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 0;
+  color: white;
+  background-color: #272727;
+}
+
+@media screen and (min-width: 689px) {
+  .form_business {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .wrapper_map, .wrapper_form {
+    width: 49%;
+  }
 }
