@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import './AdminSelect.css';
-import DeleteModal from '../../../Components/AdminComponents/DeleteModal/DeleteModal';
 import pencil from '../../../Assets/Icons/mode_24px_outlined.svg';
 import cross from '../../../Assets/Icons/clear_24px_outlined.svg';
 import check from '../../../Assets/Icons/check_24px_outlined.svg';
@@ -78,7 +77,7 @@ const AdminSelect = (props) => {
           editable={contentEditable === 'true' ? 'true' : 'false'}
           src={cross}
         ></img>
-        <Modal isOpen={showModal}>
+        <Modal isOpen={showModal} onRequestClose={() => setShowModal(false)}>
           <div className="heading_small">
             Are you sure you want to delete this room?
           </div>

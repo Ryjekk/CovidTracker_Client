@@ -1,17 +1,26 @@
 import React, { useContext, useState } from 'react';
+import Modal from 'react-modal';
 import { appContext } from '../../App';
 import './Admin.css';
 import { createMatchingRooms, submitHandler, filterCheck } from './helpers';
 import AdminSelect from './AdminSelect/AdminSelect';
+Modal.setAppElement('#root');
 
 const Admin = () => {
   const { rooms, setRooms, filter, setFilter, users } = useContext(appContext);
+  const [showModal, setShowModal] = useState(false);
   const [matchingRooms, setMatchingRooms] = useState(
     createMatchingRooms(rooms)
   );
   return (
     <div className="admin">
       <h1>ADMIN</h1>
+      <div className="primary_btn_white" onClick={() => setShowModal(true)}>
+        Add Room
+      </div>
+      <Modal isOpen={showModal} onRequestClose={() => setShowModal(false)}>
+        <div className="heading_medium">Add new room</div>
+      </Modal>
       <div className="option_box">
         <form onSubmit={(e) => submitHandler(e, matchingRooms, users)}>
           <label className="search_rooms">

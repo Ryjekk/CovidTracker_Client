@@ -1,5 +1,3 @@
-import AdminSelect from './AdminSelect/AdminSelect';
-
 export const filterCheck = (room, filter) => {
   const patternString = '.*' + filter + '.*';
   const pattern = new RegExp(patternString, 'gi');
