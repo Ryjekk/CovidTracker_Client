@@ -21,6 +21,7 @@ const AdminSelect = (props) => {
   return (
     <div className="admin-select" id={_id}>
       <div
+        suppressContentEditableWarning={true}
         onInput={(e) => setThisId(e.target.innerText)}
         className="paragraph"
         contentEditable={contentEditable}
@@ -28,6 +29,7 @@ const AdminSelect = (props) => {
         {roomId}
       </div>
       <div
+        suppressContentEditableWarning={true}
         onInput={(e) => setThisName(e.target.innerText)}
         className="paragraph"
         contentEditable={contentEditable}
@@ -36,6 +38,7 @@ const AdminSelect = (props) => {
       </div>
       <div className="paragraph">Floor:</div>
       <div
+        suppressContentEditableWarning={true}
         onInput={(e) => setThisFloor(e.target.innerText)}
         className="paragraph"
         contentEditable={contentEditable}
