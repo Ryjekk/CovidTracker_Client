@@ -8,7 +8,7 @@ const Landing = () => {
       <div className="welcome_home">
         <div className="landing_text">
           <h1 className="heading_large">Welcome to XXXXXXXs</h1>
-          <p>Use our special application to track COVID-19 risk in your company</p>
+          <p className='paragraph'>Use our special application to track COVID-19 risk in your company</p>
           <div className="wrapper_btn">
             <Link to="/login">
               <div className="primary_btn_black">

@@ -12,8 +12,10 @@ const Login = props => {
   };
   return (
     <div className='login'>
-      <h1>Welcome</h1>
-      <p>sign in to our app here.</p>
+      <div>
+        <h1 className='heading_login'>Welcome</h1>
+        <p className='paragraph_login'>Sign in to our app here.</p>
+      </div>
       <form onSubmit={props.handleSubmit}>
         <input type='email' placeholder='email' required />
         <br />

@@ -9,7 +9,7 @@ const NavDesktop = () => {
           <p>HERELOGO</p>
         </div>
         <div className="linkBox_NavDesktop">
-          <Link to='/home' className='link_navDesktop'>
+          <Link to='/' className='link_navDesktop'>
             <p className="paragraph_small">Home</p>
           </Link>
           <Link to='/dashboard' className='link_navDesktop'>

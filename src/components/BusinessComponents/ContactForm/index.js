@@ -7,7 +7,6 @@ const ContactForm = () => {
         <div className='wrapper_map'>
           <iframe width="100%" height="100%" frameBorder="0" title="map" marginHeight="0" marginWidth="0" scrolling="no" src="https://maps.google.com/maps?q=oslo&t=&z=13&ie=UTF8&iwloc=&output=embed" ></iframe>
         </div>
-
         <div className='wrapper_form'>
           <div className="form_text">
             <h5 className="heading_medium">
