@@ -2,6 +2,27 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
+  background-color: #272727;
+  color: #e9e8e8;
+}
+
+.head_describer {
+  border-bottom: 3px solid #e9e8e8;
+  display: inline;
+  margin-bottom: 3rem;
+  line-height: 2;
+}
+
+.box_footer {
+  padding: 2rem;
+}
+
+.social {
+  display: flex;
+}
+
+.social_icons {
+  padding-right: 1rem;
 }
 
 /* MEDIA */

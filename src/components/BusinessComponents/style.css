@@ -17,10 +17,21 @@
   background-image: url('../../Assets/background/businessBg.jpg');
   filter: grayscale(1) brightness(90%);
   height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.welcome_business_wrapper {
+  color: white;
+  position: absolute;
+  text-align: center;
+  z-index: 10;
+  background-color: rgba(39,39,39, .6);
+  padding: 7rem;
+  border-radius: 2rem;
 }
 
 /* About */
@@ -32,6 +43,7 @@
 .img_business {
   width: 50%;
   filter: grayscale(1);
+  object-fit: cover;
 }
 
 .textBox_business_right {
@@ -64,6 +76,7 @@
 /* form */
 .form_business {
   min-height: 40rem;
+  margin-bottom: 2rem;
 }
 
 .wrapper_map {
@@ -109,4 +122,8 @@
   .wrapper_map, .wrapper_form {
     width: 49%;
   }
+
+  /*.welcome_business {*/
+  /*  display: flex;*/
+  /*}*/
 }
