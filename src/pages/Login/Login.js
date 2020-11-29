@@ -17,15 +17,14 @@ const Login = props => {
         <p className='paragraph_login'>Sign in to our app here.</p>
       </div>
       <form onSubmit={props.handleSubmit}>
-        <input type='email' placeholder='email' required />
-        <br />
-        <input type='password' placeholder='password' required />
-        <br />
-        <a href='/retrievepassword'>Forgot password?</a>
-        <br />
-        <button type='submit'>Log in</button>
+        <div className='box_input'>
+          <input type='email' placeholder='email' className="inputs_main" required />
+          <input type='password' placeholder='password' className='inputs_main' required />
+          <a href='/retrievepassword' className='forgot_password'>Forgot password?</a>
+        </div>
+        <button type='submit' className='primary_btn_black'>Log in</button>
       </form>
-      <p>
+      <p className='registerNow_text'>
         Don't have an account? <a href='/register'>Register Now</a>
       </p>
     </div>

@@ -2,10 +2,12 @@ import React from 'react';
 
 export default function RetrievePassword() {
   return (
-    <div>
+    <div className='login'>
       <h1>Retrieve password</h1>
-      <label htmlFor='email'>Type email here:</label>
-      <input type='email' id='email' />
+      <div className='box_input'>
+        <input type='email' id='email' placeholder='Place your email here' className='inputs_main' />
+      </div>
+      <button type='submit' className='primary_btn_black'>Retrieve password</button>
     </div>
   );
 }
