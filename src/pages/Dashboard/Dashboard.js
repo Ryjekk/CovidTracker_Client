@@ -2,7 +2,7 @@ import React, { useState, useContext, createContext } from 'react';
 import './Dashboard.css';
 import Header from "../../Components/Header/Header";
 import { appContext } from '../../App';
-const remote = require('../../Remote/remote');
+const remote = require('../../remote/remote');
 const axios = require('axios');
 const serverUrl = 'http://localhost:8080/api/';
 const qs = require('querystring');
