@@ -8,7 +8,8 @@ const login = (userCredentials, cb) => {
   axios
     .post(`${serverUrl}/users/login`, qs.stringify(userCredentials))
     .then(res => {
-      cb(res.data.data);
+      console.log(res.data.user);
+      cb(res.data);
     })
     .catch(error => {
       alert('bad credentials');

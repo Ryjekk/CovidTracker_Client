@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import './Login.css';
 import { appContext } from '../../App';
-import { BrowserRouter } from 'react-router-dom';
 import { Redirect } from 'react-router';
 const remote = require('../../Remote/remote');
 
