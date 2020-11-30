@@ -1,137 +1,146 @@
 import './Register.css';
+import React, { useState } from 'react';
+const remote = require('../../Remote/remote');
 
 const Register = () => {
-  //does this need to be states?
-  let firstName;
-  let lastName;
-  let email;
-  let password;
-  let repeatPassword;
-  let companyId;
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [companyId, setCompanyId] = useState();
+  const [floor, setFloor] = useState();
+  const [role, setRole] = useState('basic');
+  const [repeatPassword, setRepeatPassword] = useState();
 
-  const logEverything = e => {
+  const handleSubmit = e => {
     e.preventDefault();
-    console.log(
-      firstName,
-      lastName,
-      email,
-      password,
-      repeatPassword,
-      companyId
+    if (password !== repeatPassword) {
+      return alert('Passwors does not match');
+    }
+    remote.register(
+      { firstName, lastName, email, password, companyId, floor, role },
+      res => {
+        console.log(res);
+        setPassword('');
+        setRepeatPassword('');
+        setRole('');
+        setFloor('');
+        setCompanyId('');
+        setEmail('');
+        setFirstName('');
+        setLastName('');
+      }
     );
-  };
-
-  const sendToDb = () => {
-    //axios.post ..
-    //this sets the session id? Id token?
-    //sends back 'registered! now you can log in' or
-    //there was an error registering. Try again.
   };
 
   return (
     <div className='register'>
-      <div>
-        <h1 className='heading_login'> Register </h1>
-        <p className='paragraph_login'>Sign up for our app here</p>
-      </div>
-      <form onSubmit={logEverything}>
-        <div className='box_input'>
-          <input
-              id='first_name'
-              type='text'
-              placeholder='First name *'
-              className='inputs_main'
-              required
-              onChange={e => {
-                firstName = e.target.value;
-              }}
-          />
-          <input
-              id='last_name'
-              type='text'
-              placeholder='Last name *'
-              className='inputs_main'
-              required
-              onChange={e => (lastName = e.target.value)}
-          />
-          <input
-              type='email'
-              id='email'
-              placeholder='Email *'
-              className='inputs_main'
-              required
-              onChange={e => {
-                email = e.target.value;
-              }}
-          />
-          <input
-              id='password'
-              type='password'
-              placeholder='Password *'
-              className='inputs_main'
-              required
-              onChange={e => {
-                password = e.target.value;
-              }}
-          />
-          <input
-              id='repeat_password'
-              type='password'
-              placeholder='Repeat Password *'
-              className='inputs_main'
-              required
-              onChange={e => {
-                repeatPassword = e.target.value;
-              }}
-          />
-          <input
-              id='companyId'
-              type='text'
-              placeholder='Comapny Id *'
-              className='inputs_main'
-              required
-              onChange={e => {
-                companyId = e.target.value;
-              }}
-          />
-        </div>
-        <button type='submit' className='primary_btn_black'>Submit</button>
+      <h1> Register </h1>
+      <p>Sign up for our app here</p>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor='first_name'>Enter first name here:</label>
+        <br />
+        <input
+          id='first_name'
+          type='text'
+          required
+          onChange={e => {
+            setFirstName(e.target.value);
+          }}
+          value={firstName}
+        />
+        <br />
+        <br />
+        <label htmlFor='last_name'>Enter last name here:</label>
+        <br />
+        <input
+          id='last_name'
+          type='text'
+          required
+          onChange={e => setLastName(e.target.value)}
+          value={lastName}
+        />
+        <br />
+        <br />
+        <label htmlFor='email'>Enter email here:</label>
+        <br />
+        <input
+          type='email'
+          id='email'
+          required
+          onChange={e => {
+            setEmail(e.target.value);
+          }}
+          value={email}
+        />
+        <br />
+        <br />
+        <label htmlFor='password'>Enter password here:</label>
+        <br />
+        <input
+          id='password'
+          type='password'
+          required
+          onChange={e => {
+            setPassword(e.target.value);
+          }}
+          value={password}
+        />
+        <br />
+        <br />
+        <label htmlFor='repeat_password'>Repeat password here:</label>
+        <br />
+        <input
+          id='repeat_password'
+          type='password'
+          required
+          onChange={e => {
+            setRepeatPassword(e.target.value);
+          }}
+          value={repeatPassword}
+        />
+        <br />
+        <br />
+        <label htmlFor='floor'>Floor</label>
+        <br />
+        <input
+          type='text'
+          id='floor'
+          onChange={e => setFloor(e.target.value)}
+          value={floor}
+        />
+        <br />
+        <br />
+        <label htmlFor='companyId'>Enter your company id here:</label>
+        <br />
+        <input
+          id='companyId'
+          type='text'
+          required
+          onChange={e => {
+            setCompanyId(e.target.value);
+          }}
+          value={companyId}
+        />
+        <br />
+        <br />
+        <label htmlFor='companyId'>Enter your role here:</label>
+        <br />
+        <input
+          id='role'
+          type='text'
+          required
+          onChange={e => {
+            setRole(e.target.value);
+          }}
+          value={role}
+        />
+        <br />
+        <button type='submit'>Submit</button>
+     
       </form>
     </div>
   );
 };
 
 export default Register;
-//what props will this form get?
-//it will be a controlled component. One event listener onChange on
-//each of the inputfields. What will it send?
-
-// firstName: {
-//   type: String,
-//   required: true,
-// },
-// lastName: {
-//   type: String,
-//   required: true,
-// },
-// email: {
-//   type: String,
-//   required: true,
-// },
-// password: {
-//   type: String,
-//   required: true,
-// },
-// companyId: {
-//   type: Number,
-//   required: true,
-// },
-// visits: {
-//   type: Array,
-//   default: [],
-// },
-// inRisk: {
-//   type: Boolean,
-//   default: false,
-// },
-// },
