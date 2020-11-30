@@ -1,0 +1,10 @@
+.text_qr {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 2rem 5rem;
+}
+
+.qr_btn {
+  margin-bottom: 2rem;
+}
