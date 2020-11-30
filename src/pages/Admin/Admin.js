@@ -5,6 +5,7 @@ import NewRoomModal from './NewRoomModal/NewRoomModal';
 import './Admin.css';
 import { createMatchingRooms, submitHandler, filterCheck } from './helpers';
 import AdminSelect from './AdminSelect/AdminSelect';
+import Header from "../../Components/Header/Header";
 Modal.setAppElement('#root');
 
 const Admin = () => {
@@ -19,6 +20,8 @@ const Admin = () => {
   }, [rooms]);
 
   return (
+    <>
+    <Header/>
     <div className="admin">
       <NewRoomModal
         showModal={showModal}
@@ -80,8 +83,9 @@ const Admin = () => {
             ></input>
           </div>
         </form>
+
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,0 +1,16 @@
+.wrapper_not {
+  background-color: #272727;
+  height: 100vh;
+  color: #e9e8e8;
+  font-size: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.for_for {
+  font-size: 20rem;
+}

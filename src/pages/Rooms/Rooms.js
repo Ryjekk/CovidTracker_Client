@@ -1,39 +1,43 @@
 import React, { useContext } from 'react';
 import { appContext } from '../../App';
 import './Rooms.css';
-import { getRooms, getCheckedRooms, submitHandler } from './helpers';
+import { getAllRooms, getCheckedRooms, submitHandler } from './helpers';
+import Header from "../../Components/Header/Header";
 
 const Rooms = () => {
   const { rooms, setRooms, filter, setFilter, users } = useContext(appContext);
   return (
-    <div className="rooms">
-      <div className="option_box">
-        <form
-          onSubmit={(e) => submitHandler(e, rooms, setRooms, users, setFilter)}
-        >
-          <label className="search_rooms">
-            <p className="paragraph">Search:</p>
-            <input
-              className="input_field"
-              type="text"
-              onChange={(e) => setFilter(e.target.value)}
-              value={filter}
-            />
-            <button>Use QR-Code</button>
-          </label>
-          <div className="heading_small">All Rooms</div>
-          {getRooms(rooms, setRooms, filter)}
-          <div className="primary_btn_black">
-            <input
-              type="submit"
-              value={`Submit ${
-                rooms.filter((room) => room.checked).length
-              } rooms`}
-            ></input>
+      <>
+        <Header/>
+        <div className="rooms">
+          <div className="option_box">
+            <form
+              onSubmit={(e) => submitHandler(e, rooms, setRooms, users, setFilter)}
+            >
+              <label className="search_rooms">
+                <p className="paragraph">Search:</p>
+                <input
+                  className="input_field"
+                  type="text"
+                  onChange={(e) => setFilter(e.target.value)}
+                  value={filter}
+                />
+                <button>Use QR-Code</button>
+              </label>
+              <div className="heading_small">All Rooms</div>
+              {getAllRooms(rooms, setRooms, filter)}
+              <div className="primary_btn_black">
+                <input
+                  type="submit"
+                  value={`Submit ${
+                    rooms.filter((room) => room.checked).length
+                  } rooms`}
+                ></input>
+              </div>
+            </form>
           </div>
-        </form>
-      </div>
-    </div>
+        </div>
+      </>
   );
 };
 
