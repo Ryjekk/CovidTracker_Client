@@ -11,10 +11,10 @@ const filterCheck = (room, filter) => {
 
 export const getAllRooms = (rooms, setRooms, filter) => {
   const allRooms = rooms
-    .filter(el => filterCheck(el, filter))
-    .map(room => {
+    .filter((el) => filterCheck(el, filter))
+    .map((room) => {
       return (
-        <div key={room._id} className='option'>
+        <div key={room._id} className="option">
           <RoomSelect
             key={room._id}
             rooms={rooms}
@@ -28,16 +28,25 @@ export const getAllRooms = (rooms, setRooms, filter) => {
 };
 
 const createUserObject = (room, users) => {
+  const date = new Date();
+  const time = '00:00'; // `${date.getHours()}:${date.getMinutes()}`;
+  const dateString = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
   return {
-    roomId: room.roomId,
-    employeeId: users._id,
+    _id: room._id,
+    date: dateString,
+    time: time,
   };
 };
+
+// const format = {
+//   _id: 'userId',
+//   rooms: [{ _id: 'room_id', date: 'something', time: 'something' }],
+// };
 
 export const submitHandler = (e, rooms, setRooms, users, setFilter) => {
   e.preventDefault();
   setFilter('');
-  const newRooms = rooms.map(room => ({
+  const newRooms = rooms.map((room) => ({
     _id: room._id,
     roomId: room.roomId,
     name: room.name,
@@ -45,10 +54,13 @@ export const submitHandler = (e, rooms, setRooms, users, setFilter) => {
     checked: false,
   }));
   setRooms(newRooms);
-  const checkedRooms = rooms.filter(room => room.checked);
-  const responseBody = checkedRooms.map(room => {
+  const checkedRooms = rooms.filter((room) => room.checked);
+  const responseBody = {};
+  responseBody._id = users._id;
+  responseBody.rooms = checkedRooms.map((room) => {
     return createUserObject(room, users);
   });
+  console.log({ responseBody });
   const requestOptions = {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
