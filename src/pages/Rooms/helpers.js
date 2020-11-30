@@ -11,12 +11,12 @@ const filterCheck = (room, filter) => {
 
 export const getAllRooms = (rooms, setRooms, filter) => {
   const allRooms = rooms
-    .filter((el) => filterCheck(el, filter))
-    .map((room) => {
+    .filter(el => filterCheck(el, filter))
+    .map(room => {
       return (
-        <div key={room.roomId} className="option">
+        <div key={room._id} className='option'>
           <RoomSelect
-            key={room.roomId}
+            key={room._id}
             rooms={rooms}
             setRooms={setRooms}
             room={room}
@@ -37,7 +37,7 @@ const createUserObject = (room, users) => {
 export const submitHandler = (e, rooms, setRooms, users, setFilter) => {
   e.preventDefault();
   setFilter('');
-  const newRooms = rooms.map((room) => ({
+  const newRooms = rooms.map(room => ({
     _id: room._id,
     roomId: room.roomId,
     name: room.name,
@@ -45,8 +45,8 @@ export const submitHandler = (e, rooms, setRooms, users, setFilter) => {
     checked: false,
   }));
   setRooms(newRooms);
-  const checkedRooms = rooms.filter((room) => room.checked);
-  const responseBody = checkedRooms.map((room) => {
+  const checkedRooms = rooms.filter(room => room.checked);
+  const responseBody = checkedRooms.map(room => {
     return createUserObject(room, users);
   });
   const requestOptions = {

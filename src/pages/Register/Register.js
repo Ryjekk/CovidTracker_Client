@@ -1,38 +1,43 @@
 import './Register.css';
+import React, { useState } from 'react';
+const remote = require('../../Remote/remote');
 
 const Register = () => {
-  //does this need to be states?
-  let firstName;
-  let lastName;
-  let email;
-  let password;
-  let repeatPassword;
-  let companyId;
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [companyId, setCompanyId] = useState();
+  const [floor, setFloor] = useState();
+  const [role, setRole] = useState('basic');
+  const [repeatPassword, setRepeatPassword] = useState();
 
-  const logEverything = e => {
+  const handleSubmit = e => {
     e.preventDefault();
-    console.log(
-      firstName,
-      lastName,
-      email,
-      password,
-      repeatPassword,
-      companyId
+    if (password !== repeatPassword) {
+      return alert('Passwors does not match');
+    }
+    remote.register(
+      { firstName, lastName, email, password, companyId, floor, role },
+      res => {
+        console.log(res);
+        setPassword('');
+        setRepeatPassword('');
+        setRole('');
+        setFloor('');
+        setCompanyId('');
+        setEmail('');
+        setFirstName('');
+        setLastName('');
+      }
     );
-  };
-
-  const sendToDb = () => {
-    //axios.post ..
-    //this sets the session id? Id token?
-    //sends back 'registered! now you can log in' or
-    //there was an error registering. Try again.
   };
 
   return (
     <div className='register'>
       <h1> Register </h1>
       <p>Sign up for our app here</p>
-      <form onSubmit={logEverything}>
+      <form onSubmit={handleSubmit}>
         <label htmlFor='first_name'>Enter first name here:</label>
         <br />
         <input
@@ -40,8 +45,9 @@ const Register = () => {
           type='text'
           required
           onChange={e => {
-            firstName = e.target.value;
+            setFirstName(e.target.value);
           }}
+          value={firstName}
         />
         <br />
         <br />
@@ -51,7 +57,8 @@ const Register = () => {
           id='last_name'
           type='text'
           required
-          onChange={e => (lastName = e.target.value)}
+          onChange={e => setLastName(e.target.value)}
+          value={lastName}
         />
         <br />
         <br />
@@ -62,8 +69,9 @@ const Register = () => {
           id='email'
           required
           onChange={e => {
-            email = e.target.value;
+            setEmail(e.target.value);
           }}
+          value={email}
         />
         <br />
         <br />
@@ -74,8 +82,9 @@ const Register = () => {
           type='password'
           required
           onChange={e => {
-            password = e.target.value;
+            setPassword(e.target.value);
           }}
+          value={password}
         />
         <br />
         <br />
@@ -86,8 +95,19 @@ const Register = () => {
           type='password'
           required
           onChange={e => {
-            repeatPassword = e.target.value;
+            setRepeatPassword(e.target.value);
           }}
+          value={repeatPassword}
+        />
+        <br />
+        <br />
+        <label htmlFor='floor'>Floor</label>
+        <br />
+        <input
+          type='text'
+          id='floor'
+          onChange={e => setFloor(e.target.value)}
+          value={floor}
         />
         <br />
         <br />
@@ -98,8 +118,22 @@ const Register = () => {
           type='text'
           required
           onChange={e => {
-            companyId = e.target.value;
+            setCompanyId(e.target.value);
           }}
+          value={companyId}
+        />
+        <br />
+        <br />
+        <label htmlFor='companyId'>Enter your role here:</label>
+        <br />
+        <input
+          id='role'
+          type='text'
+          required
+          onChange={e => {
+            setRole(e.target.value);
+          }}
+          value={role}
         />
         <br />
         <button type='submit'>Submit</button>
@@ -109,36 +143,3 @@ const Register = () => {
 };
 
 export default Register;
-//what props will this form get?
-//it will be a controlled component. One event listener onChange on
-//each of the inputfields. What will it send?
-
-// firstName: {
-//   type: String,
-//   required: true,
-// },
-// lastName: {
-//   type: String,
-//   required: true,
-// },
-// email: {
-//   type: String,
-//   required: true,
-// },
-// password: {
-//   type: String,
-//   required: true,
-// },
-// companyId: {
-//   type: Number,
-//   required: true,
-// },
-// visits: {
-//   type: Array,
-//   default: [],
-// },
-// inRisk: {
-//   type: Boolean,
-//   default: false,
-// },
-// },
