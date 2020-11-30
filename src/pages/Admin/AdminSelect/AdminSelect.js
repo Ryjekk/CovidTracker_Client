@@ -94,7 +94,9 @@ const AdminSelect = (props) => {
           <div className="paragraph">This action is not reversable</div>
           <div
             className="primary_btn_white"
-            onClick={() => deleteRoomHandler(_id, rooms, users, setShowModal)}
+            onClick={() =>
+              deleteRoomHandler(_id, rooms, users, setShowModal, setRooms)
+            }
           >
             Yes, delete room
           </div>

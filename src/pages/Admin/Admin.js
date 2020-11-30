@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { appContext } from '../../App';
 import NewRoomModal from './NewRoomModal/NewRoomModal';
@@ -13,6 +13,11 @@ const Admin = () => {
   const [matchingRooms, setMatchingRooms] = useState(
     createMatchingRooms(rooms)
   );
+
+  useEffect(() => {
+    setMatchingRooms(rooms);
+  }, [rooms]);
+
   return (
     <div className="admin">
       <NewRoomModal
@@ -29,7 +34,9 @@ const Admin = () => {
       </button>
       <div className="option_box">
         <form
-          onSubmit={(e) => submitHandler(e, matchingRooms, users, setFilter)}
+          onSubmit={(e) =>
+            submitHandler(e, matchingRooms, users, setFilter, setRooms)
+          }
         >
           <label className="search_rooms">
             <p className="paragraph">Search:</p>

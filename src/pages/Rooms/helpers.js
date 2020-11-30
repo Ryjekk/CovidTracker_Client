@@ -1,5 +1,6 @@
 import RoomSelect from '../../Components/RoomsComponents/RoomSelect/RoomSelect';
-
+import { addRoomsToUser } from './remote';
+import { getAllRooms as reFetch } from '../../Remote/remote';
 const filterCheck = (room, filter) => {
   const patternString = '.*' + filter + '.*';
   const pattern = new RegExp(patternString, 'gi');
@@ -9,7 +10,7 @@ const filterCheck = (room, filter) => {
   return false;
 };
 
-export const getAllRooms = (rooms, setRooms, filter) => {
+export const getRooms = (rooms, setRooms, filter) => {
   const allRooms = rooms
     .filter((el) => filterCheck(el, filter))
     .map((room) => {
@@ -43,55 +44,18 @@ const createUserObject = (room, users) => {
 //   rooms: [{ _id: 'room_id', date: 'something', time: 'something' }],
 // };
 
-export const submitHandler = (e, rooms, setRooms, users, setFilter) => {
+export const submitHandler = async (e, rooms, setRooms, users, setFilter) => {
   e.preventDefault();
-  setFilter('');
-  const newRooms = rooms.map((room) => ({
-    _id: room._id,
-    roomId: room.roomId,
-    name: room.name,
-    floor: room.floor,
-    checked: false,
-  }));
-  setRooms(newRooms);
+
   const checkedRooms = rooms.filter((room) => room.checked);
   const responseBody = {};
   responseBody._id = users._id;
   responseBody.rooms = checkedRooms.map((room) => {
     return createUserObject(room, users);
   });
-  console.log({ responseBody });
-  const requestOptions = {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(responseBody),
-  };
-
-  console.log('Send POST to /users/addvisitedrooms with body:');
-  console.log(responseBody);
+  const responseCode = await addRoomsToUser(responseBody, users);
+  if (responseCode === 200) {
+    setFilter('');
+    reFetch(setRooms);
+  }
 };
-
-//OLD SUBMITHANDLER
-// const submitHandler = (e) => {
-//   e.preventDefault();
-//   console.log('About to fetch!');
-//   const payload = {};
-//   payload.personId = 3;
-//   payload.rooms = rooms
-//     .filter((room) => room.checked)
-//     .map((room) => {
-//       return {
-//         id: room.id,
-//         time: '14:45',
-//       };
-//     });
-//   console.log({ payload });
-//   const requestOptions = {
-//     method: 'PUT',
-//     headers: { 'Content-Type': 'application/json' },
-//     body: JSON.stringify(payload),
-//   };
-//   fetch('http://localhost:8080/api/employeeModel', requestOptions)
-//     .then((res) => res.json())
-//     .then((json) => console.log(json));
-// };
