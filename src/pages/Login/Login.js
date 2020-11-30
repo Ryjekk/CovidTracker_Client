@@ -29,6 +29,10 @@ const Login = props => {
         <h1 className='heading_login'>Welcome</h1>
         <p className='paragraph_login'>Sign in to our app here.</p>
       </div>
+    //make a div 'box_input'
+    //give the button a classname
+    //give the inputs a classname inputs_main
+
       <form onSubmit={submitHandler}>
         <input
           type='email'
@@ -47,8 +51,9 @@ const Login = props => {
         <a href='/retrievepassword'>Forgot password?</a>
         <br />
         <button type='submit'>Log in</button>
+
       </form>
-      <p>
+      <p className='registerNow_text'>
         Don't have an account? <a href='/register'>Register Now</a>
       </p>
     </div>

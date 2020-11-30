@@ -1,21 +1,30 @@
 .wrapper_NavDesktop {
   color: white;
-  height: 6rem;
-  width: 100%;
-  padding: 0 3rem;
   background: #272727;
-}
-
-.logoBox_NavDesktop {
-  float: left;
   display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
 }
 
 .linkBox_NavDesktop {
-  float: right;
   display: flex;
+  flex-wrap: wrap;
 }
 
-.link_navDesktop {
-  padding-left: 2rem;
+.linkBox_NavDesktop > * {
+  padding: 0 1rem;
 }
+
+/*.logoBox_NavDesktop {*/
+/*  float: left;*/
+/*  display: flex;*/
+/*}*/
+
+/*.linkBox_NavDesktop {*/
+/*  float: right;*/
+/*  display: flex;*/
+/*}*/
+
+/*.link_navDesktop {*/
+/*  padding-left: 2rem;*/
+/*}*/
