@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { appContext } from '../../App';
 import './Rooms.css';
-import { getAllRooms, getCheckedRooms, submitHandler } from './helpers';
+import { getRooms, getCheckedRooms, submitHandler } from './helpers';
 import Header from "../../Components/Header/Header";
 
 const Rooms = () => {

@@ -83,8 +83,8 @@ const Admin = () => {
             ></input>
           </div>
         </form>
-
       </div>
+    </div>
     </>
   );
 };
