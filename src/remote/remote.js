@@ -42,15 +42,6 @@ const addRoomsToUser = (id, roomArray, cb) => {
     })
   );
 };
-const testUser = {
-  email: 'sdeferger@hotmail.com',
-  firstName: 'theFirst',
-  lastName: 'thelast',
-  password: 'somepassword',
-  companyId: 1,
-  floor: 2,
-  role: 'admin',
-};
 
 const getAllRooms = cb => {
   axios.get(serverUrl + '/rooms').then(res => {
@@ -60,6 +51,16 @@ const getAllRooms = cb => {
     });
     cb(rooms);
   });
+};
+
+const testUser = {
+  email: 'sdeferger@hotmail.com',
+  firstName: 'theFirst',
+  lastName: 'thelast',
+  password: 'somepassword',
+  companyId: 1,
+  floor: 2,
+  role: 'admin',
 };
 
 const logger = info => {

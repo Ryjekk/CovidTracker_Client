@@ -52,6 +52,7 @@ function App() {
   const [rooms, setRooms] = useState(testRooms);
   const [users, setUser] = useState(testUser);
   const [filter, setFilter] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false); //not sure we actually need this - but its convenient to determine whether to redirect when a user redirects or registers
 
   useEffect(() => {
     console.log('inside useeffect');
@@ -74,6 +75,8 @@ function App() {
         setFilter,
         users,
         setUser,
+        loggedIn,
+        setLoggedIn,
       }}
     >
       <Router>

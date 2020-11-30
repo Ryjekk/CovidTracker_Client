@@ -1,16 +1,21 @@
 import './Register.css';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { Redirect } from 'react-router';
+import { appContext } from '../../App';
 const remote = require('../../Remote/remote');
 
 const Register = () => {
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [companyId, setCompanyId] = useState();
-  const [floor, setFloor] = useState();
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [companyId, setCompanyId] = useState('');
+  const [floor, setFloor] = useState('');
   const [role, setRole] = useState('basic');
-  const [repeatPassword, setRepeatPassword] = useState();
+  const [repeatPassword, setRepeatPassword] = useState('');
+  const [formSent, setFormSent] = useState(false);
+
+  const { setLoggedIn } = useContext(appContext);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -21,6 +26,8 @@ const Register = () => {
       { firstName, lastName, email, password, companyId, floor, role },
       res => {
         console.log(res);
+        setLoggedIn(false);
+        setFormSent(true);
         setPassword('');
         setRepeatPassword('');
         setRole('');
@@ -29,115 +36,115 @@ const Register = () => {
         setEmail('');
         setFirstName('');
         setLastName('');
+        setRepeatPassword('');
       }
     );
   };
 
+  if (formSent) {
+    return <Redirect to='/login' />;
+  }
+
   return (
     <div className='register'>
-      <h1> Register </h1>
-      <p>Sign up for our app here</p>
+      <div>
+        <h1 className='heading_login'> Register </h1>
+        <p className='paragraph_login'>Sign up for our app here</p>
+      </div>
       <form onSubmit={handleSubmit}>
-        <label htmlFor='first_name'>Enter first name here:</label>
-        <br />
-        <input
-          id='first_name'
-          type='text'
-          required
-          onChange={e => {
-            setFirstName(e.target.value);
-          }}
-          value={firstName}
-        />
-        <br />
-        <br />
-        <label htmlFor='last_name'>Enter last name here:</label>
-        <br />
-        <input
-          id='last_name'
-          type='text'
-          required
-          onChange={e => setLastName(e.target.value)}
-          value={lastName}
-        />
-        <br />
-        <br />
-        <label htmlFor='email'>Enter email here:</label>
-        <br />
-        <input
-          type='email'
-          id='email'
-          required
-          onChange={e => {
-            setEmail(e.target.value);
-          }}
-          value={email}
-        />
-        <br />
-        <br />
-        <label htmlFor='password'>Enter password here:</label>
-        <br />
-        <input
-          id='password'
-          type='password'
-          required
-          onChange={e => {
-            setPassword(e.target.value);
-          }}
-          value={password}
-        />
-        <br />
-        <br />
-        <label htmlFor='repeat_password'>Repeat password here:</label>
-        <br />
-        <input
-          id='repeat_password'
-          type='password'
-          required
-          onChange={e => {
-            setRepeatPassword(e.target.value);
-          }}
-          value={repeatPassword}
-        />
-        <br />
-        <br />
-        <label htmlFor='floor'>Floor</label>
-        <br />
-        <input
-          type='text'
-          id='floor'
-          onChange={e => setFloor(e.target.value)}
-          value={floor}
-        />
-        <br />
-        <br />
-        <label htmlFor='companyId'>Enter your company id here:</label>
-        <br />
-        <input
-          id='companyId'
-          type='text'
-          required
-          onChange={e => {
-            setCompanyId(e.target.value);
-          }}
-          value={companyId}
-        />
-        <br />
-        <br />
-        <label htmlFor='companyId'>Enter your role here:</label>
-        <br />
-        <input
-          id='role'
-          type='text'
-          required
-          onChange={e => {
-            setRole(e.target.value);
-          }}
-          value={role}
-        />
-        <br />
-        <button type='submit'>Submit</button>
-     
+        <div className='box_input'>
+          <input
+            id='first_name'
+            type='text'
+            placeholder='First name *'
+            className='inputs_main'
+            required
+            onChange={e => {
+              setFirstName(e.target.value);
+            }}
+            value={firstName}
+          />
+          <input
+            id='last_name'
+            type='text'
+            placeholder='Last name *'
+            className='inputs_main'
+            required
+            onChange={e => {
+              setLastName(e.target.value);
+            }}
+            value={lastName}
+          />
+          <input
+            type='email'
+            id='email'
+            placeholder='Email *'
+            className='inputs_main'
+            required
+            onChange={e => {
+              setEmail(e.target.value);
+            }}
+            value={email}
+          />
+          <input
+            id='password'
+            type='password'
+            placeholder='Password *'
+            className='inputs_main'
+            required
+            onChange={e => {
+              setPassword(e.target.value);
+            }}
+            value={password}
+          />
+          <input
+            id='repeat_password'
+            type='password'
+            placeholder='Repeat Password *'
+            className='inputs_main'
+            required
+            onChange={e => {
+              setRepeatPassword(e.target.value);
+            }}
+            value={repeatPassword}
+          />
+          <input
+            id='companyId'
+            type='text'
+            placeholder='Comapny Id *'
+            className='inputs_main'
+            required
+            onChange={e => {
+              setCompanyId(e.target.value);
+            }}
+            value={companyId}
+          />
+          <input
+            id='floor'
+            type='text'
+            placeholder='Floor *'
+            className='inputs_main'
+            required
+            onChange={e => {
+              setFloor(e.target.value);
+            }}
+            value={floor}
+          />
+          <input
+            id='role'
+            type='text'
+            placeholder='Role *'
+            className='inputs_main'
+            required
+            onChange={e => {
+              setRole(e.target.value);
+            }}
+            value={role}
+          />
+        </div>
+        <button type='submit' className='primary_btn_black'>
+          Submit
+        </button>
       </form>
     </div>
   );
