@@ -14,11 +14,11 @@ const Profile = () => {
           <p>
             Name: {users.firstName} {users.lastName}
           </p>
-          <p>Click to edit</p>
+          <button className='primary_btn_black'>Click to edit name</button>
         </div>
         <div>
           <p>Email: {users.email}</p>
-          <p>Click to edit</p>
+          <button className='primary_btn_black'>Click to edit email</button>
         </div>
         <div>
           <ReactModal isOpen={false}>
@@ -34,10 +34,18 @@ const Profile = () => {
                 <button>Remove</button>
               </p>
             ))}
-          <p>Click to edit</p>
+          <button className='primary_btn_black'>Click to edit rooms</button>
         </div>
       </article>
-      <a href='/'>Click here to change details</a>
+      <article>
+        {users.inRisk ? (
+          <h1>
+            You have recently been in contact with an infected. Go quarantine
+          </h1>
+        ) : (
+          <h1>You have no recent corona contacts!</h1>
+        )}
+      </article>
     </section>
   );
 };

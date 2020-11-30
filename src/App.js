@@ -35,6 +35,7 @@ const testRooms = [
   { _id: Object(), roomId: 11, name: 'Office11', floor: 4, checked: false },
   { _id: Object(), roomId: 12, name: 'Office12', floor: 4, checked: false },
 ];
+
 const testUser = {
   _id: 'Object(mongodb-Id?)',
   floor: 1,
@@ -55,16 +56,10 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false); //not sure we actually need this - but its convenient to determine whether to redirect when a user redirects or registers
 
   useEffect(() => {
-    console.log('inside useeffect');
     remote.getAllRooms(setRooms);
+    console.log(localStorage.getItem('InfectionInspectionUser'));
+    setUser(JSON.parse(localStorage.getItem('InfectionInspectionUser')));
   }, []);
-
-  useEffect(() => {
-    console.log(users, 'inside useeffect users!  ');
-    // window.history.pushState({}, '', '/profile');
-    // window.history.forward();
-  }, [users]);
-  // console.log(rooms, '-------------------------');
 
   return (
     <appContext.Provider
@@ -80,26 +75,26 @@ function App() {
       }}
     >
       <Router>
-        <div className="App">
+        <div className='App'>
           <Header></Header>
-          <div className="main">
+          <div className='main'>
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/dashboard" component={Dashboard} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/rooms" component={Rooms} />
-              <Route exact path="/privacy" component={Privacy} />
-              <Route exact path="/business" component={Business} />
-              <Route exact path="/profile" component={Profile} />
-              <Route exact path="/register" component={Register} />
+              <Route exact path='/' component={Home} />
+              <Route exact path='/dashboard' component={Dashboard} />
+              <Route exact path='/login' component={Login} />
+              <Route exact path='/rooms' component={Rooms} />
+              <Route exact path='/privacy' component={Privacy} />
+              <Route exact path='/business' component={Business} />
+              <Route exact path='/profile' component={Profile} />
+              <Route exact path='/register' component={Register} />
               <Route
                 exact
-                path="/retrievepassword"
+                path='/retrievepassword'
                 component={RetrievePassword}
               />
-              <Route exact path="/admin" component={Admin} />
-              <Route exact path="/creator" component={QRcreator} />
-              <Route exact path="/reader" component={QRreader} />
+              <Route exact path='/admin' component={Admin} />
+              <Route exact path='/creator' component={QRcreator} />
+              <Route exact path='/reader' component={QRreader} />
             </Switch>
           </div>
           {/* <Main></Main> */}
