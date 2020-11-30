@@ -14,9 +14,9 @@ export const getAllRooms = (rooms, setRooms, filter) => {
     .filter((el) => filterCheck(el, filter))
     .map((room) => {
       return (
-        <div key={room._id} className="option">
+        <div key={room.roomId} className="option">
           <RoomSelect
-            key={room._id}
+            key={room.roomId}
             rooms={rooms}
             setRooms={setRooms}
             room={room}

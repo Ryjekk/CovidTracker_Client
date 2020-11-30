@@ -63,7 +63,7 @@ function App() {
     // window.history.pushState({}, '', '/profile');
     // window.history.forward();
   }, [users]);
-  console.log(rooms, '-------------------------');
+  // console.log(rooms, '-------------------------');
 
   return (
     <appContext.Provider
