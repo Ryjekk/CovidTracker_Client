@@ -12,6 +12,8 @@ const Login = props => {
     e.preventDefault();
     remote.login({ email, password }, data => {
       setUser(data);
+      console.log(data);
+      localStorage.setItem('InfectionInspectionUser', JSON.stringify(data));
       setLoggedIn(true);
     });
   };

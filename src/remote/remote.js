@@ -7,18 +7,18 @@ const serverUrl = 'http://localhost:8080/api';
 const login = (userCredentials, cb) => {
   axios
     .post(`${serverUrl}/users/login`, qs.stringify(userCredentials))
-    .then(res => {
+    .then((res) => {
       console.log(res.data.user);
       cb(res.data);
     })
-    .catch(error => {
+    .catch((error) => {
       alert('bad credentials');
       console.log(error.message);
     });
 };
 
 const register = (user, cb) => {
-  axios.post(`${serverUrl}/users/register`, qs.stringify(user)).then(res => {
+  axios.post(`${serverUrl}/users/register`, qs.stringify(user)).then((res) => {
     cb(res);
   });
 };
@@ -30,22 +30,36 @@ const getUserData = (accessToken, id, cb) => {
         'x-access-token': accessToken,
       },
     })
-    .then(res => cb(res.data));
+    .then((res) => cb(res.data));
 };
+
+// /rooms:
+// export const addRoomsToUser = async (body, user) => {
+//   const url = `${serverUrl}/users/visitedrooms`;
+//   const res = await fetch(url, {
+//     method: 'PUT',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'x-access-token': user.accessToken,
+//     },
+//     body: JSON.stringify(body),
+//   });
+//   return res.status;
+// };
 
 const addRoomsToUser = (id, roomArray, cb) => {
   const data = { id, roomArray };
   axios.put(
     `${serverUrl}/users/visitedrooms`,
-    qs.stringify(data).then(res => {
+    qs.stringify(data).then((res) => {
       cb(res.data);
     })
   );
 };
 
-const getAllRooms = cb => {
-  axios.get(serverUrl + '/rooms').then(res => {
-    const rooms = res.data.map(room => {
+const getAllRooms = (cb) => {
+  axios.get(serverUrl + '/rooms').then((res) => {
+    const rooms = res.data.map((room) => {
       room.checked = false;
       return room;
     });
@@ -63,7 +77,7 @@ const testUser = {
   role: 'admin',
 };
 
-const logger = info => {
+const logger = (info) => {
   console.log(info.data);
 };
 
