@@ -56,16 +56,10 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false); //not sure we actually need this - but its convenient to determine whether to redirect when a user redirects or registers
 
   useEffect(() => {
-    console.log('inside useeffect');
     remote.getAllRooms(setRooms);
+    console.log(localStorage.getItem('InfectionInspectionUser'));
+    setUser(JSON.parse(localStorage.getItem('InfectionInspectionUser')));
   }, []);
-
-  useEffect(() => {
-    console.log(users, 'inside useeffect users!  ');
-    // window.history.pushState({}, '', '/profile');
-    // window.history.forward();
-  }, [users]);
-  // console.log(rooms, '-------------------------');
 
   return (
     <appContext.Provider

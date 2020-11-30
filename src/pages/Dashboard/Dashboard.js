@@ -34,10 +34,19 @@ const Dashboard = () => {
       {notified && (
         <p>People you have been in contact with are now being warned!</p>
       )}
-      <p>
-        List of rooms visited today with the opportunity to delete and to view
-        other days. (Arrow back to yesterday)
-      </p>
+      <div className='room-container'>
+        <h1>These are the rooms you have visited:</h1>
+        {users.visits.map(visit => {
+          return (
+            <div>
+              <h1>Some name</h1>
+              <p>RoomId: {visit._id}</p>
+              <p>Date:{visit.date}</p>
+              <p>Time: {visit.time}</p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
