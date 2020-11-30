@@ -48,7 +48,6 @@ const Login = props => {
           </button>
         </div>
       </form>
-      <hr/>
       <p className='registerNow_text'>
         Don't have an account? <a href='/register'>Register Now</a>
       </p>

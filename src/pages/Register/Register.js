@@ -135,7 +135,6 @@ const Register = () => {
           Submit
         </button>
       </form>
-      <hr/>
       <p className='registerNow_text'>
         Have an account? <a href='/login'>LogIn here</a>
       </p>
