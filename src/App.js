@@ -1,7 +1,7 @@
 import './App.css';
 import { createContext, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Header from './Components/Header/Header';
+// import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import Admin from './Pages/Admin/Admin';
 import Business from './Pages/Business/Business';
@@ -11,12 +11,13 @@ import Home from './Pages/Home/Home';
 import Privacy from './Pages/Privacy/Privacy';
 import Profile from './Pages/Profile/Profile';
 import Register from './Pages/Register/Register';
+import RegisterAdmin from "./Pages/RegisterAdmin";
 import Rooms from './Pages/Rooms/Rooms';
-import XDevNav from './Components/XDevNav/XDevNav';
+// import XDevNav from './Components/XDevNav/XDevNav';
 import QRcreator from './Pages/QRcreator';
 import QRreader from './Pages/QRreader';
 import RetrievePassword from './Pages/RetrievePassword/RetrievePassword';
-const remote = require('./Remote/remote');
+const remote = require('./remote/remote');
 // import Main from './components/Main/Main';
 
 export const appContext = createContext();
@@ -81,7 +82,7 @@ function App() {
     >
       <Router>
         <div className="App">
-          <Header></Header>
+          {/*<Header></Header>*/}
           <div className="main">
             <Switch>
               <Route exact path="/" component={Home} />
@@ -92,6 +93,7 @@ function App() {
               <Route exact path="/business" component={Business} />
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/register" component={Register} />
+              <Route exact path="/registerAdmin" component={RegisterAdmin} />
               <Route
                 exact
                 path="/retrievepassword"

@@ -2,7 +2,7 @@ import './Register.css';
 import React, { useState, useContext } from 'react';
 import { Redirect } from 'react-router';
 import { appContext } from '../../App';
-const remote = require('../../Remote/remote');
+const remote = require('../../remote/remote');
 
 const Register = () => {
   const [firstName, setFirstName] = useState('');
@@ -130,22 +130,15 @@ const Register = () => {
             }}
             value={floor}
           />
-          <input
-            id='role'
-            type='text'
-            placeholder='Role *'
-            className='inputs_main'
-            required
-            onChange={e => {
-              setRole(e.target.value);
-            }}
-            value={role}
-          />
         </div>
         <button type='submit' className='primary_btn_black'>
           Submit
         </button>
       </form>
+      <hr/>
+      <p className='registerNow_text'>
+        Have an account? <a href='/login'>LogIn here</a>
+      </p>
     </div>
   );
 };

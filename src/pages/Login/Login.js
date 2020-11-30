@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import './Login.css';
 import { appContext } from '../../App';
 import { Redirect } from 'react-router';
-const remote = require('../../Remote/remote');
+const remote = require('../../remote/remote');
 
 const Login = props => {
   const [email, setEmail] = useState();
@@ -31,26 +31,24 @@ const Login = props => {
           <input
             className='inputs_main'
             type='email'
-            placeholder='email'
+            placeholder='Email'
             required
             onChange={e => setEmail(e.target.value)}
           />
-          <br />
           <input
             className='inputs_main'
             type='password'
-            placeholder='password'
+            placeholder='Password'
             required
             onChange={e => setPassword(e.target.value)}
           />
-          <br />
           <a href='/retrievepassword'>Forgot password?</a>
-          <br />
           <button type='submit' className='primary_btn_black'>
             Log in
           </button>
         </div>
       </form>
+      <hr/>
       <p className='registerNow_text'>
         Don't have an account? <a href='/register'>Register Now</a>
       </p>
