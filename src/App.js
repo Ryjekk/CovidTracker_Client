@@ -1,6 +1,6 @@
 import './App.css';
 import { createContext, useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 // import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import Admin from './Pages/Admin/Admin';
@@ -16,6 +16,7 @@ import Rooms from './Pages/Rooms/Rooms';
 // import XDevNav from './Components/XDevNav/XDevNav';
 import QRcreator from './Pages/QRcreator';
 import QRreader from './Pages/QRreader';
+import NotFound from "./Pages/NotFound";
 import RetrievePassword from './Pages/RetrievePassword/RetrievePassword';
 const remote = require('./remote/remote');
 // import Main from './components/Main/Main';
@@ -102,6 +103,8 @@ function App() {
               <Route exact path="/admin" component={Admin} />
               <Route exact path="/creator" component={QRcreator} />
               <Route exact path="/reader" component={QRreader} />
+              <Route path="/404" component={NotFound} />
+              <Redirect to="/404" />
             </Switch>
           </div>
           {/* <Main></Main> */}
