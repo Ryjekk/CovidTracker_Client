@@ -22,20 +22,19 @@ const remote = require('./Remote/remote');
 export const appContext = createContext();
 
 const testRooms = [
-  { id: 1, name: 'Technium', floor: 1, checked: false },
-  { id: 2, name: 'BongoRoom', floor: 4, checked: false },
-  { id: 3, name: 'Kitchen', floor: 4, checked: false },
-  { id: 4, name: 'Office4', floor: 4, checked: false },
-  { id: 5, name: 'Office5', floor: 4, checked: false },
-  { id: 6, name: 'Office6', floor: 4, checked: false },
-  { id: 7, name: 'Office7', floor: 4, checked: false },
-  { id: 8, name: 'Office8', floor: 4, checked: false },
-  { id: 9, name: 'Office9', floor: 4, checked: true },
-  { id: 10, name: 'Office10', floor: 4, checked: true },
-  { id: 11, name: 'Office11', floor: 4, checked: true },
-  { id: 12, name: 'Office12', floor: 4, checked: false },
+  { _id: Object(), roomId: 1, name: 'Technium', floor: 1, checked: false },
+  { _id: Object(), roomId: 2, name: 'BongoRoom', floor: 4, checked: false },
+  { _id: Object(), roomId: 3, name: 'Kitchen', floor: 4, checked: false },
+  { _id: Object(), roomId: 4, name: 'Office4', floor: 4, checked: false },
+  { _id: Object(), roomId: 5, name: 'Office5', floor: 4, checked: false },
+  { _id: Object(), roomId: 6, name: 'Office6', floor: 4, checked: false },
+  { _id: Object(), roomId: 7, name: 'Office7', floor: 4, checked: false },
+  { _id: Object(), roomId: 8, name: 'Office8', floor: 4, checked: false },
+  { _id: Object(), roomId: 9, name: 'Office9', floor: 4, checked: false },
+  { _id: Object(), roomId: 10, name: 'Office10', floor: 4, checked: false },
+  { _id: Object(), roomId: 11, name: 'Office11', floor: 4, checked: false },
+  { _id: Object(), roomId: 12, name: 'Office12', floor: 4, checked: false },
 ];
-
 const testUser = {
   _id: 'Object(mongodb-Id?)',
   floor: 1,
@@ -64,7 +63,7 @@ function App() {
     // window.history.pushState({}, '', '/profile');
     // window.history.forward();
   }, [users]);
-  console.log(rooms, '-------------------------');
+  // console.log(rooms, '-------------------------');
 
   return (
     <appContext.Provider
@@ -78,26 +77,26 @@ function App() {
       }}
     >
       <Router>
-        <div className='App'>
+        <div className="App">
           <Header></Header>
-          <div className='main'>
+          <div className="main">
             <Switch>
-              <Route exact path='/' component={Home} />
-              <Route exact path='/dashboard' component={Dashboard} />
-              <Route exact path='/login' component={Login} />
-              <Route exact path='/rooms' component={Rooms} />
-              <Route exact path='/privacy' component={Privacy} />
-              <Route exact path='/business' component={Business} />
-              <Route exact path='/profile' component={Profile} />
-              <Route exact path='/register' component={Register} />
+              <Route exact path="/" component={Home} />
+              <Route exact path="/dashboard" component={Dashboard} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/rooms" component={Rooms} />
+              <Route exact path="/privacy" component={Privacy} />
+              <Route exact path="/business" component={Business} />
+              <Route exact path="/profile" component={Profile} />
+              <Route exact path="/register" component={Register} />
               <Route
                 exact
-                path='/retrievepassword'
+                path="/retrievepassword"
                 component={RetrievePassword}
               />
-              <Route exact path='/admin' component={Admin} />
-              <Route exact path='/creator' component={QRcreator} />
-              <Route exact path='/reader' component={QRreader} />
+              <Route exact path="/admin" component={Admin} />
+              <Route exact path="/creator" component={QRcreator} />
+              <Route exact path="/reader" component={QRreader} />
             </Switch>
           </div>
           {/* <Main></Main> */}

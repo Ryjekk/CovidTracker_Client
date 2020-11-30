@@ -12,7 +12,14 @@ import {
 
 Modal.setAppElement('#root');
 const AdminSelect = (props) => {
-  const { setMatchingRooms, matchingRooms, room, rooms, setRooms } = props;
+  const {
+    setMatchingRooms,
+    matchingRooms,
+    room,
+    rooms,
+    setRooms,
+    users,
+  } = props;
   const { _id, roomId, name, floor, contentEditable } = room;
   const [thisId, setThisId] = useState(roomId);
   const [thisName, setThisName] = useState(name);
@@ -87,15 +94,7 @@ const AdminSelect = (props) => {
           <div className="paragraph">This action is not reversable</div>
           <div
             className="primary_btn_white"
-            onClick={() =>
-              deleteRoomHandler(
-                _id,
-                rooms,
-                setRooms,
-                matchingRooms,
-                setMatchingRooms
-              )
-            }
+            onClick={() => deleteRoomHandler(_id, rooms, users, setShowModal)}
           >
             Yes, delete room
           </div>

@@ -63,7 +63,7 @@ export const confirmClickHandler = (
   setMatchingRooms([...newRooms]);
 };
 
-const createRoomObject = (room, users) => {
+const createRoomObject = (room) => {
   // Might add userId to show who edited the room.
   return {
     _id: room._id,
@@ -75,45 +75,43 @@ const createRoomObject = (room, users) => {
 
 export const submitHandler = (e, matchingRooms, users, setFilter) => {
   e.preventDefault();
-
   setFilter('');
   const changedRooms = matchingRooms.filter((room) => room.edited === 'true');
-  const responseBody = changedRooms.map((room) => {
+  const responseBody = {};
+  responseBody.user = users._id;
+  responseBody.rooms = changedRooms.map((room) => {
     return createRoomObject(room, users);
   });
-
   const requestOptions = {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(responseBody),
   };
   console.log('Send PUT to /rooms with body:');
-  console.log(responseBody);
+  console.log({ responseBody });
 };
 
-export const deleteRoomHandler = (
-  _id,
-  rooms,
-  setRooms,
-  matchingRooms,
-  setMatchingRooms
-) => {
+export const deleteRoomHandler = (_id, rooms, users, setShowModal) => {
+  setShowModal(false);
   console.log({ rooms });
-  const payload = { rooms: [_id] };
+  const responseBody = {};
+  responseBody.rooms = [_id];
+  responseBody.user = users._id;
   const requestOptions = {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
+    body: JSON.stringify(responseBody),
   };
   console.log('DELETE to /rooms with payload:');
-  console.log(payload);
-  // await do request. If succeessfull:
-  const newRooms = rooms.filter((room) => room._id !== _id);
-  setRooms(newRooms);
-  const newMatchingRooms = matchingRooms.filter((room) => room._id !== _id);
-  setMatchingRooms(newMatchingRooms);
+  console.log({ responseBody });
+  // await request. If succeessfull:
+  // refetch room
 };
 
+const resetAdminPage = (setFilter, setShowModal) => {
+  setFilter('');
+  setShowModal(false);
+};
 export const newRoomSubmitHandler = (
   e,
   newRoomId,
@@ -122,7 +120,8 @@ export const newRoomSubmitHandler = (
   setFilter,
   setShowModal,
   setRooms,
-  rooms
+  rooms,
+  users
 ) => {
   e.preventDefault();
   const newRoom = [
@@ -132,19 +131,10 @@ export const newRoomSubmitHandler = (
       floor: newRoomFloor,
     },
   ];
-  setFilter('');
-  setShowModal(false);
-  console.log('Send POST to /rooms with body:');
-  console.log(JSON.stringify(newRoom));
-  //Need to get back _id and do
-  const newRoomWith_id = newRoom;
-  newRoomWith_id._id = '_id'; //response _id
-  setRooms([...rooms, newRoomWith_id]);
-  // Maybe redirect/refetch all rooms is easier.
-};
-
-export const testFunction = (room, room2) => {
-  console.log({ room });
-  console.log({ room2 });
-  console.log(room._id === room2._id);
+  const responseBody = {};
+  responseBody.user = users._id;
+  responseBody.rooms = newRoom;
+  console.log({ responseBody });
+  //Get back 200 code, refetch rooms
+  resetAdminPage(setFilter, setShowModal);
 };

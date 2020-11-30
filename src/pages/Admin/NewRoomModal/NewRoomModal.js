@@ -5,7 +5,7 @@ import { newRoomSubmitHandler } from '../helpers';
 Modal.setAppElement('#root');
 
 const NewRoomModal = (props) => {
-  const { showModal, setShowModal, setFilter, rooms, setRooms } = props;
+  const { showModal, setShowModal, setFilter, rooms, setRooms, users } = props;
   const [newRoomId, setNewRoomId] = useState('');
   const [newRoomName, setNewRoomName] = useState('');
   const [newRoomFloor, setNewRoomFloor] = useState('');
@@ -24,7 +24,8 @@ const NewRoomModal = (props) => {
               setFilter,
               setShowModal,
               setRooms,
-              rooms
+              rooms,
+              users
             )
           }
         >

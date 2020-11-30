@@ -6,14 +6,15 @@ import removeCircleDark from '../../../Assets/Icons/remove_circle_24px_outlined.
 import addCircleLight from '../../../Assets/Icons/add_circle_outline_24px_outlined.svg';
 import removeCircleLight from '../../../Assets/Icons/remove_circle_outline_24px_outlined.svg';
 
-const RoomSelect = props => {
+const RoomSelect = (props) => {
   const { setRooms, rooms } = useContext(appContext);
   const { roomId, name, checked, floor } = props.room;
 
   const checkHandler = () => {
-    const newArr = rooms.map(room => {
+    const newArr = rooms.map((room) => {
       if (room.roomId === roomId) {
         return {
+          _id: room._id,
           roomId: room.roomId,
           name: room.name,
           checked: !room.checked,
@@ -30,16 +31,16 @@ const RoomSelect = props => {
     <div
       onClick={checkHandler}
       chosen={checked.toString()}
-      className='room-select'
+      className="room-select"
     >
-      <div className='paragraph'>{roomId} </div>
-      <div className='paragraph'>{name} </div>
-      <div className='paragraph'>Floor: {floor} </div>
-      <div className='status_symbol'>
-        <img className='add_circle' alt='add' src={addCircleLight}></img>
+      <div className="paragraph">{roomId} </div>
+      <div className="paragraph">{name} </div>
+      <div className="paragraph">Floor: {floor} </div>
+      <div className="status_symbol">
+        <img className="add_circle" alt="add" src={addCircleLight}></img>
         <img
-          className='remove_circle'
-          alt='remove'
+          className="remove_circle"
+          alt="remove"
           src={removeCircleLight}
         ></img>
       </div>

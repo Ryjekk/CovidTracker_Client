@@ -21,6 +21,7 @@ const Admin = () => {
         setFilter={setFilter}
         rooms={rooms}
         setRooms={setRooms}
+        users={users}
       ></NewRoomModal>
       <h1>ADMIN</h1>
       <button className="primary_btn_white" onClick={() => setShowModal(true)}>
@@ -52,6 +53,7 @@ const Admin = () => {
                     room={room}
                     rooms={rooms}
                     setRooms={setRooms}
+                    users={users}
                   ></AdminSelect>
                 </div>
               );
