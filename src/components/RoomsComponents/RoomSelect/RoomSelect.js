@@ -14,6 +14,7 @@ const RoomSelect = (props) => {
     const newArr = rooms.map((room) => {
       if (room.roomId === roomId) {
         return {
+          _id: room._id,
           roomId: room.roomId,
           name: room.name,
           checked: !room.checked,
