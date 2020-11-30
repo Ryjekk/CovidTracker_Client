@@ -1,3 +1,7 @@
+import { submitChanges } from './remote.js';
+import { getAllRooms as reFetch } from '../../Remote/remote';
+import { addRooms, deleteRooms } from './remote.js';
+
 export const filterCheck = (room, filter) => {
   const patternString = '.*' + filter + '.*';
   const pattern = new RegExp(patternString, 'gi');
@@ -64,7 +68,6 @@ export const confirmClickHandler = (
 };
 
 const createRoomObject = (room) => {
-  // Might add userId to show who edited the room.
   return {
     _id: room._id,
     roomId: room.roomId,
@@ -73,46 +76,49 @@ const createRoomObject = (room) => {
   };
 };
 
-export const submitHandler = (e, matchingRooms, users, setFilter) => {
+export const submitHandler = async (
+  e,
+  matchingRooms,
+  users,
+  setFilter,
+  setRooms
+) => {
   e.preventDefault();
-  setFilter('');
   const changedRooms = matchingRooms.filter((room) => room.edited === 'true');
   const responseBody = {};
   responseBody.user = users._id;
   responseBody.rooms = changedRooms.map((room) => {
-    return createRoomObject(room, users);
+    return createRoomObject(room);
   });
-  const requestOptions = {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(responseBody),
-  };
-  console.log('Send PUT to /rooms with body:');
-  console.log({ responseBody });
+  const responseCode = await submitChanges(responseBody, users);
+  if (responseCode === 200) {
+    setFilter('');
+    reFetch(setRooms);
+  }
 };
 
-export const deleteRoomHandler = (_id, rooms, users, setShowModal) => {
+export const deleteRoomHandler = async (
+  _id,
+  rooms,
+  users,
+  setShowModal,
+  setRooms
+) => {
   setShowModal(false);
-  console.log({ rooms });
   const responseBody = {};
   responseBody.rooms = [_id];
   responseBody.user = users._id;
-  const requestOptions = {
-    method: 'DELETE',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(responseBody),
-  };
-  console.log('DELETE to /rooms with payload:');
-  console.log({ responseBody });
-  // await request. If succeessfull:
-  // refetch room
+  const responseCode = await deleteRooms(responseBody, users);
+  if (responseCode === 200) {
+    reFetch(setRooms);
+  }
 };
 
 const resetAdminPage = (setFilter, setShowModal) => {
   setFilter('');
   setShowModal(false);
 };
-export const newRoomSubmitHandler = (
+export const newRoomSubmitHandler = async (
   e,
   newRoomId,
   newRoomName,
@@ -124,17 +130,18 @@ export const newRoomSubmitHandler = (
   users
 ) => {
   e.preventDefault();
-  const newRoom = [
+  const responseBody = {};
+  responseBody.rooms = [
     {
       roomId: newRoomId,
       name: newRoomName,
       floor: newRoomFloor,
     },
   ];
-  const responseBody = {};
   responseBody.user = users._id;
-  responseBody.rooms = newRoom;
-  console.log({ responseBody });
-  //Get back 200 code, refetch rooms
-  resetAdminPage(setFilter, setShowModal);
+  const responseCode = await addRooms(responseBody, users);
+  if (responseCode === 200) {
+    reFetch(setRooms);
+    resetAdminPage(setFilter, setShowModal);
+  }
 };

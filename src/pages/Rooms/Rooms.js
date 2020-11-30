@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { appContext } from '../../App';
 import './Rooms.css';
-import { getAllRooms, getCheckedRooms, submitHandler } from './helpers';
+import { getRooms, getCheckedRooms, submitHandler } from './helpers';
 
 const Rooms = () => {
   const { rooms, setRooms, filter, setFilter, users } = useContext(appContext);
@@ -22,7 +22,7 @@ const Rooms = () => {
             <button>Use QR-Code</button>
           </label>
           <div className="heading_small">All Rooms</div>
-          {getAllRooms(rooms, setRooms, filter)}
+          {getRooms(rooms, setRooms, filter)}
           <div className="primary_btn_black">
             <input
               type="submit"
