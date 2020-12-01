@@ -2,8 +2,12 @@ import React, { useState, useContext, createContext } from 'react';
 import './Dashboard.css';
 import Header from '../../Components/Header/Header';
 import { appContext } from '../../App';
+<<<<<<< HEAD
 import Calendar from 'react-calendar';
 import ReactModal from 'react-modal';
+=======
+const remote = require('../../Remote/remote');
+>>>>>>> febae88061afb51774e38f7efff8512ddcc234e7
 const axios = require('axios');
 const serverUrl = 'http://localhost:8080/api/';
 const qs = require('querystring');
