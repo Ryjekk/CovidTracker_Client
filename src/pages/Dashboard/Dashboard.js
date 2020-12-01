@@ -4,7 +4,6 @@ import Header from '../../Components/Header/Header';
 import { appContext } from '../../App';
 import Calendar from 'react-calendar';
 import ReactModal from 'react-modal';
-import { callbackify } from 'util';
 
 const axios = require('axios');
 const serverUrl = 'http://localhost:8080/api/';
@@ -21,7 +20,6 @@ const Dashboard = () => {
       left: '50%',
       right: 'auto',
       bottom: 'auto',
-
       transform: 'translate(-50%, -50%)',
     },
   };
