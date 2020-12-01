@@ -1,5 +1,7 @@
 .room-select {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .room-select[chosen='true'] {
@@ -12,4 +14,9 @@
 
 .room-select[chosen='false'] .remove_circle {
   display: none;
+}
+
+.floor {
+  font-size: 1.4rem;
+  color: #737373;
 }

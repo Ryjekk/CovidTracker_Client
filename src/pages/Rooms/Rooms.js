@@ -9,36 +9,43 @@ const Rooms = () => {
     appContext
   );
   return (
-    <div className='rooms'>
-      <div className='option_box'>
-        <form
-          onSubmit={e =>
-            submitHandler(e, rooms, setRooms, users, setFilter, setUser)
-          }
-        >
-          <label className='search_rooms'>
-            <p className='paragraph'>Search:</p>
+    <>
+      <Header/>
+      <div className='rooms'>
+        <div>
+          <h3 className='heading_medium'>Submit Room</h3>
+        </div>
+        {/*<div className='wrapper_rooms'>*/}
+          <form
+            onSubmit={e =>
+              submitHandler(e, rooms, setRooms, users, setFilter, setUser)
+            }
+          >
             <input
-              className='input_field'
+              className='inputs_main'
               type='text'
+              placeholder='Search Room'
               onChange={e => setFilter(e.target.value)}
               value={filter}
             />
-            <button>Use QR-Code</button>
-          </label>
-          <div className='heading_small'>All Rooms</div>
-          {getRooms(rooms, setRooms, filter)}
-          <div className='primary_btn_black'>
-            <input
-              type='submit'
-              value={`Submit ${
-                rooms.filter(room => room.checked).length
-              } rooms`}
-            ></input>
-          </div>
-        </form>
-      </div>
-    </div>
+            <div className='heading_small margin_room_text'>Previous Rooms</div>
+            {getRooms(rooms, setRooms, filter)}
+            <div className="btn_wrapper_center">
+              <input
+                  type='submit'
+                  className="primary_btn_black btn_medium"
+                  value={`Submit ${
+                      rooms.filter(room => room.checked).length
+                  } rooms`}
+              ></input>
+            </div>
+           </form>
+          <p className='registerNow_text'>
+            Use <a href='/reader'>QR-Code</a>
+          </p>
+        </div>
+      {/*</div>*/}
+    </>
   );
 };
 
