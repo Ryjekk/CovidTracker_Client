@@ -1,4 +1,4 @@
-.rooms {
+.rooms, .admin {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -8,7 +8,7 @@
   padding: 5rem 3rem;
 }
 
-.margin_room_text {
+.margin_room_text, .margin_admin_text {
   margin: 2rem 0;
 }
 
@@ -16,8 +16,24 @@
   width: 400px;
 }
 
+.btn_small {
+  min-width: 15rem;
+  margin: 2rem 2rem;
+}
+
 .btn_wrapper_center {
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
+}
+
+.ReactModal__Content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper_new_room {
+  max-width: 60rem;
 }

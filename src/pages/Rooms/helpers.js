@@ -24,7 +24,7 @@ export const getRooms = (rooms, setRooms, filter) => {
             rooms={rooms}
             setRooms={setRooms}
             room={room}
-          ></RoomSelect>
+          />
         </div>
       );
     });

@@ -15,7 +15,6 @@ const Rooms = () => {
         <div>
           <h3 className='heading_medium'>Submit Room</h3>
         </div>
-        {/*<div className='wrapper_rooms'>*/}
           <form
             onSubmit={e =>
               submitHandler(e, rooms, setRooms, users, setFilter, setUser)
@@ -32,19 +31,18 @@ const Rooms = () => {
             {getRooms(rooms, setRooms, filter)}
             <div className="btn_wrapper_center">
               <input
-                  type='submit'
-                  className="primary_btn_black btn_medium"
-                  value={`Submit ${
-                      rooms.filter(room => room.checked).length
-                  } rooms`}
-              ></input>
+              type='submit'
+              className="primary_btn_black btn_medium"
+              value={`Submit ${
+                  rooms.filter(room => room.checked).length
+              } rooms`}
+              />
             </div>
            </form>
           <p className='registerNow_text'>
             Use <a href='/reader'>QR-Code</a>
           </p>
         </div>
-      {/*</div>*/}
     </>
   );
 };
