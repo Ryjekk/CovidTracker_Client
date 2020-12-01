@@ -1,7 +1,8 @@
 import React, { useState, useContext, createContext } from 'react';
 import './Dashboard.css';
+import Header from "../../Components/Header/Header";
 import { appContext } from '../../App';
-const remote = require('../../Remote/remote');
+const remote = require('../../remote/remote');
 const axios = require('axios');
 const serverUrl = 'http://localhost:8080/api/';
 const qs = require('querystring');
@@ -30,6 +31,7 @@ const Dashboard = () => {
   };
 
   return (
+
     <div className='dashboard'>
       <h1> Dashboard </h1>
       <button onClick={registerPositiveTest} className='primary_btn_black'>
@@ -51,6 +53,7 @@ const Dashboard = () => {
           .map((visit, index) => {
             return (
               <div key={index}>
+
                 <h1>Some name</h1>
                 <p>RoomId: {visit._id}</p>
                 <p>Date:{visit.date}</p>
@@ -58,8 +61,9 @@ const Dashboard = () => {
               </div>
             );
           })}
+
       </div>
-    </div>
+    </>
   );
 };
 

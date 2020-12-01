@@ -2,12 +2,14 @@ import React, { useContext } from 'react';
 import { appContext } from '../../App';
 import './Rooms.css';
 import { getRooms, getCheckedRooms, submitHandler } from './helpers';
+import Header from "../../Components/Header/Header";
 
 const Rooms = () => {
   const { rooms, setRooms, filter, setFilter, users, setUser } = useContext(
     appContext
   );
   return (
+
     <div className='rooms'>
       <div className='option_box'>
         <form
@@ -34,10 +36,10 @@ const Rooms = () => {
                 rooms.filter(room => room.checked).length
               } rooms`}
             ></input>
+
           </div>
-        </form>
-      </div>
-    </div>
+        </div>
+      </>
   );
 };
 

@@ -1,6 +1,8 @@
 import RoomSelect from '../../Components/RoomsComponents/RoomSelect/RoomSelect';
 import { addRoomsToUser } from './remote';
+
 import { getAllRooms as reFetch, getUserData } from '../../Remote/remote';
+
 
 const filterCheck = (room, filter) => {
   const patternString = '.*' + filter + '.*';

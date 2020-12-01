@@ -1,5 +1,11 @@
 .login, .register{
   padding: 10rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .heading_login {
@@ -31,4 +37,9 @@
 .registerNow_text > a {
   font-weight: bold;
   font-size: 1.5rem;
+}
+
+.registerNow_text {
+  border-top: 1px solid black;
+  padding-top: 1rem;
 }

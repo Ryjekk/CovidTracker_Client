@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import QR_form from "../QR_form";
-var QRCode = require('qrcode.react');
+import './style.css'
+const QRCode = require('qrcode.react');
+
 
 const QR_creator = () => {
   const [dataQR, setDataQR] = useState({});
@@ -10,16 +12,32 @@ const QR_creator = () => {
   console.log(dataQR)
 
   return (
-    <div style={{margin: '100px'}}>
+    <>
+      <div className='text_qr'>
+        <h3 className='heading_medium'>QR creator</h3>
+        <p>This is a Qr creator, it will help you to mark all interiors in your company</p>
+        <div>
+          Explanation:
+            <ul>
+              <li>
+                Value - should be name of the room
+              </li>
+              <li>
+                Error Level - should be set on L or M
+              </li>
+              <li>
+                Size of QR - size of image in pixels
+              </li>
+            </ul>
+        </div>
+      </div>
       <QR_form getValues={getValues}/>
       <QRCode
           value={dataQR.valueQR || 'test'}
           size={dataQR.sizeQR}
           level={dataQR.hashQR}
-          fgColor={dataQR.fgQR}
-          bgColor={dataQR.bgQR}
       />
-    </div>
+    </>
   );
 };
 
