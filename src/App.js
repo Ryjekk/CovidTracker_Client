@@ -71,7 +71,6 @@ function App() {
   useEffect(() => {
     localStorage.setItem('InfectionInspectionUser', JSON.stringify(users));
   }, [users]);
-
   return (
     <appContext.Provider
       value={{

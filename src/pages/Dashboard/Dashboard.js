@@ -56,7 +56,7 @@ const Dashboard = () => {
     if (roomsToBeDisplayed.length === 0) {
       return (
         <h1>
-          You did not visit any roooms on the date: {date.getDate() + 1}/
+          You did not visit any roooms on the date: {date.getDate()}/
           {date.getMonth() + 1}/{date.getFullYear()}
         </h1>
       );
@@ -66,11 +66,14 @@ const Dashboard = () => {
   };
 
   const makeJSXRooms = (visit, index) => {
+    const dateArr = visit.date.split('/');
+    const date = `${dateArr[0]}/${parseInt(dateArr[1]) + 1}/${dateArr[2]}`;
+
     return (
       <div key={index}>
         <h1>{visit.name}</h1>
         <p>RoomId: {visit._id}</p>
-        <p>Date:{visit.date}</p>
+        <p>Date: {date}</p>
         <p>Time: {visit.time}</p>
       </div>
     );
