@@ -4,6 +4,7 @@ import Header from '../../Components/Header/Header';
 import { appContext } from '../../App';
 import Calendar from 'react-calendar';
 import ReactModal from 'react-modal';
+const remote = require('../../Remote/remote');
 const axios = require('axios');
 const serverUrl = 'http://localhost:8080/api/';
 const qs = require('querystring');
