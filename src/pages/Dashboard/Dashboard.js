@@ -21,7 +21,7 @@ const Dashboard = () => {
       .then(() => {
         setNotified(true);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
@@ -31,18 +31,18 @@ const Dashboard = () => {
   };
 
   return (
-    <div className='dashboard'>
+    <div className="dashboard">
       <h1> Dashboard </h1>
-      <button onClick={registerPositiveTest} className='primary_btn_black'>
+      <button onClick={registerPositiveTest} className="primary_btn_black">
         Register Positive Covid test
       </button>
       {notified && (
         <p>People you have been in contact with are now being warned!</p>
       )}
-      <div className='room-container'>
+      <div className="room-container">
         <h1>These are the rooms you have visited:</h1>
         {users.visits
-          .filter(visit => {
+          .filter((visit) => {
             console.log(visit.date);
             return (
               visit.date ===
