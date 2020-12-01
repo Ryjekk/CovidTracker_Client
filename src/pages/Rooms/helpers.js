@@ -1,6 +1,9 @@
 import RoomSelect from '../../Components/RoomsComponents/RoomSelect/RoomSelect';
 import { addRoomsToUser } from './remote';
-import { getAllRooms as reFetch } from '../../remote/remote';
+
+import { getAllRooms as reFetch, getUserData } from '../../Remote/remote';
+
+
 const filterCheck = (room, filter) => {
   const patternString = '.*' + filter + '.*';
   const pattern = new RegExp(patternString, 'gi');
@@ -12,10 +15,10 @@ const filterCheck = (room, filter) => {
 
 export const getRooms = (rooms, setRooms, filter) => {
   const allRooms = rooms
-    .filter((el) => filterCheck(el, filter))
-    .map((room) => {
+    .filter(el => filterCheck(el, filter))
+    .map(room => {
       return (
-        <div key={room.roomId} className="option">
+        <div key={room.roomId} className='option'>
           <RoomSelect
             key={room.roomId}
             rooms={rooms}
@@ -44,18 +47,27 @@ const createUserObject = (room, users) => {
 //   rooms: [{ _id: 'room_id', date: 'something', time: 'something' }],
 // };
 
-export const submitHandler = async (e, rooms, setRooms, users, setFilter) => {
+export const submitHandler = async (
+  e,
+  rooms,
+  setRooms,
+  users,
+  setFilter,
+  setUser
+) => {
   e.preventDefault();
 
-  const checkedRooms = rooms.filter((room) => room.checked);
+  const checkedRooms = rooms.filter(room => room.checked);
   const responseBody = {};
   responseBody._id = users._id;
-  responseBody.rooms = checkedRooms.map((room) => {
+  responseBody.rooms = checkedRooms.map(room => {
     return createUserObject(room, users);
   });
   const responseCode = await addRoomsToUser(responseBody, users);
   if (responseCode === 200) {
     setFilter('');
     reFetch(setRooms);
+    console.log(users.accessToken, 'inside submithandler');
+    getUserData(users.accessToken, users._id, setUser);
   }
 };
