@@ -1,5 +1,5 @@
 import { submitChanges } from './remote.js';
-import { getAllRooms as reFetch } from '../../remote/remote';
+import { getAllRooms as reFetch } from '../../Remote/remote';
 import { addRooms, deleteRooms } from './remote.js';
 
 export const filterCheck = (room, filter) => {
@@ -11,8 +11,8 @@ export const filterCheck = (room, filter) => {
   return false;
 };
 
-export const createMatchingRooms = (rooms) => {
-  const newRooms = rooms.map((room) => {
+export const createMatchingRooms = rooms => {
+  const newRooms = rooms.map(room => {
     return {
       _id: room._id,
       roomId: room.roomId,
@@ -27,7 +27,7 @@ export const createMatchingRooms = (rooms) => {
 
 export const editClickHandler = (roomId, matchingRooms, setMatchingRooms) => {
   const newRooms = matchingRooms;
-  const roomToEdit = newRooms.find((room) => room.roomId === roomId);
+  const roomToEdit = newRooms.find(room => room.roomId === roomId);
   roomToEdit.contentEditable =
     roomToEdit.contentEditable === 'false' ? 'true' : 'false';
   setMatchingRooms([...newRooms]);
@@ -44,8 +44,8 @@ export const confirmClickHandler = (
   setMatchingRooms
 ) => {
   const newRooms = matchingRooms;
-  const roomToEdit = newRooms.find((room) => room.roomId === roomId);
-  const originalRoom = rooms.find((room) => room._id === _id);
+  const roomToEdit = newRooms.find(room => room.roomId === roomId);
+  const originalRoom = rooms.find(room => room._id === _id);
 
   if (
     originalRoom.roomId !== thisId ||
@@ -67,7 +67,7 @@ export const confirmClickHandler = (
   setMatchingRooms([...newRooms]);
 };
 
-const createRoomObject = (room) => {
+const createRoomObject = room => {
   return {
     _id: room._id,
     roomId: room.roomId,
@@ -84,10 +84,10 @@ export const submitHandler = async (
   setRooms
 ) => {
   e.preventDefault();
-  const changedRooms = matchingRooms.filter((room) => room.edited === 'true');
+  const changedRooms = matchingRooms.filter(room => room.edited === 'true');
   const responseBody = {};
   responseBody.user = users._id;
-  responseBody.rooms = changedRooms.map((room) => {
+  responseBody.rooms = changedRooms.map(room => {
     return createRoomObject(room);
   });
   const responseCode = await submitChanges(responseBody, users);

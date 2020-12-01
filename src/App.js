@@ -1,6 +1,11 @@
 import './App.css';
 import { createContext, useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
 // import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import Admin from './Pages/Admin/Admin';
@@ -11,14 +16,14 @@ import Home from './Pages/Home/Home';
 import Privacy from './Pages/Privacy/Privacy';
 import Profile from './Pages/Profile/Profile';
 import Register from './Pages/Register/Register';
-import RegisterAdmin from "./Pages/RegisterAdmin";
+import RegisterAdmin from './Pages/RegisterAdmin';
 import Rooms from './Pages/Rooms/Rooms';
 // import XDevNav from './Components/XDevNav/XDevNav';
 import QRcreator from './Pages/QRcreator';
 import QRreader from './Pages/QRreader';
-import NotFound from "./Pages/NotFound";
+import NotFound from './Pages/NotFound';
 import RetrievePassword from './Pages/RetrievePassword/RetrievePassword';
-const remote = require('./remote/remote');
+const remote = require('./Remote/remote');
 // import Main from './components/Main/Main';
 
 export const appContext = createContext();
@@ -81,29 +86,29 @@ function App() {
       }}
     >
       <Router>
-        <div className="App">
+        <div className='App'>
           {/*<Header></Header>*/}
-          <div className="main">
+          <div className='main'>
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/dashboard" component={Dashboard} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/rooms" component={Rooms} />
-              <Route exact path="/privacy" component={Privacy} />
-              <Route exact path="/business" component={Business} />
-              <Route exact path="/profile" component={Profile} />
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/registerAdmin" component={RegisterAdmin} />
+              <Route exact path='/' component={Home} />
+              <Route exact path='/dashboard' component={Dashboard} />
+              <Route exact path='/login' component={Login} />
+              <Route exact path='/rooms' component={Rooms} />
+              <Route exact path='/privacy' component={Privacy} />
+              <Route exact path='/business' component={Business} />
+              <Route exact path='/profile' component={Profile} />
+              <Route exact path='/register' component={Register} />
+              <Route exact path='/registerAdmin' component={RegisterAdmin} />
               <Route
                 exact
                 path='/retrievepassword'
                 component={RetrievePassword}
               />
-              <Route exact path="/admin" component={Admin} />
-              <Route exact path="/creator" component={QRcreator} />
-              <Route exact path="/reader" component={QRreader} />
-              <Route path="/404" component={NotFound} />
-              <Redirect to="/404" />
+              <Route exact path='/admin' component={Admin} />
+              <Route exact path='/creator' component={QRcreator} />
+              <Route exact path='/reader' component={QRreader} />
+              <Route path='/404' component={NotFound} />
+              <Redirect to='/404' />
             </Switch>
           </div>
           {/* <Main></Main> */}
