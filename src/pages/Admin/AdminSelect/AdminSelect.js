@@ -32,42 +32,43 @@ const AdminSelect = (props) => {
   const componentRef = useRef();
 
   return (
-    <div className="admin-select" id={_id}>
+    <div className="option_main admin-select" id={_id}>
       <div
         suppressContentEditableWarning={true}
         onInput={(e) => setThisId(e.target.innerText)}
         className="paragraph"
         contentEditable={contentEditable}
       >
-        {roomId}
+        <strong>ID:</strong>{roomId}
       </div>
-      <div
-        suppressContentEditableWarning={true}
-        onInput={(e) => setThisName(e.target.innerText)}
-        className="paragraph"
-        contentEditable={contentEditable}
-      >
-        {name}
-      </div>
-      <div className="paragraph">Floor:</div>
-      <div
-        suppressContentEditableWarning={true}
-        onInput={(e) => setThisFloor(e.target.innerText)}
-        className="paragraph"
-        contentEditable={contentEditable}
-      >
-        {floor}
+      <div>
+        <div
+            suppressContentEditableWarning={true}
+            onInput={(e) => setThisName(e.target.innerText)}
+            className="paragraph"
+            contentEditable={contentEditable}
+        >
+          {name}
+        </div>
+        <div
+            suppressContentEditableWarning={true}
+            onInput={(e) => setThisFloor(e.target.innerText)}
+            className="paragraph floor"
+            contentEditable={contentEditable}
+        >
+          Floor: {floor}
+        </div>
       </div>
       <div className="status_symbol">
         <img
           onClick={(e) =>
-            editClickHandler(roomId, matchingRooms, setMatchingRooms)
+              editClickHandler(roomId, matchingRooms, setMatchingRooms)
           }
           className="edit_pencil"
           alt="edit"
           editable={contentEditable === 'true' ? 'true' : 'false'}
           src={pencil}
-        ></img>
+        />
         <img
           onClick={(e) =>
             confirmClickHandler(
@@ -85,14 +86,14 @@ const AdminSelect = (props) => {
           alt="check"
           editable={contentEditable === 'true' ? 'true' : 'false'}
           src={check}
-        ></img>
+        />
         <img
           className="remove_cross"
           onClick={() => setShowModal(true)}
           alt="remove"
           editable={contentEditable === 'true' ? 'true' : 'false'}
           src={cross}
-        ></img>
+        />
         <div>
           <ReactToPrint
             trigger={() => (

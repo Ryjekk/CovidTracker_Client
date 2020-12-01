@@ -2,7 +2,7 @@ import './Register.css';
 import React, { useState, useContext } from 'react';
 import { Redirect } from 'react-router';
 import { appContext } from '../../App';
-const remote = require('../../Remote/remote');
+const remote = require('../../remote/remote');
 
 const Register = () => {
   const [firstName, setFirstName] = useState('');

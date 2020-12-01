@@ -21,73 +21,71 @@ const Admin = () => {
 
   return (
     <>
-      <Header />
-      <div className="admin">
-        <NewRoomModal
-          showModal={showModal}
-          setShowModal={setShowModal}
-          setFilter={setFilter}
-          rooms={rooms}
-          setRooms={setRooms}
-          users={users}
-        ></NewRoomModal>
-        <h1>ADMIN</h1>
-        <button
-          className="primary_btn_white"
-          onClick={() => setShowModal(true)}
+    <Header/>
+    <div className="admin">
+      <NewRoomModal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        setFilter={setFilter}
+        rooms={rooms}
+        setRooms={setRooms}
+        users={users}
+        />
+      <h1 className='heading_medium'>Welcome to Admin page</h1>
+      <button className="primary_btn_white btn_margin_bottom" onClick={() => setShowModal(true)}>
+        Add Room
+      </button>
+      <div className="option_box">
+        <form
+          onSubmit={(e) =>
+            submitHandler(e, matchingRooms, users, setFilter, setRooms)
+          }
         >
-          Add Room
-        </button>
-        <div className="option_box">
-          <form
-            onSubmit={(e) =>
-              submitHandler(e, matchingRooms, users, setFilter, setRooms)
+        <input
+          className='inputs_main'
+          placeholder='Search Room'
+          type="text"
+          onChange={(e) => setFilter(e.target.value)}
+          value={filter}
+        />
+          <div className="heading_small margin_admin_text">All Rooms</div>
+          {matchingRooms.map((room) => {
+            if (filterCheck(room, filter)) {
+              return (
+                <div key={room.roomId} className="option">
+                  <AdminSelect
+                  key={room._id}
+                  matchingRooms={matchingRooms}
+                  setMatchingRooms={setMatchingRooms}
+                  room={room}
+                  rooms={rooms}
+                  setRooms={setRooms}
+                  users={users}
+                  />
+                </div>
+              );
             }
-          >
-            <label className="search_rooms">
-              <p className="paragraph">Search:</p>
-              <input
-                className="input_field"
-                type="text"
-                onChange={(e) => setFilter(e.target.value)}
-                value={filter}
-              />
-              <button>Use QR-Code</button>
-            </label>
-            <div className="heading_small">All Rooms</div>
-            {matchingRooms.map((room) => {
-              if (filterCheck(room, filter)) {
-                return (
-                  <div key={room.roomId} className="option">
-                    <AdminSelect
-                      key={room._id}
-                      matchingRooms={matchingRooms}
-                      setMatchingRooms={setMatchingRooms}
-                      room={room}
-                      rooms={rooms}
-                      setRooms={setRooms}
-                      users={users}
-                    ></AdminSelect>
-                  </div>
-                );
-              }
-            })}
-            <div className="primary_btn_black">
-              <input
-                type="submit"
-                value={`Submit ${
-                  matchingRooms.filter((room) => room.edited === 'true').length
-                } ${
-                  matchingRooms.filter((room) => room.edited === 'true')
-                    .length === 1
-                    ? 'change'
-                    : 'changes'
-                }`}
-              ></input>
-            </div>
-          </form>
-        </div>
+          })}
+          <div className="btn_wrapper_center">
+            <input
+            className="primary_btn_black btn_medium"
+            type="submit"
+            value={`Submit ${
+                matchingRooms.filter((room) => room.edited === 'true').length
+            } ${
+              matchingRooms.filter((room) => room.edited === 'true')
+                .length === 1
+                ? 'change'
+                : 'changes'
+            }`}
+            />
+          </div>
+        </form>
       </div>
+      <p className='registerNow_text'>
+        Use <a href='/reader'>QR-Code</a>
+      </p>
+    </div>
     </>
   );
 };

@@ -1,5 +1,7 @@
 .admin-select {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .status_symbol {
