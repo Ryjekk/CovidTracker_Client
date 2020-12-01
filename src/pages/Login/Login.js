@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import './Login.css';
 import { appContext } from '../../App';
 import { Redirect } from 'react-router';
-const remote = require('../../Remote/remote');
+const remote = require('../../remote/remote');
 
 const Login = props => {
   const [email, setEmail] = useState();

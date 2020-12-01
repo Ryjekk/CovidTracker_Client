@@ -1,7 +1,7 @@
 import RoomSelect from '../../Components/RoomsComponents/RoomSelect/RoomSelect';
 import { addRoomsToUser } from './remote';
 
-import { getAllRooms as reFetch, getUserData } from '../../Remote/remote';
+import { getAllRooms as reFetch, getUserData } from '../../remote/remote';
 
 
 const filterCheck = (room, filter) => {
