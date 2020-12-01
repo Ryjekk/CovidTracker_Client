@@ -19,7 +19,7 @@ const Login = props => {
   };
 
   if (loggedIn) {
-    return <Redirect to='/profile' />;
+    return <Redirect to='/rooms' />;
   }
 
   return (

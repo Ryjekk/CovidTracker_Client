@@ -25,6 +25,10 @@ const Dashboard = () => {
       });
   };
 
+  const roomListMaker = (date, users) => {
+    //logic here
+  };
+
   return (
     <div className='dashboard'>
       <h1> Dashboard </h1>
@@ -36,16 +40,24 @@ const Dashboard = () => {
       )}
       <div className='room-container'>
         <h1>These are the rooms you have visited:</h1>
-        {users.visits.map(visit => {
-          return (
-            <div>
-              <h1>Some name</h1>
-              <p>RoomId: {visit._id}</p>
-              <p>Date:{visit.date}</p>
-              <p>Time: {visit.time}</p>
-            </div>
-          );
-        })}
+        {users.visits
+          .filter(visit => {
+            console.log(visit.date);
+            return (
+              visit.date ===
+              `${new Date().getDate()}/${new Date().getMonth()}/${new Date().getFullYear()}`
+            );
+          })
+          .map((visit, index) => {
+            return (
+              <div key={index}>
+                <h1>Some name</h1>
+                <p>RoomId: {visit._id}</p>
+                <p>Date:{visit.date}</p>
+                <p>Time: {visit.time}</p>
+              </div>
+            );
+          })}
       </div>
     </div>
   );
