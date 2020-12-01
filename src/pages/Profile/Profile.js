@@ -2,14 +2,14 @@ import React, { useContext, useState } from 'react';
 import './Profile.css';
 import { appContext } from '../../App';
 import ReactModal from 'react-modal';
-import Header from "../../Components/Header/Header";
+import Header from '../../Components/Header/Header';
 
 const Profile = () => {
   const { users, rooms } = useContext(appContext);
   const [modalOpen, setModal] = useState(false);
   return (
     <>
-      <Header/>
+      <Header />
       <section className='profile'>
         <h1> Welcome {users.firstName} </h1>
         <article>
@@ -17,11 +17,11 @@ const Profile = () => {
             <p>
               Name: {users.firstName} {users.lastName}
             </p>
-            <p>Click to edit</p>
+            <button className='primary_btn_black'>Click to edit rooms</button>
           </div>
           <div>
             <p>Email: {users.email}</p>
-            <p>Click to edit</p>
+            <button className='primary_btn_black'>Click to edit rooms</button>
           </div>
           <div>
             <ReactModal isOpen={false}>
@@ -37,10 +37,18 @@ const Profile = () => {
                   <button>Remove</button>
                 </p>
               ))}
-            <p>Click to edit</p>
+            <button className='primary_btn_black'>Click to edit rooms</button>
           </div>
         </article>
-        <a href='/'>Click here to change details</a>
+        <article>
+          {users.inRisk ? (
+            <h1>
+              You have recently been in contact with an infected. Go quarantine
+            </h1>
+          ) : (
+            <h1>You have no recent corona contacts!</h1>
+          )}
+        </article>
       </section>
     </>
   );
