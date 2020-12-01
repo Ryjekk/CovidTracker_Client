@@ -40,11 +40,6 @@ const createUserObject = (room, users) => {
   };
 };
 
-// const format = {
-//   _id: 'userId',
-//   rooms: [{ _id: 'room_id', date: 'something', time: 'something' }],
-// };
-
 export const submitHandler = async (
   e,
   rooms,
