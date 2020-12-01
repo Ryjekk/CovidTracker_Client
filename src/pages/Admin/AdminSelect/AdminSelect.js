@@ -95,7 +95,9 @@ const AdminSelect = (props) => {
         ></img>
         <div>
           <ReactToPrint
-            trigger={() => <img src={print} alt="print"></img>}
+            trigger={() => (
+              <img className="printer_img" src={print} alt="print"></img>
+            )}
             content={() => componentRef.current}
           />
           <div className="qr_admin">
