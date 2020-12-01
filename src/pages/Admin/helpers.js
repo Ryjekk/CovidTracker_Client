@@ -1,5 +1,5 @@
 import { submitChanges } from './remote.js';
-import { getAllRooms as reFetch } from '../../remote/remote';
+import { getAllRooms as reFetch } from '../../Remote/remote';
 import { addRooms, deleteRooms } from './remote.js';
 
 export const filterCheck = (room, filter) => {

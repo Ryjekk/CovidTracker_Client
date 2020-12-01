@@ -23,7 +23,7 @@ import QRcreator from './Pages/QRcreator';
 import QRreader from './Pages/QRreader';
 import NotFound from './Pages/NotFound';
 import RetrievePassword from './Pages/RetrievePassword/RetrievePassword';
-const remote = require('./remote/remote');
+const remote = require('./Remote/remote');
 // import Main from './components/Main/Main';
 
 export const appContext = createContext();
