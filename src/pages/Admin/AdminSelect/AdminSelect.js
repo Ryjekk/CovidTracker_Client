@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Modal from 'react-modal';
+import ReactToPrint from 'react-to-print';
 import './AdminSelect.css';
 import pencil from '../../../Assets/Icons/mode_24px_outlined.svg';
 import cross from '../../../Assets/Icons/clear_24px_outlined.svg';
 import check from '../../../Assets/Icons/check_24px_outlined.svg';
+import print from '../../../Assets/Icons/print_24px_outlined.svg';
 import {
   editClickHandler,
   confirmClickHandler,
   deleteRoomHandler,
 } from '../helpers';
+
+import ComponentToPrint from '../ComponentToPrint/ComponentToPrint';
 
 Modal.setAppElement('#root');
 const AdminSelect = (props) => {
@@ -25,6 +29,8 @@ const AdminSelect = (props) => {
   const [thisName, setThisName] = useState(name);
   const [thisFloor, setThisFloor] = useState(floor);
   const [showModal, setShowModal] = useState(false);
+  const componentRef = useRef();
+
   return (
     <div className="option_main admin-select" id={_id}>
       <div
@@ -88,6 +94,23 @@ const AdminSelect = (props) => {
           editable={contentEditable === 'true' ? 'true' : 'false'}
           src={cross}
         />
+        <div>
+          <ReactToPrint
+            trigger={() => (
+              <img className="printer_img" src={print} alt="print"></img>
+            )}
+            content={() => componentRef.current}
+          />
+          <div className="qr_admin">
+            <ComponentToPrint
+              _id={_id}
+              roomId={roomId}
+              name={name}
+              floor={floor}
+              ref={componentRef}
+            />
+          </div>
+        </div>
         <Modal isOpen={showModal} onRequestClose={() => setShowModal(false)}>
           <div className="heading_small">
             Are you sure you want to delete this room?

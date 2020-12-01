@@ -1,8 +1,6 @@
 import RoomSelect from '../../Components/RoomsComponents/RoomSelect/RoomSelect';
 import { addRoomsToUser } from './remote';
-
-import { getAllRooms as reFetch, getUserData } from '../../remote/remote';
-
+import { getAllRooms as reFetch, getUserData } from '../../Remote/remote';
 
 const filterCheck = (room, filter) => {
   const patternString = '.*' + filter + '.*';
@@ -15,8 +13,8 @@ const filterCheck = (room, filter) => {
 
 export const getRooms = (rooms, setRooms, filter) => {
   const allRooms = rooms
-    .filter(el => filterCheck(el, filter))
-    .map(room => {
+    .filter((el) => filterCheck(el, filter))
+    .map((room) => {
       return (
         <div key={room.roomId} className='option_main'>
           <RoomSelect
@@ -57,10 +55,10 @@ export const submitHandler = async (
 ) => {
   e.preventDefault();
 
-  const checkedRooms = rooms.filter(room => room.checked);
+  const checkedRooms = rooms.filter((room) => room.checked);
   const responseBody = {};
   responseBody._id = users._id;
-  responseBody.rooms = checkedRooms.map(room => {
+  responseBody.rooms = checkedRooms.map((room) => {
     return createUserObject(room, users);
   });
   const responseCode = await addRoomsToUser(responseBody, users);

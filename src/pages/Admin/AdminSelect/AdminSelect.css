@@ -39,3 +39,13 @@
 .remove_cross:hover {
   transform: scale(1.2);
 }
+
+.printer_img:hover {
+  transform: scale(1.2);
+}
+
+.qr_admin {
+  display: none;
+  /* overflow: hidden;
+  height: 0; */
+}
