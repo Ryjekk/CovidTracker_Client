@@ -23,7 +23,7 @@ const Dashboard = () => {
       transform: 'translate(-50%, -50%)',
     },
   };
-
+  console.log(rooms);
   const registerPositiveTest = () => {
     axios
       .put(
