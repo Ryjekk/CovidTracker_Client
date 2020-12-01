@@ -31,8 +31,6 @@ const getUserData = (accessToken, id, cb) => {
       },
     })
     .then(res => {
-      console.log(accessToken, id);
-      console.log(res.data, 'inside getuserdata');
       cb(res.data[0]);
     });
 };
