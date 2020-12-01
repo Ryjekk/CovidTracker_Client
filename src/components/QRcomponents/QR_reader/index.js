@@ -33,15 +33,20 @@ const QR_reader = () => {
   };
 
   return (
-    <div>
-      {redirect ? <Redirect to="/dashboard"></Redirect> : null}
+
+    <div className='wrapper_qr'>
+    {redirect ? <Redirect to="/dashboard"></Redirect> : null}
+      <div className='text_qr'>
+        <h3 className='heading_medium'>QR reader</h3>
+        <p>This is a Qr reader, it will allows you to scan QR code inside your company</p>
+      </div>
       <QrReader
         delay={300}
         onError={handleError}
         onScan={handleScan}
         style={{ width: '100%' }}
       />
-      <p>{scanResult || scanError}</p>
+      <p className="heading_medium">{scanResult || scanError}</p>
     </div>
   );
 };

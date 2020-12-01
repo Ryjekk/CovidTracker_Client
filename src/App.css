@@ -2,7 +2,8 @@ body {
   margin: 0;
   font-family: 'Exo 2', sans-serif;
   overflow-x: hidden;
-  background-color: #F3F3F3;
+  /*background-color: #F3F3F3;*/
+  background-color: #FFFFff;
   font-size: 1.6rem;
 }
 
@@ -40,8 +41,25 @@ a {
 }
 
 .primary_btn_white {
+  text-align: center;
+  border: 1px solid #737373;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  min-width: 20rem;
+  color: black;
+  background-color: #fff;
 }
 
+.primary_btn_white:hover {
+  background-color: #272727;
+  color: white;
+  transition: .4s ease-out;
+}
+
+.btn_margin_bottom {
+  margin-bottom: 1.5rem;
+}
 
 .inputs_main, .inputs_qr {
   background-color: #e9e8e8;
@@ -53,13 +71,14 @@ a {
   width: 100%;
 }
 
-.input_field {
-}
-
-.option_box {
-}
-
-.option {
+.option_main {
+  background-color: rgb(245, 245, 245);
+  outline: none;
+  border: 0;
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 400px;
+  margin: .5rem auto;
 }
 
 .paragraph {

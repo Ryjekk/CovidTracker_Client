@@ -17,14 +17,14 @@ const RegisterAdmin = () => {
 
   const { setLoggedIn } = useContext(appContext);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     if (password !== repeatPassword) {
       return alert('Passwors does not match');
     }
     remote.register(
       { firstName, lastName, email, password, companyId, floor, role },
-      (res) => {
+      res => {
         console.log(res);
         setLoggedIn(false);
         setFormSent(true);
@@ -42,107 +42,107 @@ const RegisterAdmin = () => {
   };
 
   if (formSent) {
-    return <Redirect to="/login" />;
+    return <Redirect to='/login' />;
   }
 
   return (
-    <div className="register">
+    <div className='register'>
       <div>
-        <h1 className="heading_login">Add Admin</h1>
-        <p className="paragraph_login">Sign up new Admin here</p>
+        <h1 className='heading_login'>Add Admin</h1>
+        <p className='paragraph_login'>Sign up new Admin here</p>
       </div>
       <form onSubmit={handleSubmit}>
-        <div className="box_input">
+        <div className='box_input'>
           <input
-            id="first_name"
-            type="text"
-            placeholder="First name *"
-            className="inputs_main"
+            id='first_name'
+            type='text'
+            placeholder='First name *'
+            className='inputs_main'
             required
-            onChange={(e) => {
+            onChange={e => {
               setFirstName(e.target.value);
             }}
             value={firstName}
           />
           <input
-            id="last_name"
-            type="text"
-            placeholder="Last name *"
-            className="inputs_main"
+            id='last_name'
+            type='text'
+            placeholder='Last name *'
+            className='inputs_main'
             required
-            onChange={(e) => {
+            onChange={e => {
               setLastName(e.target.value);
             }}
             value={lastName}
           />
           <input
-            type="email"
-            id="email"
-            placeholder="Email *"
-            className="inputs_main"
+            type='email'
+            id='email'
+            placeholder='Email *'
+            className='inputs_main'
             required
-            onChange={(e) => {
+            onChange={e => {
               setEmail(e.target.value);
             }}
             value={email}
           />
           <input
-            id="password"
-            type="password"
-            placeholder="Password *"
-            className="inputs_main"
+            id='password'
+            type='password'
+            placeholder='Password *'
+            className='inputs_main'
             required
-            onChange={(e) => {
+            onChange={e => {
               setPassword(e.target.value);
             }}
             value={password}
           />
           <input
-            id="repeat_password"
-            type="password"
-            placeholder="Repeat Password *"
-            className="inputs_main"
+            id='repeat_password'
+            type='password'
+            placeholder='Repeat Password *'
+            className='inputs_main'
             required
-            onChange={(e) => {
+            onChange={e => {
               setRepeatPassword(e.target.value);
             }}
             value={repeatPassword}
           />
           <input
-            id="companyId"
-            type="text"
-            placeholder="Comapny Id *"
-            className="inputs_main"
+            id='companyId'
+            type='text'
+            placeholder='Comapny Id *'
+            className='inputs_main'
             required
-            onChange={(e) => {
+            onChange={e => {
               setCompanyId(e.target.value);
             }}
             value={companyId}
           />
           <input
-            id="floor"
-            type="text"
-            placeholder="Floor *"
-            className="inputs_main"
+            id='floor'
+            type='text'
+            placeholder='Floor *'
+            className='inputs_main'
             required
-            onChange={(e) => {
+            onChange={e => {
               setFloor(e.target.value);
             }}
             value={floor}
           />
           <input
-            id="role"
-            type="text"
-            placeholder="Role *"
-            className="inputs_main"
+            id='role'
+            type='text'
+            placeholder='Role *'
+            className='inputs_main'
             required
-            onChange={(e) => {
+            onChange={e => {
               setRole(e.target.value);
             }}
             value={'Admin'}
           />
         </div>
-        <button type="submit" className="primary_btn_black">
+        <button type='submit' className='primary_btn_black'>
           Submit
         </button>
       </form>

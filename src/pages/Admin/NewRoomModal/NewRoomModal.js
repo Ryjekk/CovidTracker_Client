@@ -11,60 +11,61 @@ const NewRoomModal = (props) => {
   const [newRoomFloor, setNewRoomFloor] = useState('');
 
   return (
-    <div className="new_room_modal">
       <Modal isOpen={showModal} onRequestClose={() => setShowModal(false)}>
-        <div className="heading_medium">Add new room</div>
-        <form
-          onSubmit={(e) =>
-            newRoomSubmitHandler(
-              e,
-              newRoomId,
-              newRoomName,
-              newRoomFloor,
-              setFilter,
-              setShowModal,
-              setRooms,
-              rooms,
-              users
-            )
-          }
-        >
-          <label>
-            Room Id:
-            <input
-              onChange={(e) => setNewRoomId(e.target.value)}
-              type="text"
-              name="roomId"
-            />
-          </label>
-          <label>
-            Room Name:
-            <input
-              onChange={(e) => setNewRoomName(e.target.value)}
-              type="text"
-              name="name"
-            />
-          </label>
-          <label>
-            Floor:
-            <input
-              onChange={(e) => setNewRoomFloor(e.target.value)}
-              type="text"
-              name="floor"
-            />
-          </label>
-          <button className="primary_btn_white" type="submit" value="Submit">
-            Submit
-          </button>
-        </form>
-        <button
-          className="primary_btn_white"
-          onClick={() => setShowModal(false)}
-        >
-          Close
-        </button>
+        <div className='wrapper_new_room'>
+          <h1 className="heading_medium">Add new room</h1>
+          <div className="option_box">
+            <form
+                onSubmit={(e) =>
+                    newRoomSubmitHandler(
+                        e,
+                        newRoomId,
+                        newRoomName,
+                        newRoomFloor,
+                        setFilter,
+                        setShowModal,
+                        setRooms,
+                        rooms,
+                        users
+                    )
+                }
+            >
+              <input
+                  onChange={(e) => setNewRoomId(e.target.value)}
+                  type="text"
+                  name="roomId"
+                  className='inputs_main'
+                  placeholder='Room ID'
+              />
+              <input
+                  onChange={(e) => setNewRoomName(e.target.value)}
+                  type="text"
+                  name="name"
+                  className='inputs_main'
+                  placeholder='Room Name'
+              />
+              <input
+                  onChange={(e) => setNewRoomFloor(e.target.value)}
+                  type="text"
+                  name="floor"
+                  className='inputs_main'
+                  placeholder='Floor'
+              />
+            </form>
+          </div>
+          <div className='btn_wrapper_center'>
+            <button className="primary_btn_white btn_small" type="submit" value="Submit">
+              Submit
+            </button>
+            <button
+                className="primary_btn_black btn_small"
+                onClick={() => setShowModal(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
       </Modal>
-    </div>
   );
 };
 
