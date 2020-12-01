@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Modal from 'react-modal';
+import ReactToPrint from 'react-to-print';
 import './AdminSelect.css';
 import pencil from '../../../Assets/Icons/mode_24px_outlined.svg';
 import cross from '../../../Assets/Icons/clear_24px_outlined.svg';
 import check from '../../../Assets/Icons/check_24px_outlined.svg';
+import print from '../../../Assets/Icons/print_24px_outlined.svg';
 import {
   editClickHandler,
   confirmClickHandler,
   deleteRoomHandler,
 } from '../helpers';
+
+import ComponentToPrint from '../ComponentToPrint/ComponentToPrint';
 
 Modal.setAppElement('#root');
 const AdminSelect = (props) => {
@@ -25,43 +29,46 @@ const AdminSelect = (props) => {
   const [thisName, setThisName] = useState(name);
   const [thisFloor, setThisFloor] = useState(floor);
   const [showModal, setShowModal] = useState(false);
+  const componentRef = useRef();
+
   return (
-    <div className="admin-select" id={_id}>
+    <div className="option_main admin-select" id={_id}>
       <div
         suppressContentEditableWarning={true}
         onInput={(e) => setThisId(e.target.innerText)}
         className="paragraph"
         contentEditable={contentEditable}
       >
-        {roomId}
+        <strong>ID:</strong>{roomId}
       </div>
-      <div
-        suppressContentEditableWarning={true}
-        onInput={(e) => setThisName(e.target.innerText)}
-        className="paragraph"
-        contentEditable={contentEditable}
-      >
-        {name}
-      </div>
-      <div className="paragraph">Floor:</div>
-      <div
-        suppressContentEditableWarning={true}
-        onInput={(e) => setThisFloor(e.target.innerText)}
-        className="paragraph"
-        contentEditable={contentEditable}
-      >
-        {floor}
+      <div>
+        <div
+            suppressContentEditableWarning={true}
+            onInput={(e) => setThisName(e.target.innerText)}
+            className="paragraph"
+            contentEditable={contentEditable}
+        >
+          {name}
+        </div>
+        <div
+            suppressContentEditableWarning={true}
+            onInput={(e) => setThisFloor(e.target.innerText)}
+            className="paragraph floor"
+            contentEditable={contentEditable}
+        >
+          Floor: {floor}
+        </div>
       </div>
       <div className="status_symbol">
         <img
           onClick={(e) =>
-            editClickHandler(roomId, matchingRooms, setMatchingRooms)
+              editClickHandler(roomId, matchingRooms, setMatchingRooms)
           }
           className="edit_pencil"
           alt="edit"
           editable={contentEditable === 'true' ? 'true' : 'false'}
           src={pencil}
-        ></img>
+        />
         <img
           onClick={(e) =>
             confirmClickHandler(
@@ -79,14 +86,31 @@ const AdminSelect = (props) => {
           alt="check"
           editable={contentEditable === 'true' ? 'true' : 'false'}
           src={check}
-        ></img>
+        />
         <img
           className="remove_cross"
           onClick={() => setShowModal(true)}
           alt="remove"
           editable={contentEditable === 'true' ? 'true' : 'false'}
           src={cross}
-        ></img>
+        />
+        <div>
+          <ReactToPrint
+            trigger={() => (
+              <img className="printer_img" src={print} alt="print"></img>
+            )}
+            content={() => componentRef.current}
+          />
+          <div className="qr_admin">
+            <ComponentToPrint
+              _id={_id}
+              roomId={roomId}
+              name={name}
+              floor={floor}
+              ref={componentRef}
+            />
+          </div>
+        </div>
         <Modal isOpen={showModal} onRequestClose={() => setShowModal(false)}>
           <div className="heading_small">
             Are you sure you want to delete this room?

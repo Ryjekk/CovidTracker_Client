@@ -33,9 +33,11 @@ const RoomSelect = (props) => {
       chosen={checked.toString()}
       className="room-select"
     >
-      <div className="paragraph">{roomId} </div>
-      <div className="paragraph">{name} </div>
-      <div className="paragraph">Floor: {floor} </div>
+      <div className="paragraph"><strong>ID:</strong> {roomId}</div>
+      <div>
+        <div className="paragraph">{name} </div>
+        <div className="paragraph floor">Floor: {floor} </div>
+      </div>
       <div className="status_symbol">
         <img className="add_circle" alt="add" src={addCircleLight}></img>
         <img

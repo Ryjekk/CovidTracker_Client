@@ -4,7 +4,6 @@ import Header from '../../Components/Header/Header';
 import { appContext } from '../../App';
 import Calendar from 'react-calendar';
 import ReactModal from 'react-modal';
-
 const axios = require('axios');
 const serverUrl = 'http://localhost:8080/api/';
 const qs = require('querystring');
@@ -35,7 +34,7 @@ const Dashboard = () => {
       .then(() => {
         setNotified(true);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
@@ -87,15 +86,17 @@ const Dashboard = () => {
   };
 
   return (
-    <div className='dashboard'>
+
       <Header />
+
       <h1> Dashboard </h1>
-      <button onClick={registerPositiveTest} className='primary_btn_black'>
+      <button onClick={registerPositiveTest} className="primary_btn_black">
         Register Positive Covid test
       </button>
       {notified && (
         <p>People you have been in contact with are now being warned!</p>
       )}
+
 
       <ReactModal isOpen={calendarShown} style={modalStyles}>
         <Calendar
