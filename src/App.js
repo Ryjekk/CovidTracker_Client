@@ -68,10 +68,6 @@ function App() {
     setUser(JSON.parse(localStorage.getItem('InfectionInspectionUser')));
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem('InfectionInspectionUser', JSON.stringify(users));
-  }, [users]);
-
   return (
     <appContext.Provider
       value={{
@@ -86,29 +82,29 @@ function App() {
       }}
     >
       <Router>
-        <div className='App'>
+        <div className="App">
           {/*<Header></Header>*/}
-          <div className='main'>
+          <div className="main">
             <Switch>
-              <Route exact path='/' component={Home} />
-              <Route exact path='/dashboard' component={Dashboard} />
-              <Route exact path='/login' component={Login} />
-              <Route exact path='/rooms' component={Rooms} />
-              <Route exact path='/privacy' component={Privacy} />
-              <Route exact path='/business' component={Business} />
-              <Route exact path='/profile' component={Profile} />
-              <Route exact path='/register' component={Register} />
-              <Route exact path='/registerAdmin' component={RegisterAdmin} />
+              <Route exact path="/" component={Home} />
+              <Route exact path="/dashboard" component={Dashboard} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/rooms" component={Rooms} />
+              <Route exact path="/privacy" component={Privacy} />
+              <Route exact path="/business" component={Business} />
+              <Route exact path="/profile" component={Profile} />
+              <Route exact path="/register" component={Register} />
+              <Route exact path="/registerAdmin" component={RegisterAdmin} />
               <Route
                 exact
-                path='/retrievepassword'
+                path="/retrievepassword"
                 component={RetrievePassword}
               />
-              <Route exact path='/admin' component={Admin} />
-              <Route exact path='/creator' component={QRcreator} />
-              <Route exact path='/reader' component={QRreader} />
-              <Route path='/404' component={NotFound} />
-              <Redirect to='/404' />
+              <Route exact path="/admin" component={Admin} />
+              <Route exact path="/creator" component={QRcreator} />
+              <Route exact path="/reader" component={QRreader} />
+              <Route path="/404" component={NotFound} />
+              <Redirect to="/404" />
             </Switch>
           </div>
           {/* <Main></Main> */}

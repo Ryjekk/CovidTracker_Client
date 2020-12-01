@@ -37,3 +37,9 @@
 .remove_cross:hover {
   transform: scale(1.2);
 }
+
+.qr_admin {
+  display: none;
+  /* overflow: hidden;
+  height: 0; */
+}
