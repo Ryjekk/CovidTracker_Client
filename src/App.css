@@ -39,6 +39,10 @@ a {
   transition: .4s ease-out;
 }
 
+.margin_right {
+  margin-right: 2rem;
+}
+
 .primary_btn_white {
   text-align: center;
   border: 1px solid #737373;

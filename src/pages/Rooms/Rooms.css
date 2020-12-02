@@ -21,6 +21,10 @@
   margin: 2rem 2rem;
 }
 
+.btn_box {
+  display: flex;
+}
+
 .btn_wrapper_center {
   display: flex;
   justify-content: center;

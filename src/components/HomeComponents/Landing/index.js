@@ -11,7 +11,7 @@ const Landing = () => {
           <p className='paragraph'>Use our special application to track COVID-19 risk in your company</p>
           <div className="wrapper_btn">
             <Link to="/login">
-              <div className="primary_btn_black">
+              <div className="primary_btn_black margin_right">
                 LOGIN
               </div>
             </Link>

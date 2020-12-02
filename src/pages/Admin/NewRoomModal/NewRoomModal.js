@@ -51,19 +51,21 @@ const NewRoomModal = (props) => {
               className="inputs_main"
               placeholder="Floor"
             />
-            <button
-              className="primary_btn_white btn_small"
-              type="submit"
-              value="Submit"
-            >
-              Submit
-            </button>
-            <button
-              className="primary_btn_black btn_small"
-              onClick={() => setShowModal(false)}
-            >
-              Close
-            </button>
+            <div className='btn_box'>
+              <button
+                  className="primary_btn_white btn_small"
+                  type="submit"
+                  value="Submit"
+              >
+                Submit
+              </button>
+              <button
+                  className="primary_btn_black btn_small"
+                  onClick={() => setShowModal(false)}
+              >
+                Close
+              </button>
+            </div>
           </form>
         </div>
         <div className="btn_wrapper_center"></div>
