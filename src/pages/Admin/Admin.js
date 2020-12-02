@@ -35,9 +35,6 @@ const Admin = () => {
       <button className="primary_btn_white btn_margin_bottom" onClick={() => setShowModal(true)}>
         Add Room
       </button>
-      <p className='registerNow_text'>
-        Use <a href='/reader'>QR-Code</a> or
-      </p>
       <div className="option_box">
         <form
           onSubmit={(e) =>
