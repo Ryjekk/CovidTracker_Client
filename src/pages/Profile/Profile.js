@@ -3,7 +3,6 @@ import './Profile.css';
 import { appContext } from '../../App';
 import ReactModal from 'react-modal';
 import Header from '../../Components/Header/Header';
-// import Modal from "react-modal";
 import Banner from '../../Components/Banner';
 
 const Profile = () => {
@@ -120,7 +119,7 @@ const Profile = () => {
           onRequestClose={() => setEmailModalOpen(false)}
         >
           <div className='modal_box'>
-            <h1 className='heading_medium'>Update your email</h1>
+            <h1 className='heading_medium'>Update email</h1>
             <input
               type='text'
               placeholder='Type updated email here'
@@ -155,7 +154,8 @@ const Profile = () => {
           {users.inRisk ? (
             <div className='wrapper_inRisk'>
               <h1 className='text_inRisk heading_medium'>
-                You have recently been in contact with an infected.
+                You have recently been in contact with someone who tested
+                positive for COVID-19.
                 <br />
                 Go quarantine.
               </h1>
