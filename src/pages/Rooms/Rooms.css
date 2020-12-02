@@ -37,3 +37,7 @@
 .wrapper_new_room {
   max-width: 60rem;
 }
+
+.remove_margin_bottom {
+  margin-bottom: 0px;
+}

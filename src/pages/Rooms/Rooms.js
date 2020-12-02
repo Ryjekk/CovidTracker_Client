@@ -13,8 +13,11 @@ const Rooms = () => {
       <Header/>
       <div className='rooms'>
         <div>
-          <h3 className='heading_medium'>Submit Room</h3>
+          <h3 className='heading_medium remove_margin_bottom'>Submit Room</h3>
         </div>
+        <p className='registerNow_text'>
+          Use <a href='/reader'>QR-Code</a> or
+        </p>
           <form
             onSubmit={e =>
               submitHandler(e, rooms, setRooms, users, setFilter, setUser)
@@ -39,9 +42,6 @@ const Rooms = () => {
               />
             </div>
            </form>
-          <p className='registerNow_text'>
-            Use <a href='/reader'>QR-Code</a>
-          </p>
         </div>
     </>
   );
