@@ -1,13 +1,13 @@
 import React from 'react';
-import QR_creator from '../../components/QRcomponents/QR_creator';
-import Header from '../../components/Header/Header';
+import QR_creator from '../../Components/QRcomponents/QR_creator';
+import Header from '../../Components/Header/Header';
 import './style.css';
-import Banner from "../../components/Banner";
+import Banner from '../../Components/Banner';
 
 const QRcreator = () => {
   return (
     <>
-      <Banner/>
+      <Banner />
       <Header />
       {/*eslint-disable-next-line*/}
       <QR_creator />

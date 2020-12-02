@@ -1,17 +1,17 @@
 import React from 'react';
-import QR_reader from "../../components/QRcomponents/QR_reader";
-import Header from "../../components/Header/Header";
-import Banner from "../../components/Banner";
+import QR_reader from '../../Components/QRcomponents/QR_reader';
+import Header from '../../Components/Header/Header';
+import Banner from '../../Components/Banner';
 
 const QRreader = () => {
   return (
     <>
-      <Banner/>
-      <Header/>
+      <Banner />
+      <Header />
       {/*eslint-disable-next-line*/}
-      <QR_reader/>
+      <QR_reader />
     </>
-  )
+  );
 };
 
 export default QRreader;

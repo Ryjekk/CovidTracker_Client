@@ -1,10 +1,10 @@
 import React, { useState, useContext, useEffect } from 'react';
 import './Dashboard.css';
-import Header from '../../components/Header/Header';
+import Header from '../../Components/Header/Header';
 import { appContext } from '../../App';
 import Calendar from 'react-calendar';
 import ReactModal from 'react-modal';
-import Banner from '../../components/Banner';
+import Banner from '../../Components/Banner';
 const remote = require('../../Remote/remote');
 const axios = require('axios');
 const serverUrl = 'https://novid-backend.herokuapp.com/api/';
@@ -146,7 +146,7 @@ const Dashboard = () => {
         )}
 
         <ReactModal isOpen={calendarShown} style={modalStyles}>
-          <div className="modal_box">
+          <div className='modal_box'>
             <Calendar
               onChange={date => {
                 setCaldarDate(date);

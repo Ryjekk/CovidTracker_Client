@@ -7,21 +7,21 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-import Footer from './components/Footer/Footer';
-import Admin from './pages/Admin/Admin';
-import Business from './pages/Business/Business';
-import Dashboard from './pages/Dashboard/Dashboard';
-import Login from './pages/Login/Login';
-import Home from './pages/Home/Home';
-import Privacy from './pages/Privacy/Privacy';
-import Profile from './pages/Profile/Profile';
-import Register from './pages/Register/Register';
-import RegisterAdmin from './pages/RegisterAdmin/index';
-import Rooms from './pages/Rooms/Rooms.js';
-import QRcreator from './pages/QRcreator/index';
-import QRreader from './pages/QRreader/index';
-import NotFound from './pages/NotFound/index';
-import RetrievePassword from './pages/RetrievePassword/RetrievePassword';
+import Footer from './Components/Footer/Footer';
+import Admin from './Pages/Admin/Admin';
+import Business from './Pages/Business/Business';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import Login from './Pages/Login/Login';
+import Home from './Pages/Home/Home';
+import Privacy from './Pages/Privacy/Privacy';
+import Profile from './Pages/Profile/Profile';
+import Register from './Pages/Register/Register';
+import RegisterAdmin from './Pages/RegisterAdmin/index';
+import Rooms from './Pages/Rooms/Rooms.js';
+import QRcreator from './Pages/QRcreator/index';
+import QRreader from './Pages/QRreader/index';
+import NotFound from './Pages/NotFound/index';
+import RetrievePassword from './Pages/RetrievePassword/RetrievePassword';
 const remote = require('./Remote/remote');
 
 export const appContext = createContext();
@@ -104,7 +104,7 @@ function App() {
               <Redirect to='/404' />
             </Switch>
           </div>
-          <Footer/>
+          <Footer />
         </div>
       </Router>
     </appContext.Provider>
