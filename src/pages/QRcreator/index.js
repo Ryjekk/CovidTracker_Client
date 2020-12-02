@@ -6,11 +6,11 @@ import Banner from "../../Components/Banner";
 
 const QRcreator = () => {
   return (
-    <div className="wrapper_qr">
+    <>
       <Banner/>
       <Header />
       <QR_creator />
-    </div>
+    </>
   );
 };
 
