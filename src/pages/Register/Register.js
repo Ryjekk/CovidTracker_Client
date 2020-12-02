@@ -43,7 +43,7 @@ const Register = () => {
   };
 
   if (formSent) {
-    return <Redirect to='/rooms' />;
+    return <Redirect to='/reader' />;
   }
 
   return (

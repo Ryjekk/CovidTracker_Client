@@ -19,7 +19,7 @@ const Login = () => {
   };
 
   if (loggedIn) {
-    return <Redirect to='/rooms' />;
+    return <Redirect to='/reader' />;
   }
 
   return (
