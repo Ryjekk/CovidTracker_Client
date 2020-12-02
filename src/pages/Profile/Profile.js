@@ -3,7 +3,6 @@ import './Profile.css';
 import { appContext } from '../../App';
 import ReactModal from 'react-modal';
 import Header from '../../Components/Header/Header';
-// import Modal from "react-modal";
 import Banner from '../../Components/Banner';
 
 const Profile = () => {
