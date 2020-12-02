@@ -41,17 +41,17 @@
 }
 
 .img_business {
-  width: 50%;
+  width: 45%;
   filter: grayscale(1);
   object-fit: cover;
 }
 
 .textBox_business_right {
-  padding-left: 3rem;
+  padding-left: 2rem;
 }
 
 .textBox_business_left {
-  padding-right: 3rem;
+  padding-right: 2rem;
 }
 
 /* companies */
