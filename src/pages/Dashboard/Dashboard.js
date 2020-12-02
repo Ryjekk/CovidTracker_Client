@@ -80,6 +80,7 @@ const Dashboard = () => {
         <p>RoomId: {visit._id}</p>
         <p>Date: {date}</p>
         <p>Time: {visit.time}</p>
+        <button>Delete Room</button>
       </div>
     );
   };
