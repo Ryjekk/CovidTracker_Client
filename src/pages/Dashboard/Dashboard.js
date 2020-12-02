@@ -4,6 +4,7 @@ import Header from '../../Components/Header/Header';
 import { appContext } from '../../App';
 import Calendar from 'react-calendar';
 import ReactModal from 'react-modal';
+import Banner from "../../Components/Banner";
 const remote = require('../../Remote/remote');
 const axios = require('axios');
 const serverUrl = 'http://localhost:8080/api/';
@@ -118,6 +119,7 @@ const Dashboard = () => {
 
   return (
     <>
+      <Banner/>
       <Header />
       <div className='dashboard'>
         <h3 className="heading_medium remove_margin_bottom"> Welcome In Your Dashboard </h3>

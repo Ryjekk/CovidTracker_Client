@@ -1,10 +1,12 @@
 import React from 'react';
 import './Privacy.css';
 import Header from "../../Components/Header/Header";
+import Banner from "../../Components/Banner";
 
 const Privacy = () => {
   return (
     <>
+      <Banner/>
       <Header/>
       <div className="wrapper_policy">
         <h1 className="heading_large">Privacy and Policy</h1>

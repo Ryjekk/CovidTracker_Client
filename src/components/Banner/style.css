@@ -1,0 +1,6 @@
+.wrapper_banner_positive {
+  background-color: orange;
+  border-bottom: 2px solid black;
+  text-align: center;
+  padding: .2rem;
+}

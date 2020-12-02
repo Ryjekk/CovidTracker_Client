@@ -37,9 +37,8 @@
   justify-content: center;
   align-items: center;
   margin-top: 3rem;
-  background-color: #f3bbbb;
   border-radius: 2rem;
-  box-shadow: 7px 7px 23px 0px rgba(50, 50, 50, 0.34);
+  box-shadow: 7px 7px 40px 0px rgba(152, 152, 152, 0.34);
 }
 
 .text_inRisk {

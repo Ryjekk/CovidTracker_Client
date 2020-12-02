@@ -6,6 +6,7 @@ import './Admin.css';
 import { createMatchingRooms, submitHandler, filterCheck } from './helpers';
 import AdminSelect from './AdminSelect/AdminSelect';
 import Header from '../../Components/Header/Header';
+import Banner from "../../Components/Banner";
 Modal.setAppElement('#root');
 
 const Admin = () => {
@@ -21,6 +22,7 @@ const Admin = () => {
 
   return (
     <>
+    <Banner/>
     <Header/>
     <div className="admin">
       <NewRoomModal

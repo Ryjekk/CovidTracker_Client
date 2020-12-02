@@ -4,6 +4,7 @@ import { appContext } from '../../App';
 import ReactModal from 'react-modal';
 import Header from '../../Components/Header/Header';
 import Modal from "react-modal";
+import Banner from "../../Components/Banner";
 
 const Profile = () => {
   const { users, rooms } = useContext(appContext);
@@ -23,6 +24,7 @@ const Profile = () => {
 
   return (
     <>
+      <Banner/>
       <Header />
       <section className='profile'>
         <h3 class="heading_medium"> Welcome <span className='novid'>{users.firstName}</span></h3>

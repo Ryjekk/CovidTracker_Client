@@ -3,6 +3,7 @@ import { appContext } from '../../App';
 import './Rooms.css';
 import { getRooms, getCheckedRooms, submitHandler } from './helpers';
 import Header from '../../Components/Header/Header';
+import Banner from "../../Components/Banner";
 
 const Rooms = () => {
   const { rooms, setRooms, filter, setFilter, users, setUser } = useContext(
@@ -10,6 +11,7 @@ const Rooms = () => {
   );
   return (
     <>
+      <Banner/>
       <Header/>
       <div className='rooms'>
         <div>
