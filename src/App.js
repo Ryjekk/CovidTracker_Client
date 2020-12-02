@@ -7,7 +7,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 // import Header from './Components/Header/Header';
-import Footer from './Components/Footer/Footer';
+import Footer from '../src/Components/Footer/Footer';
 import Admin from './Pages/Admin/Admin';
 import Business from './Pages/Business/Business';
 import Dashboard from './Pages/Dashboard/Dashboard';
