@@ -26,7 +26,7 @@ const Login = props => {
     <div className='login'>
       <div>
         <h1 className='heading_login'>Welcome</h1>
-        <p className='paragraph_login'>Sign in to our app here.</p>
+        <p className='paragraph_login'>Log in to <span className='novid'>Novid</span> here.</p>
       </div>
       <form onSubmit={submitHandler}>
         <div className='box_input'>

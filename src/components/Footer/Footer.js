@@ -15,7 +15,7 @@ const Footer = () => {
         <h3 className='heading_medium head_describer'>Contact</h3>
         <p>+123 123 1234</p>
         <p>+789 789 7890</p>
-        <p>xxx@xxx.com</p>
+        <p>novid@forbusiness.com</p>
       </div>
       <div className="box_footer">
         <h3 className='heading_medium head_describer'>More about us</h3>
