@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import { createContext, useState, useEffect } from 'react';
 import {
@@ -7,7 +6,7 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
-// import Header from './Components/Header/Header';
+
 import Footer from './Components/Footer/Footer';
 import Admin from './Pages/Admin/Admin';
 import Business from './Pages/Business/Business';
@@ -19,13 +18,11 @@ import Profile from './Pages/Profile/Profile';
 import Register from './Pages/Register/Register';
 import RegisterAdmin from './Pages/RegisterAdmin/index';
 import Rooms from './Pages/Rooms/Rooms.js';
-// import XDevNav from './Components/XDevNav/XDevNav';
 import QRcreator from './Pages/QRcreator/index';
 import QRreader from './Pages/QRreader/index';
 import NotFound from './Pages/NotFound/index';
 import RetrievePassword from './Pages/RetrievePassword/RetrievePassword';
 const remote = require('./Remote/remote');
-// import Main from './components/Main/Main';
 
 export const appContext = createContext();
 
@@ -84,7 +81,6 @@ function App() {
     >
       <Router>
         <div className='App'>
-          {/*<Header></Header>*/}
           <div className='main'>
             <Switch>
               <Route exact path='/' component={Home} />
@@ -108,8 +104,6 @@ function App() {
               <Redirect to='/404' />
             </Switch>
           </div>
-          {/* <Main></Main> */}
-          {/* <XDevNav></XDevNav> */}
           <Footer/>
         </div>
       </Router>
