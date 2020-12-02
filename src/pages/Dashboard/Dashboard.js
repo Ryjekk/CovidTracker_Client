@@ -1,10 +1,10 @@
 import React, { useState, useContext, useEffect } from 'react';
 import './Dashboard.css';
-import Header from '../../Components/Header/Header';
+import Header from '../../components/Header/Header';
 import { appContext } from '../../App';
 import Calendar from 'react-calendar';
 import ReactModal from 'react-modal';
-import Banner from '../../Components/Banner';
+import Banner from '../../components/Banner';
 const remote = require('../../Remote/remote');
 const axios = require('axios');
 const serverUrl = 'http://192.168.8.111:8080/api/';

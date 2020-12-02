@@ -1,8 +1,8 @@
 import React from 'react';
-import QR_creator from '../../Components/QRcomponents/QR_creator';
-import Header from '../../Components/Header/Header';
+import QR_creator from '../../components/QRcomponents/QR_creator';
+import Header from '../../components/Header/Header';
 import './style.css';
-import Banner from "../../Components/Banner";
+import Banner from "../../components/Banner";
 
 const QRcreator = () => {
   return (

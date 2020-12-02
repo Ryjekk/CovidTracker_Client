@@ -2,9 +2,9 @@ import React, { useContext, useState } from 'react';
 import './Profile.css';
 import { appContext } from '../../App';
 import ReactModal from 'react-modal';
-import Header from '../../Components/Header/Header';
+import Header from '../../components/Header/Header';
 // import Modal from "react-modal";
-import Banner from "../../Components/Banner";
+import Banner from "../../components/Banner";
 
 const Profile = () => {
   const { users } = useContext(appContext);

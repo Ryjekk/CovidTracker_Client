@@ -1,7 +1,7 @@
 import React from 'react';
 import './Privacy.css';
-import Header from "../../Components/Header/Header";
-import Banner from "../../Components/Banner";
+import Header from "../../components/Header/Header";
+import Banner from "../../components/Banner";
 
 const Privacy = () => {
   return (
