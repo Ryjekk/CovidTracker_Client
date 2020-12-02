@@ -7,7 +7,7 @@ import Modal from "react-modal";
 import Banner from "../../Components/Banner";
 
 const Profile = () => {
-  const { users, rooms } = useContext(appContext);
+  const { users, rooms, setUser } = useContext(appContext);
   const [nameModalOpen, setNameModalOpen] = useState(false);
   const [emailModalOpen, setEmailModalOpen] = useState(false);
   const [emailInput, setEmailInput] = useState('');
@@ -69,7 +69,9 @@ const Profile = () => {
           </button>
         </div>
 
-          <ReactModal isOpen={nameModalOpen} style={modalStyles}>
+          <ReactModal isOpen={nameModalOpen}
+            style={modalStyles}
+            onRequestClose={() => setNameModalOpen(false)}>
             <div className="modal_box">
               <h1 className="heading_medium">Update your name</h1>
             <input
@@ -104,7 +106,9 @@ const Profile = () => {
             </div>
           </ReactModal>
 
-          <ReactModal isOpen={emailModalOpen} style={modalStyles}>
+          <ReactModal isOpen={emailModalOpen}
+            style={modalStyles}
+            onRequestClose={() => setEmailModalOpen(false)}>
             <div className="modal_box">
               <h1 className="heading_medium">Update your email</h1>
             <input

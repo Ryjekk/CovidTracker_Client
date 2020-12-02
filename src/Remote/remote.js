@@ -20,7 +20,7 @@ const login = (userCredentials, cb) => {
 
 const register = (user, cb) => {
   axios.post(`${serverUrl}/users/register`, qs.stringify(user)).then(res => {
-    cb(res);
+    cb(res.data.data);
   });
 };
 
