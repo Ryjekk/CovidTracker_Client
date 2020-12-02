@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import './Dashboard.css';
 import Header from '../../Components/Header/Header';
 import { appContext } from '../../App';
@@ -7,7 +7,7 @@ import ReactModal from 'react-modal';
 import Banner from '../../Components/Banner';
 const remote = require('../../Remote/remote');
 const axios = require('axios');
-const serverUrl = 'http://localhost:8080/api/';
+const serverUrl = 'http://192.168.8.111:8080/api/';
 const qs = require('querystring');
 
 const Dashboard = () => {

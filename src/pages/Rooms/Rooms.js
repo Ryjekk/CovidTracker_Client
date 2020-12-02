@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { appContext } from '../../App';
 import './Rooms.css';
-import { getRooms, getCheckedRooms, submitHandler } from './helpers';
+import { getRooms, submitHandler } from './helpers';
 import Header from '../../Components/Header/Header';
 import Banner from "../../Components/Banner";
 

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { appContext } from '../../../App';
 import './RoomSelect.css';
-import addCircleDark from '../../../Assets/Icons/add_circle_24px_outlined.svg';
-import removeCircleDark from '../../../Assets/Icons/remove_circle_24px_outlined.svg';
+// import addCircleDark from '../../../Assets/Icons/add_circle_24px_outlined.svg';
+// import removeCircleDark from '../../../Assets/Icons/remove_circle_24px_outlined.svg';
 import addCircleLight from '../../../Assets/Icons/add_circle_outline_24px_outlined.svg';
 import removeCircleLight from '../../../Assets/Icons/remove_circle_outline_24px_outlined.svg';
 

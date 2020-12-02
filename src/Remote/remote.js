@@ -1,7 +1,7 @@
 const qs = require('querystring');
 // Fetching functions in here
 const axios = require('axios');
-const serverUrl = 'http://localhost:8080/api';
+const serverUrl = 'http://192.168.8.111:8080/api';
 
 //this is not nice data.data
 const login = (userCredentials, cb) => {

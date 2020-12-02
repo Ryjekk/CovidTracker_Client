@@ -1,5 +1,5 @@
 import React from 'react';
-import NavDesktop from "./NavDesktop";
+// import NavDesktop from "./NavDesktop";
 import NavMobile from "./NavMobile";
 
 const Header = () => {
