@@ -2,11 +2,13 @@ import React from 'react';
 import './style.css'
 import {Link} from "react-router-dom";
 
+import logo from '../../../Assets/logo.png'
+
 const NavMobile = () => {
   return (
       <div id="menuArea">
         <input className='checkbox_input' type="checkbox" id="menuToggle"/>
-
+        <img src={logo} className='logo_img' alt='logo'/>
         <label htmlFor="menuToggle" className="menuOpen">
           <div className="open"></div>
         </label>
