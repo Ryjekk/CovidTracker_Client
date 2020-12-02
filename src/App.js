@@ -7,7 +7,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 // import Header from './Components/Header/Header';
-import Footer from './Components/Footer/Footer';
+// import Footer from './Components/Footer/Footer';
 import Admin from './Pages/Admin/Admin';
 import Business from './Pages/Business/Business';
 import Dashboard from './Pages/Dashboard/Dashboard';
@@ -109,7 +109,7 @@ function App() {
           </div>
           {/* <Main></Main> */}
           {/* <XDevNav></XDevNav> */}
-          <Footer/>
+          {/*<Footer/>*/}
         </div>
       </Router>
     </appContext.Provider>
