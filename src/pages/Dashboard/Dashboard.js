@@ -40,6 +40,11 @@ const Dashboard = () => {
       )
       .then(res => {
         setUser(res.data);
+        localStorage.setItem(
+          'InfectionInspectionUser',
+          JSON.stringify(res.data)
+        );
+
         setNotified(true);
       })
       .catch(err => {
