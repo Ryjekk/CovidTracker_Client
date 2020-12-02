@@ -9,6 +9,7 @@ const login = (userCredentials, cb) => {
     .post(`${serverUrl}/users/login`, qs.stringify(userCredentials))
     .then(res => {
       console.log(res.data.user);
+
       cb(res.data);
     })
     .catch(error => {
@@ -31,6 +32,13 @@ const getUserData = (accessToken, id, cb) => {
       },
     })
     .then(res => {
+      console.log('heii');
+      console.log(res.data[0]);
+      localStorage.setItem(
+        'InfectionInspectionUser',
+        JSON.stringify(res.data[0])
+      );
+
       cb(res.data[0]);
     });
 };
@@ -55,10 +63,30 @@ const getAllRooms = cb => {
   });
 };
 
+const deleteRoom = (roomId, user, cb) => {
+  const options = {
+    headers: {
+      'Content-Type': 'application/json',
+      'x-access-token': user.accessToken,
+    },
+  };
+  const roomsAndId = {
+    _id: user._id,
+    rooms: roomId,
+  };
+  axios
+    .put(serverUrl + '/users/deletevisitedrooms', roomsAndId, options)
+    .then(res => {
+      console.log(res.data);
+      cb(res.data);
+    });
+};
+
 module.exports = {
   login,
   register,
   addRoomsToUser,
   getAllRooms,
   getUserData,
+  deleteRoom,
 };

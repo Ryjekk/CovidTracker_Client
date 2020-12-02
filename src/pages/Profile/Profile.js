@@ -6,7 +6,20 @@ import Header from '../../Components/Header/Header';
 
 const Profile = () => {
   const { users, rooms } = useContext(appContext);
-  const [modalOpen, setModal] = useState(false);
+  const [nameModalOpen, setNameModalOpen] = useState(false);
+  const [emailModalOpen, setEmailModalOpen] = useState(false);
+  const [emailInput, setEmailInput] = useState('');
+  const [nameInput, setnameInput] = useState('');
+  const modalStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      transform: 'translate(-50%, -50%)',
+    },
+  };
+
   return (
     <>
       <Header />
@@ -17,28 +30,78 @@ const Profile = () => {
             <p>
               Name: {users.firstName} {users.lastName}
             </p>
-            <button className='primary_btn_black'>Click to edit rooms</button>
+            <button
+              className='primary_btn_black'
+              onClick={() => {
+                setNameModalOpen(true);
+              }}
+            >
+              Edit name
+            </button>
           </div>
           <div>
             <p>Email: {users.email}</p>
-            <button className='primary_btn_black'>Click to edit rooms</button>
+            <button
+              className='primary_btn_black'
+              onClick={() => {
+                setEmailModalOpen(true);
+              }}
+            >
+              Edit email
+            </button>
           </div>
-          <div>
-            <ReactModal isOpen={false}>
-              <p>Hi, im modal</p>
-            </ReactModal>
-            <p>Rooms</p>
-            {rooms
-              .filter(room => room.checked)
-              .map(visitedRoom => (
-                <p key={visitedRoom.name}>
-                  Name: {visitedRoom.name}, floor: {visitedRoom.floor}
-                  <br />
-                  <button>Remove</button>
-                </p>
-              ))}
-            <button className='primary_btn_black'>Click to edit rooms</button>
-          </div>
+
+          <ReactModal isOpen={nameModalOpen} style={modalStyles}>
+            <input
+              type='text'
+              placeholder='Type updated name here'
+              onChange={e => {
+                setnameInput(e.target.value);
+              }}
+              value={nameInput}
+            />
+            <button
+              onClick={() => {
+                setNameModalOpen(false);
+                setnameInput('');
+              }}
+            >
+              Submit
+            </button>
+            <button
+              onClick={() => {
+                setNameModalOpen(false);
+                setnameInput('');
+              }}
+            >
+              Back to profile
+            </button>
+          </ReactModal>
+
+          <ReactModal isOpen={emailModalOpen} style={modalStyles}>
+            <input
+              type='text'
+              placeholder='Type updated email here'
+              onChange={e => setEmailInput(e.target.value)}
+              value={emailInput}
+            />
+            <button
+              onClick={() => {
+                setEmailModalOpen(false);
+                setEmailInput('');
+              }}
+            >
+              Submit
+            </button>
+            <button
+              onClick={() => {
+                setEmailModalOpen(false);
+                setEmailInput('');
+              }}
+            >
+              Back to profile
+            </button>
+          </ReactModal>
         </article>
         <article>
           {users.inRisk ? (
