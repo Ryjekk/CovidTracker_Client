@@ -4,6 +4,7 @@ import { appContext } from '../../../App.js';
 import { addRoomToUser } from './remote';
 import { Redirect } from 'react-router-dom';
 const QR_reader = () => {
+  //eslint-disable-next-line
   const [scanResult, setScanResult] = useState('');
   const [scanError, setScanError] = useState('');
   const [redirect, setRedirect] = useState(false);

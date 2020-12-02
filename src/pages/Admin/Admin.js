@@ -51,6 +51,7 @@ const Admin = () => {
           value={filter}
         />
           <div className="heading_small margin_admin_text">All Rooms</div>
+          {/*eslint-disable-next-line*/}
           {matchingRooms.map((room) => {
             if (filterCheck(room, filter)) {
               return (

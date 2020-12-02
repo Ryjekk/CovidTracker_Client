@@ -33,6 +33,7 @@ const QR_creator = () => {
             </ul>
         </div>
       </div>
+      {/*eslint-disable-next-line*/}
       <QR_form getValues={getValues}/>
       <QRCode
           value={dataQR.valueQR || 'test'}

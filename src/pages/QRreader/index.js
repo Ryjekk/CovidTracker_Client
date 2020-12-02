@@ -8,6 +8,7 @@ const QRreader = () => {
     <>
       <Banner/>
       <Header/>
+      {/*eslint-disable-next-line*/}
       <QR_reader/>
     </>
   )

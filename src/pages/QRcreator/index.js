@@ -9,6 +9,7 @@ const QRcreator = () => {
     <>
       <Banner/>
       <Header />
+      {/*eslint-disable-next-line*/}
       <QR_creator />
     </>
   );
