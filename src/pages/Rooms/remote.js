@@ -1,5 +1,5 @@
 import axios from 'axios';
-const serverUrl = 'http://192.168.8.111:8080/api';
+const serverUrl = 'https://novid-backend.herokuapp.com/api';
 
 export const addRoomsToUser = async (body, user) => {
   const url = `${serverUrl}/users/visitedrooms`;

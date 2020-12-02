@@ -7,7 +7,7 @@ import ReactModal from 'react-modal';
 import Banner from '../../components/Banner';
 const remote = require('../../Remote/remote');
 const axios = require('axios');
-const serverUrl = 'http://192.168.8.111:8080/api/';
+const serverUrl = 'https://novid-backend.herokuapp.com/api/';
 const qs = require('querystring');
 
 const Dashboard = () => {
