@@ -1,5 +1,5 @@
 import axios from 'axios';
-const serverUrl = 'http://localhost:8080/api';
+const serverUrl = 'http://192.168.8.111:8080/api';
 
 export const addRoomToUser = async (body, user) => {
   const url = `${serverUrl}/users/visitedrooms`;
