@@ -75,12 +75,21 @@ const Dashboard = () => {
     const date = `${dateArr[0]}/${parseInt(dateArr[1]) + 1}/${dateArr[2]}`;
 
     return (
-      <div key={index}>
-        <h1>{visit.name}</h1>
-        <p>RoomId: {visit._id}</p>
-        <p>Date: {date}</p>
-        <p>Time: {visit.time}</p>
-        <button>Delete Room</button>
+      <div key={index} className='card_dashboard'>
+        <h2 className='card_dashboard_heading'>{visit.name}</h2>
+        <p>Floor: {visit.floor}</p>
+        <p>Room ID: {visit.roomId}</p>
+        <div className='card_dashboard_timeBox'>
+          <p className='card_dashboard_date'>
+            Visited:
+            <strong className='card_dashboard_strong'>{date}</strong>
+          </p>
+          <p className='card_dashboard_time'>
+            at:
+            <strong className='card_dashboard_strong'>{visit.time}</strong>
+          </p>
+        </div>
+        <button className='primary_btn_white_small'>Delete Room</button>
       </div>
     );
   };
@@ -100,44 +109,51 @@ const Dashboard = () => {
   }
 
   return (
-    <div>
+    <>
       <Header />
-
-      <h1> Dashboard </h1>
-      <button onClick={registerPositiveTest} className='primary_btn_black'>
-        Register Positive Covid test
-      </button>
-      {notified && (
-        <p>People you have been in contact with are now being warned!</p>
-      )}
-
-      <ReactModal isOpen={calendarShown} style={modalStyles}>
-        <Calendar
-          onChange={date => {
-            setCaldarDate(date);
-            setCalendarShown(false);
-          }}
-          value={calendarDate}
-        />
-        <button
-          className='primary_btn_black'
-          onClick={() => setCalendarShown(false)}
-        >
-          Click to hide calendar
+      <div className='dashboard'>
+        <h3 className="heading_medium remove_margin_bottom"> Welcome In Your Dashboard </h3>
+        <button onClick={registerPositiveTest} className='primary_btn_black'>
+          Register Positive Covid test
         </button>
-      </ReactModal>
-      <div className='room-container'>
-        <h1>Visited Rooms</h1>
-        <p>Date: {calendarDate.toDateString()}</p>
-        {visitListMaker(calendarDate, users)}
-        <button
-          onClick={() => setCalendarShown(true)}
-          className='primary_btn_black'
-        >
-          Change date
-        </button>
+        {notified && (
+          <p>People you have been in contact with are now being warned!</p>
+        )}
+
+        <ReactModal isOpen={calendarShown} style={modalStyles}>
+          <Calendar
+            onChange={date => {
+              setCaldarDate(date);
+              setCalendarShown(false);
+            }}
+            value={calendarDate}
+          />
+          <button
+            className='primary_btn_black'
+            onClick={() => setCalendarShown(false)}
+          >
+            Click to hide calendar
+          </button>
+        </ReactModal>
+        <div className='room-container'>
+          <div className='textBox_dashboard'>
+            <div className='heading_small margin_room_text'>Visited Rooms</div>
+            <p className='date_dashboard'>Date: {calendarDate.toDateString()}</p>
+          </div>
+          <div className='wrapper_card_dashboard'>
+            {visitListMaker(calendarDate, users)}
+          </div>
+          <div className="btn_wrapper_center">
+            <button
+              onClick={() => setCalendarShown(true)}
+              className='primary_btn_black btn_medium'
+            >
+              Change date
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

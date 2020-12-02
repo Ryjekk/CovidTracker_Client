@@ -1,2 +1,69 @@
 .dashboard {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 5rem 3rem;
+}
+
+.textBox_dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.date_dashboard {
+  margin: 0 0 2rem 0;
+}
+
+.card_dashboard_heading {
+  margin-top: 0;
+}
+
+.wrapper_card_dashboard {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card_dashboard {
+  background-color: rgb(245, 245, 245);
+  outline: none;
+  border: 0;
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 50%;
+  margin: 1rem auto;
+}
+
+.card_dashboard_timeBox {
+  display: flex;
+  font-size: 1.4rem;
+}
+
+.card_dashboard_date, .card_dashboard_time {
+  padding-right: .5rem;
+  margin-top: 0;
+}
+
+.card_dashboard_strong {
+  font-weight: 600;
+  color: #272727;
+}
+
+.primary_btn_white_small {
+  text-align: center;
+  border: 1px solid #737373;
+  padding: .7rem;
+  border-radius: 1rem;
+  min-width: 20rem;
+  color: black;
+  background-color: #fff;
+}
+
+.primary_btn_white_small:hover {
+  background-color: #272727;
+  color: white;
+  transition: .4s ease-out;
 }
