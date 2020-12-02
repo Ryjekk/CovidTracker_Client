@@ -10,7 +10,7 @@ const serverUrl = 'http://localhost:8080/api/';
 const qs = require('querystring');
 
 const Dashboard = () => {
-  const { users } = useContext(appContext);
+  const { users, setUser } = useContext(appContext);
   const [rooms, setRooms] = useState([]);
   const [notified, setNotified] = useState(false);
   const [calendarDate, setCaldarDate] = useState(new Date());
@@ -70,6 +70,11 @@ const Dashboard = () => {
     return roomsWithNames.map((visits, index) => makeJSXRooms(visits, index));
   };
 
+  const deleteRoom = e => {
+    console.log(e.target.value);
+    remote.deleteRoom([e.target.value], users, setUser);
+  };
+
   const makeJSXRooms = (visit, index) => {
     const dateArr = visit.date.split('/');
     const date = `${dateArr[0]}/${parseInt(dateArr[1]) + 1}/${dateArr[2]}`;
@@ -77,19 +82,25 @@ const Dashboard = () => {
     return (
       <div key={index}>
         <h1>{visit.name}</h1>
-        <p>RoomId: {visit._id}</p>
+        <p>RoomId: {visit.roomId}</p>
+        <p>Floor: {visit.floor}</p>
         <p>Date: {date}</p>
         <p>Time: {visit.time}</p>
-        <button>Delete Room</button>
+        <button value={visit._id} onClick={deleteRoom}>
+          Delete Room
+        </button>
       </div>
     );
   };
 
   const findNames = roomList => {
     const roomsWithNames = roomList.map(room => {
-      room.name = rooms.filter(compRoom => {
+      const roomDbEntry = rooms.filter(compRoom => {
         return room._id === compRoom._id;
-      })[0].name;
+      })[0];
+      room.name = roomDbEntry.name;
+      room.floor = roomDbEntry.floor;
+      room.roomId = roomDbEntry.roomId;
       return room;
     });
     return roomsWithNames;
