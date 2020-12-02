@@ -5,7 +5,7 @@ import ReactModal from 'react-modal';
 import Header from '../../Components/Header/Header';
 
 const Profile = () => {
-  const { users, rooms } = useContext(appContext);
+  const { users, rooms, setUser } = useContext(appContext);
   const [nameModalOpen, setNameModalOpen] = useState(false);
   const [emailModalOpen, setEmailModalOpen] = useState(false);
   const [emailInput, setEmailInput] = useState('');
@@ -51,7 +51,11 @@ const Profile = () => {
             </button>
           </div>
 
-          <ReactModal isOpen={nameModalOpen} style={modalStyles}>
+          <ReactModal
+            isOpen={nameModalOpen}
+            style={modalStyles}
+            onRequestClose={() => setNameModalOpen(false)}
+          >
             <input
               type='text'
               placeholder='Type updated name here'
@@ -78,7 +82,11 @@ const Profile = () => {
             </button>
           </ReactModal>
 
-          <ReactModal isOpen={emailModalOpen} style={modalStyles}>
+          <ReactModal
+            isOpen={emailModalOpen}
+            style={modalStyles}
+            onRequestClose={() => setEmailModalOpen(false)}
+          >
             <input
               type='text'
               placeholder='Type updated email here'

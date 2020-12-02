@@ -6,12 +6,13 @@ const remote = require('../../Remote/remote');
 
 const Register = () => {
   const [firstName, setFirstName] = useState('');
+  const { setUser } = useContext(appContext);
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [companyId, setCompanyId] = useState('');
   const [floor, setFloor] = useState('');
-  const [role, setRole] = useState('basic');
+  const [role, setRole] = useState('admin');
   const [repeatPassword, setRepeatPassword] = useState('');
   const [formSent, setFormSent] = useState(false);
 
@@ -20,12 +21,12 @@ const Register = () => {
   const handleSubmit = e => {
     e.preventDefault();
     if (password !== repeatPassword) {
-      return alert('Passwors does not match');
+      return alert('Passwords does not match');
     }
     remote.register(
       { firstName, lastName, email, password, companyId, floor, role },
       res => {
-        console.log(res);
+        setUser(res);
         setLoggedIn(false);
         setFormSent(true);
         setPassword('');
@@ -42,7 +43,7 @@ const Register = () => {
   };
 
   if (formSent) {
-    return <Redirect to='/login' />;
+    return <Redirect to='/rooms' />;
   }
 
   return (
