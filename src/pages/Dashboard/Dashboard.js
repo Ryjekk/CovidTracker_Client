@@ -141,20 +141,23 @@ const Dashboard = () => {
         )}
 
         <ReactModal isOpen={calendarShown} style={modalStyles}>
-          <Calendar
-            onChange={date => {
-              setCaldarDate(date);
-              setCalendarShown(false);
-            }}
-            value={calendarDate}
-          />
-          <button
-            className='primary_btn_black'
-            onClick={() => setCalendarShown(false)}
-          >
-            Click to hide calendar
-          </button>
+          <div className="modal_box">
+            <Calendar
+              onChange={date => {
+                setCaldarDate(date);
+                setCalendarShown(false);
+              }}
+              value={calendarDate}
+            />
+            <button
+              className='primary_btn_black'
+              onClick={() => setCalendarShown(false)}
+            >
+              Click to hide calendar
+            </button>
+          </div>
         </ReactModal>
+
         <div className='room-container'>
           <div className='textBox_dashboard'>
             <div className='heading_small margin_room_text'>Visited Rooms</div>
