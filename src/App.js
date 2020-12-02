@@ -7,17 +7,17 @@ import {
   Redirect,
 } from 'react-router-dom';
 // import Header from './Components/Header/Header';
-import Footer from './Components/Footer/Footer';
-import Admin from './Pages/Admin/Admin';
-import Business from './Pages/Business/Business';
-import Dashboard from './Pages/Dashboard/Dashboard';
-import Login from './Pages/Login/Login';
-import Home from './Pages/Home/Home';
-import Privacy from './Pages/Privacy/Privacy';
-import Profile from './Pages/Profile/Profile';
-import Register from './Pages/Register/Register';
+import Footer from './Components/Footer/Footer.js';
+import Admin from './Pages/Admin/Admin.js';
+import Business from './Pages/Business/Business.js';
+import Dashboard from './Pages/Dashboard/Dashboard.js';
+import Login from './Pages/Login/Login.js';
+import Home from './Pages/Home/Home.js';
+import Privacy from './Pages/Privacy/Privacy.js';
+import Profile from './Pages/Profile/Profile.js';
+import Register from './Pages/Register/Register.js';
 import RegisterAdmin from './Pages/RegisterAdmin/index';
-import Rooms from './Pages/Rooms/Rooms';
+import Rooms from './Pages/Rooms/Rooms.js';
 // import XDevNav from './Components/XDevNav/XDevNav';
 import QRcreator from './Pages/QRcreator/index';
 import QRreader from './Pages/QRreader/index';
