@@ -49,7 +49,7 @@ const RegisterAdmin = () => {
     <div className='register'>
       <div>
         <h1 className='heading_login'>Add Admin</h1>
-        <p className='paragraph_login'>Sign up new Admin here</p>
+        <p className='paragraph_login'>Sign up new <span className='novid'>Novid</span> Admin here</p>
       </div>
       <form onSubmit={handleSubmit}>
         <div className='box_input'>
@@ -139,13 +139,17 @@ const RegisterAdmin = () => {
             onChange={e => {
               setRole(e.target.value);
             }}
-            value={'Admin'}
+            value={'Role: Admin'}
+            disabled="true"
           />
         </div>
         <button type='submit' className='primary_btn_black'>
           Submit
         </button>
       </form>
+      <p className='registerNow_text'>
+        Have an account? <a href='/login'>LogIn here</a>
+      </p>
     </div>
   );
 };

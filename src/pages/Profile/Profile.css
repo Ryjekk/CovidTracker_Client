@@ -1,0 +1,46 @@
+.profile {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 5rem 3rem;
+}
+
+.box_profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.remove_margin_top {
+  margin-top: 0;
+}
+
+.profile_text_box {
+  margin-right: 1rem;
+}
+
+.modal_box {
+  width: 80vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper_inRisk {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  border-radius: 2rem;
+  box-shadow: 7px 7px 40px 0px rgba(152, 152, 152, 0.34);
+}
+
+.text_inRisk {
+  ;
+}

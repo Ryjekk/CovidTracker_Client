@@ -7,15 +7,15 @@ const Landing = () => {
   return (
       <div className="welcome_home">
         <div className="landing_text">
-          <h1 className="heading_large">Welcome to XXXXXXXs</h1>
+          <h1 className="heading_large">Welcome to Novid</h1>
           <p className='paragraph'>Use our special application to track COVID-19 risk in your company</p>
           <div className="wrapper_btn">
             <Link to="/login">
-              <div className="primary_btn_black">
+              <div className="primary_btn_black margin_right">
                 LOGIN
               </div>
             </Link>
-            <Link to='/register'>
+            <Link to='/registerAdmin'>
               <div className="primary_btn_black">
                 REGISTER
               </div>

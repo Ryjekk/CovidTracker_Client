@@ -12,7 +12,7 @@ const QR_creator = () => {
   console.log(dataQR)
 
   return (
-    <>
+    <div className='wrapper_qr'>
       <div className='text_qr'>
         <h3 className='heading_medium'>QR creator</h3>
         <p>This is a Qr creator, it will help you to mark all interiors in your company</p>
@@ -39,7 +39,7 @@ const QR_creator = () => {
           size={dataQR.sizeQR}
           level={dataQR.hashQR}
       />
-    </>
+    </div>
   );
 };
 

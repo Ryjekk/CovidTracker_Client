@@ -50,7 +50,7 @@ const Register = () => {
     <div className='register'>
       <div>
         <h1 className='heading_login'> Register </h1>
-        <p className='paragraph_login'>Sign up for our app here</p>
+        <p className='paragraph_login'>Sign up for <span className='novid'>Novid</span> here</p>
       </div>
       <form onSubmit={handleSubmit}>
         <div className='box_input'>

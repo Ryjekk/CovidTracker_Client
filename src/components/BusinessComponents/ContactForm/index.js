@@ -13,7 +13,7 @@ const ContactForm = () => {
               Slide to in our DM's
             </h5>
             <p>
-              Contact us to get access to XXXX platform and find the solution to save your business.
+              Contact us to get access to <span className='novid'>Novid</span> platform and find the solution to save your business.
               <br/>
               Book a meeting now.
             </p>

@@ -11,7 +11,7 @@ const Instruction = () => {
         <div className='step_instruction'>
           <img className="step_img" alt="step1" src={step1}/>
           <h4 className='heading_small'>Sign In</h4>
-          <p className='paragraph'>First, create your XXXX profile and lets keep tracking your amazing paths in your company!</p>
+          <p className='paragraph'>First, create your <span className='novid'>Novid</span> profile and lets keep tracking your amazing paths in your company!</p>
         </div>
         <div className='step_instruction'>
           <img className="step_img" alt="step2" src={step2}/>
