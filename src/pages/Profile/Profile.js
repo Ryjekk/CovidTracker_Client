@@ -27,7 +27,9 @@ const Profile = () => {
       <Banner/>
       <Header />
       <section className='profile'>
-        <h3 class="heading_medium"> Welcome <span className='novid'>{users.firstName}</span></h3>
+        <h3 class="heading_medium"> Welcome
+          <span className='novid'>{users.firstName}</span>
+        </h3>
           <div className='box_profile'>
             <div className='inputs_main profile_text_box'>
               <strong className='card_dashboard_strong'>Name</strong>: {users.firstName} {users.lastName}
