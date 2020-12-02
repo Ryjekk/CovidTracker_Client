@@ -139,7 +139,8 @@ const RegisterAdmin = () => {
             onChange={e => {
               setRole(e.target.value);
             }}
-            value={'Admin'}
+            value={'Role: Admin'}
+            disabled="true"
           />
         </div>
         <button type='submit' className='primary_btn_black'>
