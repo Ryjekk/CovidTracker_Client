@@ -16,7 +16,7 @@ import Home from './Pages/Home/Home';
 import Privacy from './Pages/Privacy/Privacy';
 import Profile from './Pages/Profile/Profile';
 import Register from './Pages/Register/Register';
-import RegisterAdmin from './Pages/RegisterAdmin';
+import RegisterAdmin from './Pages/RegisterAdmin/index';
 import Rooms from './Pages/Rooms/Rooms';
 // import XDevNav from './Components/XDevNav/XDevNav';
 import QRcreator from './Pages/QRcreator';
