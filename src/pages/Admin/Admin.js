@@ -31,7 +31,7 @@ const Admin = () => {
         setRooms={setRooms}
         users={users}
         />
-      <h1 className='heading_medium'>Welcome to Admin page</h1>
+      <h1 className='heading_medium remove_margin_bottom'>Welcome to Admin page</h1>
       <button className="primary_btn_white btn_margin_bottom" onClick={() => setShowModal(true)}>
         Add Room
       </button>
@@ -82,9 +82,6 @@ const Admin = () => {
           </div>
         </form>
       </div>
-      <p className='registerNow_text'>
-        Use <a href='/reader'>QR-Code</a>
-      </p>
     </div>
     </>
   );

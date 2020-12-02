@@ -5,7 +5,10 @@
 }
 
 .room-select[chosen='true'] {
-  background-color: rgba(240, 242, 242, 1);
+  background-color: rgb(242, 241, 240);
+  border: 1px solid rgba(255, 135, 2, 0.9);
+  border-radius: 1rem;
+  padding: 0 1rem;
 }
 
 .room-select[chosen='true'] .add_circle {
@@ -20,3 +23,4 @@
   font-size: 1.4rem;
   color: #737373;
 }
+
