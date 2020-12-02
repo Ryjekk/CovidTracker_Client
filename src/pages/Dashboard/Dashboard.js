@@ -4,7 +4,7 @@ import Header from '../../Components/Header/Header';
 import { appContext } from '../../App';
 import Calendar from 'react-calendar';
 import ReactModal from 'react-modal';
-import Banner from "../../Components/Banner";
+import Banner from '../../Components/Banner';
 const remote = require('../../Remote/remote');
 const axios = require('axios');
 const serverUrl = 'http://localhost:8080/api/';
@@ -38,7 +38,8 @@ const Dashboard = () => {
           _id: users._id,
         })
       )
-      .then(() => {
+      .then(res => {
+        setUser(res.data);
         setNotified(true);
       })
       .catch(err => {
@@ -95,7 +96,13 @@ const Dashboard = () => {
             <strong className='card_dashboard_strong'>{visit.time}</strong>
           </p>
         </div>
-        <button className='primary_btn_white_small' value={visit._id} onClick={deleteRoom}>Delete Room</button>
+        <button
+          className='primary_btn_white_small'
+          value={visit._id}
+          onClick={deleteRoom}
+        >
+          Delete Room
+        </button>
       </div>
     );
   };
@@ -119,10 +126,13 @@ const Dashboard = () => {
 
   return (
     <>
-      <Banner/>
+      <Banner />
       <Header />
       <div className='dashboard'>
-        <h3 className="heading_medium remove_margin_bottom"> Welcome In Your Dashboard </h3>
+        <h3 className='heading_medium remove_margin_bottom'>
+          {' '}
+          Welcome In Your Dashboard{' '}
+        </h3>
         <button onClick={registerPositiveTest} className='primary_btn_black'>
           Register Positive Covid test
         </button>
@@ -148,12 +158,14 @@ const Dashboard = () => {
         <div className='room-container'>
           <div className='textBox_dashboard'>
             <div className='heading_small margin_room_text'>Visited Rooms</div>
-            <p className='date_dashboard'>Date: {calendarDate.toDateString()}</p>
+            <p className='date_dashboard'>
+              Date: {calendarDate.toDateString()}
+            </p>
           </div>
           <div className='wrapper_card_dashboard'>
             {visitListMaker(calendarDate, users)}
           </div>
-          <div className="btn_wrapper_center">
+          <div className='btn_wrapper_center'>
             <button
               onClick={() => setCalendarShown(true)}
               className='primary_btn_black btn_medium'
