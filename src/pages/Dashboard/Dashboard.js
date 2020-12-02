@@ -7,7 +7,7 @@ import ReactModal from 'react-modal';
 import Banner from '../../Components/Banner';
 const remote = require('../../Remote/remote');
 const axios = require('axios');
-const serverUrl = 'http://localhost:8080/api/';
+const serverUrl = 'http://192.168.8.111:8080/api/';
 const qs = require('querystring');
 
 const Dashboard = () => {
