@@ -42,9 +42,13 @@ const Profile = () => {
         </article>
         <article>
           {users.inRisk ? (
-            <h1>
-              You have recently been in contact with an infected. Go quarantine
-            </h1>
+            <div>
+              <h1>
+                You have recently been in contact with an infected. Go
+                quarantine.
+              </h1>
+              <p>The date of contact was: {users.dateOfContact}</p>
+            </div>
           ) : (
             <h1>You have no recent corona contacts!</h1>
           )}

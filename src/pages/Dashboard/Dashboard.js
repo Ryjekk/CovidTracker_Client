@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from 'react';
+import React, { useState, useContext, createContext, useEffect } from 'react';
 import './Dashboard.css';
 import Header from '../../Components/Header/Header';
 import { appContext } from '../../App';
@@ -10,7 +10,8 @@ const serverUrl = 'http://localhost:8080/api/';
 const qs = require('querystring');
 
 const Dashboard = () => {
-  const { users, rooms } = useContext(appContext);
+  const { users } = useContext(appContext);
+  const [rooms, setRooms] = useState([]);
   const [notified, setNotified] = useState(false);
   const [calendarDate, setCaldarDate] = useState(new Date());
   const [calendarShown, setCalendarShown] = useState(false);
@@ -23,6 +24,10 @@ const Dashboard = () => {
       transform: 'translate(-50%, -50%)',
     },
   };
+
+  useEffect(() => {
+    remote.getAllRooms(setRooms);
+  }, []);
 
   const registerPositiveTest = () => {
     axios
@@ -88,6 +93,10 @@ const Dashboard = () => {
     });
     return roomsWithNames;
   };
+
+  if (rooms.length === 0) {
+    return <h1>Loading rooms..</h1>;
+  }
 
   return (
     <div>

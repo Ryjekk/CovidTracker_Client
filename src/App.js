@@ -67,10 +67,7 @@ function App() {
     console.log(localStorage.getItem('InfectionInspectionUser'));
     setUser(JSON.parse(localStorage.getItem('InfectionInspectionUser')));
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem('InfectionInspectionUser', JSON.stringify(users));
-  }, [users]);
+  console.log(rooms);
   return (
     <appContext.Provider
       value={{

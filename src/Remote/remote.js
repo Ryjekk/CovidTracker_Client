@@ -31,31 +31,9 @@ const getUserData = (accessToken, id, cb) => {
       },
     })
     .then(res => {
-      console.log(accessToken, id);
-      console.log(res.data, 'inside getuserdata');
       cb(res.data[0]);
     });
 };
-getUserData(
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZmM1MTIzYjJmNzE1NTA3YTljYzAyNWMiLCJpYXQiOjE2MDY3NjQzNTAsImV4cCI6MTYwNjg1MDc1MH0.J_rjgOgfUmJcRsH4dKCIASVm3s_FMEBrecMyO_NSLks',
-  '5fc5123b2f715507a9cc025c',
-  data => {
-    console.log(data);
-  }
-);
-// /rooms:
-// export const addRoomsToUser = async (body, user) => {
-//   const url = `${serverUrl}/users/visitedrooms`;
-//   const res = await fetch(url, {
-//     method: 'PUT',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'x-access-token': user.accessToken,
-//     },
-//     body: JSON.stringify(body),
-//   });
-//   return res.status;
-// };
 
 const addRoomsToUser = (id, roomArray, cb) => {
   const data = { id, roomArray };
@@ -75,20 +53,6 @@ const getAllRooms = cb => {
     });
     cb(rooms);
   });
-};
-
-const testUser = {
-  email: 'sdeferger@hotmail.com',
-  firstName: 'theFirst',
-  lastName: 'thelast',
-  password: 'somepassword',
-  companyId: 1,
-  floor: 2,
-  role: 'admin',
-};
-
-const logger = info => {
-  console.log(info.data);
 };
 
 module.exports = {
