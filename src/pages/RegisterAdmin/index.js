@@ -11,7 +11,7 @@ const RegisterAdmin = () => {
   const [password, setPassword] = useState('');
   const [companyId, setCompanyId] = useState('');
   const [floor, setFloor] = useState('');
-  const [role, setRole] = useState('');
+  const [role, setRole] = useState('admin');
   const [repeatPassword, setRepeatPassword] = useState('');
   const [formSent, setFormSent] = useState(false);
 
