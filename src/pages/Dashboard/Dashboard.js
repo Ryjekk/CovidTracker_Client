@@ -158,7 +158,7 @@ const Dashboard = () => {
               className='primary_btn_black'
               onClick={() => setCalendarShown(false)}
             >
-              Click to hide calendar
+              Hide calendar
             </button>
           </div>
         </ReactModal>
