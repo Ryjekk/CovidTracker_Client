@@ -1,7 +1,7 @@
 import React from 'react';
-import QR_reader from '../../Components/QRcomponents/QR_reader';
-import Header from '../../Components/Header/Header';
-import Banner from '../../Components/Banner';
+import QR_reader from '../../components/QRcomponents/QR_reader';
+import Header from '../../components/Header/Header';
+import Banner from '../../components/Banner';
 
 const QRreader = () => {
   return (

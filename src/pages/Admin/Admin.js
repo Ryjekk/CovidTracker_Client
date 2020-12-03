@@ -5,8 +5,8 @@ import NewRoomModal from './NewRoomModal/NewRoomModal';
 import './Admin.css';
 import { createMatchingRooms, submitHandler, filterCheck } from './helpers';
 import AdminSelect from './AdminSelect/AdminSelect';
-import Header from '../../Components/Header/Header';
-import Banner from '../../Components/Banner';
+import Header from '../../components/Header/Header';
+import Banner from '../../components/Banner';
 Modal.setAppElement('#root');
 
 const Admin = () => {
