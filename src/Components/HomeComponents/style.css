@@ -21,7 +21,7 @@
   position: absolute;
   text-align: center;
   z-index: 10;
-  background-color: rgba(39,39,39, .6);
+  /*background-color: rgba(39,39,39, .6);*/
   padding: 7rem;
   border-radius: 2rem;
 }

@@ -24,7 +24,7 @@
 
 .modal_box {
   width: 80vw;
-  height: 90vh;
+  height: 83vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,5 +42,21 @@
 }
 
 .text_inRisk {
-  ;
+
+}
+
+.text_safe {
+  text-align: center;
+  font-size: 2rem;
+  color: #5d8f5d;
+  border: 1px solid #272727;
+  padding: 2rem;
+  border-radius: 2rem;
+  margin-top: 3rem;
+}
+
+@media screen and (min-width: 689px) {
+  .modal_box {
+    height: 90vh;
+  }
 }

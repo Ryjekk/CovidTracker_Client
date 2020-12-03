@@ -6,12 +6,11 @@ class ComponentToPrint extends React.Component {
   render() {
     return (
       <div className="qr_print">
-        <div className="heading_medium ">Some ads to make us rich</div>
-        <div className="heading_medium ">Our name and logo</div>
+        <div className="heading_medium ">Here might be a sponsor logo</div>
         <QRCode
           id={this.props._id.toString()}
           value={this.props._id.toString()}
-          size={290}
+          size={500}
           level={'H'}
           includeMargin={true}
         />

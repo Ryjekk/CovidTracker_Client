@@ -23,6 +23,7 @@
 
 .btn_box {
   display: flex;
+  justify-content: center;
 }
 
 .btn_wrapper_center {
@@ -44,4 +45,14 @@
 
 .remove_margin_bottom {
   margin-bottom: 0px;
+}
+
+.option_holder {
+  max-width: 300px;
+}
+
+@media screen and (min-width: 689px) {
+  .option_holder {
+    max-width: 600px;
+  }
 }

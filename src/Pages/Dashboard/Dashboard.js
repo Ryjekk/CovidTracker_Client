@@ -67,7 +67,7 @@ const Dashboard = () => {
     }
     if (roomsToBeDisplayed.length === 0) {
       return (
-        <h1>
+        <h1 className='text_noRooms'>
           You did not visit any roooms on the date: {date.getDate()}/
           {date.getMonth() + 1}/{date.getFullYear()}
         </h1>
@@ -86,6 +86,7 @@ const Dashboard = () => {
     const dateArr = visit.date.split('/');
     const date = `${dateArr[0]}/${parseInt(dateArr[1]) + 1}/${dateArr[2]}`;
 
+    console.log(visit.time )
     return (
       <div key={index} className='card_dashboard'>
         <h2 className='card_dashboard_heading'>{visit.name}</h2>
@@ -96,10 +97,10 @@ const Dashboard = () => {
             Visited:
             <strong className='card_dashboard_strong'>{date}</strong>
           </p>
-          <p className='card_dashboard_time'>
+          {visit.time !== '00:00' ?  <p className='card_dashboard_time'>
             at:
             <strong className='card_dashboard_strong'>{visit.time}</strong>
-          </p>
+          </p> : ''}
         </div>
         <button
           className='primary_btn_white_small'
@@ -136,13 +137,14 @@ const Dashboard = () => {
       <div className='dashboard'>
         <h3 className='heading_medium remove_margin_bottom'>
           {' '}
-          Welcome In Your Dashboard{' '}
+          Your Dashboard{' '}
         </h3>
-        <button onClick={registerPositiveTest} className='primary_btn_black'>
+        <p className='paragraph'>Here you can check your visited room history.</p>
+        <button onClick={registerPositiveTest} className='primary_btn_white'>
           Register Positive Covid test
         </button>
         {notified && (
-          <p>People you have been in contact with are now being warned!</p>
+          <p className='alert_infected'>People you have been in contact with are now being warned!</p>
         )}
 
         <ReactModal isOpen={calendarShown} style={modalStyles}>
@@ -167,7 +169,7 @@ const Dashboard = () => {
           <div className='textBox_dashboard'>
             <div className='heading_small margin_room_text'>Visited Rooms</div>
             <p className='date_dashboard'>
-              Date: {calendarDate.toDateString()}
+              <strong className="card_dashboard_strong">Date:</strong> {calendarDate.toDateString()}
             </p>
           </div>
           <div className='wrapper_card_dashboard'>

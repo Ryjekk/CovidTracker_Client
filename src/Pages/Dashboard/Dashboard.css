@@ -67,3 +67,14 @@
   color: white;
   transition: .4s ease-out;
 }
+
+.alert_infected {
+  text-align: center;
+  color: #d76c6c;
+  font-weight: 700;
+}
+
+.text_noRooms {
+  font-size: 1.6rem;
+  font-weight: 600;
+}

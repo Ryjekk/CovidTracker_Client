@@ -21,8 +21,6 @@ const QR_creator = () => {
             <ul>
               <li>
                 Value - should be name of the room
-                <br/>
-                [please provide value in format: floor': "1", "name": "kitchen"]
               </li>
               <li>
                 Error Level - should be set on L or M
