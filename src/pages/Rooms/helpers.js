@@ -1,4 +1,4 @@
-import RoomSelect from '../../Components/RoomsComponents/RoomSelect/RoomSelect';
+import RoomSelect from '../../components/RoomsComponents/RoomSelect/RoomSelect';
 import { addRoomsToUser } from './remote';
 import { getAllRooms as reFetch, getUserData } from '../../Remote/remote';
 

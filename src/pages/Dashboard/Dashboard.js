@@ -1,10 +1,10 @@
 import React, { useState, useContext, useEffect } from 'react';
 import './Dashboard.css';
-import Header from '../../Components/Header/Header';
+import Header from '../../components/Header/Header';
 import { appContext } from '../../App';
 import Calendar from 'react-calendar';
 import ReactModal from 'react-modal';
-import Banner from '../../Components/Banner';
+import Banner from '../../components/Banner';
 const remote = require('../../Remote/remote');
 const axios = require('axios');
 const serverUrl = 'https://novid-backend.herokuapp.com/api/';
@@ -172,7 +172,7 @@ const Dashboard = () => {
               <strong className="card_dashboard_strong">Date:</strong> {calendarDate.toDateString()}
             </p>
           </div>
-          <div className='wrapper_card_dashboard'>
+          <div className='wrapper_card_dashboard text_center'>
             {visitListMaker(calendarDate, users)}
           </div>
           <div className='btn_wrapper_center'>

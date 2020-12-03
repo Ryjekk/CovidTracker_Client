@@ -7,8 +7,10 @@ class ComponentToPrint extends React.Component {
   render() {
     return (
       <div className="qr_print">
-        <img className="print_logo" src={logo} />
-        <div className="heading_large">Novid</div>
+        <div className='print_box'>
+          <img className="print_logo" src={logo} alt='novid'/>
+          <div className="heading_large">Novid</div>
+        </div>
         <QRCode
           id={this.props._id.toString()}
           value={this.props._id.toString()}

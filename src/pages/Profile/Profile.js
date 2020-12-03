@@ -2,8 +2,8 @@ import React, { useContext, useState } from 'react';
 import './Profile.css';
 import { appContext } from '../../App';
 import ReactModal from 'react-modal';
-import Header from '../../Components/Header/Header';
-import Banner from '../../Components/Banner';
+import Header from '../../components/Header/Header';
+import Banner from '../../components/Banner';
 
 const Profile = () => {
   const { users } = useContext(appContext);
@@ -162,7 +162,9 @@ const Profile = () => {
               <p>
                 The date of contact was:{' '}
                 <strong className='card_dashboard_strong'>
-                  {users.dateOfContact}
+                  {users.dateOfContact
+                      ? users.dateOfContact
+                      : new Date().toDateString()}
                 </strong>
               </p>
             </div>
