@@ -29,7 +29,7 @@ const Profile = () => {
         <h3 class='heading_medium'>
           {' '}
           Welcome
-          <span className='novid'>{users.firstName}</span>
+          <span className='novid'> {users.firstName}</span>
         </h3>
         <div className='box_profile'>
           <div className='inputs_main profile_text_box'>
@@ -167,7 +167,7 @@ const Profile = () => {
               </p>
             </div>
           ) : (
-            <h1>You have no recent corona contacts!</h1>
+            <h1 className='text_safe'>You have no recent corona contacts!</h1>
           )}
         </article>
       </section>

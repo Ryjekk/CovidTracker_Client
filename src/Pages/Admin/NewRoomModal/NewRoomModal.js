@@ -14,8 +14,9 @@ const NewRoomModal = (props) => {
     <Modal isOpen={showModal} onRequestClose={() => setShowModal(false)}>
       <div className="wrapper_new_room">
         <h1 className="heading_medium">Add new room</h1>
-        <div className="option_box">
+        <div className='option_holder'>
           <form
+              className="option_form"
             onSubmit={(e) =>
               newRoomSubmitHandler(
                 e,
@@ -51,7 +52,7 @@ const NewRoomModal = (props) => {
               className="inputs_main"
               placeholder="Floor"
             />
-            <div className='btn_box'>
+            <div className='btn_box '>
               <button
                   className="primary_btn_white btn_small"
                   type="submit"
