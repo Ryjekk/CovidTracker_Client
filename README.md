@@ -5,7 +5,7 @@ Live Site deployed on Netlify - [Live Site](https://novid-client.netlify.app/)
 | This product was developed by team: [EinarTho](https://github.com/EinarTho), [Tobbenda](https://github.com/tobbenda) and [me](https://github.com/Ryjekk). <br/>
 | This project was made and deveoped as a final MVP product during two final weeks at Salt. 
 
-PICPICPICPICPICPICPICPICPICPICOPIC
+![NovidApp](/NovidScreen.jpg)
 
 ## ABOUT NOVID
 ### 👉 Short description of app
@@ -34,7 +34,7 @@ We have done research which suggests that the way this is done today is very pri
 + Applying new more plesant UI
 + Code Restructurization
 
-## FINAL PITCH PRESENTATION
+## FINAL PITCH PRESENTATION [👉 press image to play]
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=DK5A3TiPBjo
-" target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg" 
+" target="_blank"><img src="/NovidThumb.png" 
 alt="NOVID pitch demo" width="240" height="180" border="10" /></a>
