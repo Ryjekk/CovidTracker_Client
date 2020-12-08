@@ -37,4 +37,14 @@ We have done research which suggests that the way this is done today is very pri
 ## FINAL PITCH PRESENTATION [👉 press image to play]
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=DK5A3TiPBjo
 " target="_blank"><img src="/NovidThumb.png" 
-alt="NOVID pitch demo" width="240" height="180" border="10" /></a>
+alt="NOVID pitch demo" width="410" height="260" border="10" /></a>
+
+## HOW TO RUN PROJECT LOCALY
+To run localy - clone repository and than run: 
+```
+npm install
+npm run start
+```
+NOTE:
+Our application needs run sever to be able to lunch it in full potential. <br/>
+Server Repository you can find here - [CovidTracker_Server](https://github.com/Ryjekk/CovidTracker_Server)
