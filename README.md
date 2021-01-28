@@ -1,6 +1,6 @@
 # Novid - COVID Tracker - Client Site [![Netlify Status](https://api.netlify.com/api/v1/badges/aba0d602-5039-4b88-9225-e046e2829446/deploy-status)](https://app.netlify.com/sites/novid-client/deploys)
 
-Live Site deployed on Netlify - [Live Site](https://novid-client.netlify.app/) 
+Live Site deployed on Netlify - [Live Site](https://novid-client.herokuapp.com/) 
 
 | This product was developed by team: [EinarTho](https://github.com/EinarTho), [Tobbenda](https://github.com/tobbenda) and [me](https://github.com/Ryjekk). <br/>
 | This project was made and deveoped as a final MVP product during two final weeks at Salt. 
